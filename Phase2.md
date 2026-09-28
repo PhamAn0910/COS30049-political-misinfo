@@ -29,7 +29,7 @@ The project scope defines the boundaries of the Health Misinformation Fact-Check
 ### 5.2 Work Breakdown Structure (WBS)
 
 ```mermaid
-flowchart TD
+flowchart LR
     Project["Health Misinfo Dashboard"]
     
     Project --> PM["1.0 Project Management"]

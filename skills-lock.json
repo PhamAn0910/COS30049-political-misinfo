@@ -1,0 +1,971 @@
+{
+  "version": 1,
+  "skills": {
+    "accessibility-tester": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "accessibility-tester-skill/SKILL.md",
+      "computedHash": "276571d2373f9ff7ebf717d641157d126045b4c093674e5199dadcfe81833f43"
+    },
+    "ad-security-reviewer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "ad-security-reviewer-skill/SKILL.md",
+      "computedHash": "af5eda6c5778336640bef838133974dd8decc16ea2aeb80297f235186a0da251"
+    },
+    "agent-organizer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "agent-organizer-skill/SKILL.md",
+      "computedHash": "b42f844a8ac5ead99d40f9038868b3999e7d30cdf545b081cb341292c9efb906"
+    },
+    "ai-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "ai-engineer-skill/SKILL.md",
+      "computedHash": "ab14a23098221f4b115dc7cf390168678039635b511edee310102f8a1e410eb6"
+    },
+    "algorithmic-art": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "algorithmic-art-skill/SKILL.md",
+      "computedHash": "701d8f7c8600abd84a44098a47ba9634357b89a716094f01ff06f3a3a7a8056d"
+    },
+    "angular-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "angular-architect-skill/SKILL.md",
+      "computedHash": "8c44122e7a2b6e14604dd10dca0c7bce135e52ed44a95540eaeaabbb904c4ef1"
+    },
+    "api-designer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "api-designer-skill/SKILL.md",
+      "computedHash": "a1db0d5fbb9aaf9f9a1d1e8e2137c5aa9d00485b31778d1e93e302abe8b097b7"
+    },
+    "api-documenter": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "api-documenter-skill/SKILL.md",
+      "computedHash": "b468b53875e01ff0a3217f41f06c56d07c8765a7cdfdb88ad93b39add239644e"
+    },
+    "architect-reviewer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "architect-reviewer-skill/SKILL.md",
+      "computedHash": "5174f8718119ef22aaf4f46ff785f73523c6a03ea139450486e14e9716f84670"
+    },
+    "azure-infra-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "azure-infra-engineer-skill/SKILL.md",
+      "computedHash": "ebe0fa6c2aa6da39a8215acfc6087b93322373a34406e9ed6d6d55cef63b238d"
+    },
+    "backend-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "backend-developer-skill/SKILL.md",
+      "computedHash": "e5184929d65afaf9664c59eda0594551760e9728dfc573597d2a75dea7ce022c"
+    },
+    "blockchain-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "blockchain-developer-skill/SKILL.md",
+      "computedHash": "3fb7638757cde43915ba6fb665b6531415741f274325ac4ded89b2a32320050b"
+    },
+    "bmad-agent-analyst": {
+      "source": "bmad-code-org/bmad-method",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-agent-analyst/SKILL.md",
+      "computedHash": "140ade41d6de6e7a1245c1ac3524352321b759f56aac6490918f2840b7123d66"
+    },
+    "bmad-agent-architect": {
+      "source": "bmad-code-org/bmad-method",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-agent-architect/SKILL.md",
+      "computedHash": "d013af45715ccf8d6bd5330251aaa4c464dd09673f1d0f1ee456c5fc47f9b264"
+    },
+    "bmad-bmm-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "bmad-bmm-analyst-skill/SKILL.md",
+      "computedHash": "c1ca2606d0f49d4bcfe2de42ff90833192eb2adde5d0ffdf59ff86639c51a8e5"
+    },
+    "bmad-deep-recon": {
+      "source": "bmad-code-org/bmad-method",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-deep-recon/SKILL.md",
+      "computedHash": "9e45a1ea1bd974d50c0757bc3358aaac16a08d13928521acb25275da559e5619"
+    },
+    "bmad-master": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "bmad-master-skill/SKILL.md",
+      "computedHash": "2b14f8fa30084f77aecd4df928a0c886a905d61de8c6d21e1bea1df79d840517"
+    },
+    "build": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "build-skill/SKILL.md",
+      "computedHash": "29d8af3f1f65459184543c2e52dfcf05ce39c7c686964ed593b28616f547d035"
+    },
+    "build-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "build-engineer-skill/SKILL.md",
+      "computedHash": "d5400a20c5da8894781d78f0055472fbb571e37316665edc446199e8858ff5aa"
+    },
+    "business-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "business-analyst-skill/SKILL.md",
+      "computedHash": "5fedbb6177aca0d544b694c1a32e5dfb8cb39dd5f57b7a31ead56de77c4f0f86"
+    },
+    "canvas-design": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "canvas-design-skill/SKILL.md",
+      "computedHash": "ea242a31ecab227f6e3fde18b7849d81ded9a770aea2811e6c73ed5bbe9c850c"
+    },
+    "chaos-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "chaos-engineer-skill/SKILL.md",
+      "computedHash": "90095e20e309281f942d97cc53776c7b1e4a735fae31df3265fdb6594490a4ae"
+    },
+    "cli-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "cli-developer-skill/SKILL.md",
+      "computedHash": "4b0f2e6cdd45cf9a46b692af94f3ae90cf2b42abfe5d1d9ea73bde4fc436e136"
+    },
+    "cloud-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "cloud-architect-skill/SKILL.md",
+      "computedHash": "197fdd99a86d37af6c759cd2923697d7e769f6ad2ac8a5c141f3e4c8a3c9ced9"
+    },
+    "code-reviewer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "code-reviewer-skill/SKILL.md",
+      "computedHash": "1944d995554e2e653f831fd226f8fb8eacb3b98eea72c07ccf4d8b4cc21b72a9"
+    },
+    "codebase-exploration": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "codebase-exploration-skill/SKILL.md",
+      "computedHash": "a20215fd1e7bf976a5a9bb1beab0728a9e7bfbab1d62468b4b3321cd798d5a55"
+    },
+    "competitive-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "competitive-analyst-skill/SKILL.md",
+      "computedHash": "b21d5b6ec3a778e577b085e1c6179695c3c1cf3668b1b0cfbc8c3e50f7235c30"
+    },
+    "compliance-auditor": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "compliance-auditor-skill/SKILL.md",
+      "computedHash": "4ddb179e89f47825752f681cc96ca2a9ea51f0952eae12ea279e8d3059dfedef"
+    },
+    "content-marketer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "content-marketer-skill/SKILL.md",
+      "computedHash": "ce557c9743debc9a44cc43871ba4cf251b88399f7cc9108f6c54e6f5d1863c06"
+    },
+    "context-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "context-manager-skill/SKILL.md",
+      "computedHash": "8b99d136ee260ab67a53ca2d3b919d46ee0384a7f2efadad953c18a5ec19c0ad"
+    },
+    "cpp-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "cpp-pro-skill/SKILL.md",
+      "computedHash": "811b85d3b12399df95b5414baaf48b61492217ee4d5027ebfbadecddc79f7b8d"
+    },
+    "csharp-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "csharp-developer-skill/SKILL.md",
+      "computedHash": "4c185eb846afd4328f3c7fb3c374863e0c3bb2d951a3b4ecd92a8cc5aa9bd85a"
+    },
+    "csv-data-wrangler": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "csv-data-wrangler-skill/SKILL.md",
+      "computedHash": "0f5b4fa74d058ac48bf78fddba8fbbda168cd30406703f923e5a233176e4163d"
+    },
+    "customer-success-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "customer-success-manager-skill/SKILL.md",
+      "computedHash": "5c73d1f4bb25551d9a242f3d5b8a9ec0ef46d1793f3b5f685d44368ff064a92d"
+    },
+    "data-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "data-analyst-skill/SKILL.md",
+      "computedHash": "fcd45e5b357db0aa55bf02310ec47c76c289f64905629baa9aab4819b3238b2d"
+    },
+    "data-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "data-engineer-skill/SKILL.md",
+      "computedHash": "bf24e51ceccb9a78ba9180878aadcdb20e7784d60d076369fffb5980d2d7f3c1"
+    },
+    "data-researcher": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "data-researcher-skill/SKILL.md",
+      "computedHash": "cac5debd1b127f3bc0fa206b8ff19a770898d606f151e9ae7bc9dd89fdd295ba"
+    },
+    "data-scientist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "data-scientist-skill/SKILL.md",
+      "computedHash": "f3b4223b1c26354f6919573ee5443428d0aed268276e260ab085eb104ce2dfed"
+    },
+    "database-administrator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "database-administrator-skill/SKILL.md",
+      "computedHash": "b2651f963070d2f088887f282355746aa0c38979c7f2bb4b2a28a144b2a1dfa5"
+    },
+    "database-optimizer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "database-optimizer-skill/SKILL.md",
+      "computedHash": "3f9334994480bff24e12b57a205172c33f275c264ec218e148e6e4cf15e6dcaa"
+    },
+    "debugger": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "debugger-skill/SKILL.md",
+      "computedHash": "90f7c0589e04eb2e767d9ad02369a4ced8dc8ac0f51bf43e72b3e0fb39df470a"
+    },
+    "dependency-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "dependency-manager-skill/SKILL.md",
+      "computedHash": "c1a1e9a08e988dc91da288f20fc1681db5e7c340e57759a5f35158e2cc8d17e8"
+    },
+    "deployment-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "deployment-engineer-skill/SKILL.md",
+      "computedHash": "d96d1e76e361c2cecb3d7e3496eafdaedd092afd3cb50b44aff2e89a52e86fb5"
+    },
+    "devops-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "devops-engineer-skill/SKILL.md",
+      "computedHash": "5e55b7a1b28299111145312764f02bfa53ef6f37bbed906e574c5c08d925fc48"
+    },
+    "devops-incident-responder": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "devops-incident-responder-skill/SKILL.md",
+      "computedHash": "9b7566a0be397c01625e44a8b250c711c554b02af1fce4452926093e7a66f720"
+    },
+    "django-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "django-developer-skill/SKILL.md",
+      "computedHash": "c73441bdda098ef252e1bee97f4c5b5f1df1f8bc8433421deea1ce8050270afc"
+    },
+    "document-writer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "document-writer-skill/SKILL.md",
+      "computedHash": "8eba1757b5c8569d0de8cbbca5f179970d0e658b8c91d3a2f2dafbd048f363c8"
+    },
+    "documentation-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "documentation-engineer-skill/SKILL.md",
+      "computedHash": "d4607cbf0789f1c079742063d474ba93a74f92f829e800ae7d5db4b405af5f28"
+    },
+    "docx": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "docx-skill/SKILL.md",
+      "computedHash": "b490db9f01a0be5a2421dcb9bce1f47d6fe3e9706b3b0ba75274e17b0261f034"
+    },
+    "dotnet-core-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "dotnet-core-expert-skill/SKILL.md",
+      "computedHash": "8fe0ca3b4532d093870e76e12df0d25bba7d9891ef7b77d24fa81f0acd146179"
+    },
+    "dotnet-framework-4.8-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "dotnet-framework-4.8-expert-skill/SKILL.md",
+      "computedHash": "99ec934bc7035d733789afbeed8412c18a2d7971ed2e19793b664dac19fd44db"
+    },
+    "dx-optimizer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "dx-optimizer-skill/SKILL.md",
+      "computedHash": "5c1230912c63e4f9d64da30e6161fb374f28eb0a10c2346d03ace0d0a6dc73a2"
+    },
+    "electron-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "electron-pro-skill/SKILL.md",
+      "computedHash": "b0bda72c70997b4b55db7d07e7297b806000e2527d40b80588c5f0a4774373b8"
+    },
+    "elixir-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "elixir-expert-skill/SKILL.md",
+      "computedHash": "a2e651e5bb6d7805f7a1fcf19bb044dd9ce43b607e5f1723fce8f4d33d7bc009"
+    },
+    "embedded-systems": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "embedded-systems-skill/SKILL.md",
+      "computedHash": "2bbbebc407ef634843fc9012add9e8b3b46a4c653b8f7ad8c4c6e522b318a319"
+    },
+    "error-coordinator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "error-coordinator-skill/SKILL.md",
+      "computedHash": "08baa756603da81e5af93895f84082709404af011d111f5ce3ac2895cbb3a693"
+    },
+    "error-detective": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "error-detective-skill/SKILL.md",
+      "computedHash": "eb67393b5b17fe3d3fe5c09980e73e4a962cdaa400908ec5f3e4ac0a55287aae"
+    },
+    "error-detector": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "error-detector-skill/SKILL.md",
+      "computedHash": "597730c75633598a2cdea900fc528cfe7b4ca68bc137b596e650e5149f50b7c1"
+    },
+    "event-driven-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "event-driven-architect-skill/SKILL.md",
+      "computedHash": "df22ea5cbe16d3df5e139e7171d28bf37f2f01d55b932a12428cb3bdf6181f53"
+    },
+    "external-reference-research": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "librarian-skill/SKILL.md",
+      "computedHash": "23876e63e1e878e6387960b05bc2e79b2523100caca4f6bfc07a8d4a70f7129e"
+    },
+    "fintech-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "fintech-engineer-skill/SKILL.md",
+      "computedHash": "d3be73a7bdb6a5265ef51609476174824985421322fd3ac078d073cfaf252699"
+    },
+    "flutter-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "flutter-expert-skill/SKILL.md",
+      "computedHash": "d42d6f115839ba3539078e00c3e9bc600bf1070ab63851568c6ac583b9c58d50"
+    },
+    "frontend-developer-skill": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "frontend-developer-skill/SKILL.md",
+      "computedHash": "634f7798d91fb9d350fccd4b91ae6138acfebf7dd2902ee4512582c6a40119a9"
+    },
+    "frontend-ui-ux-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "frontend-ui-ux-engineer-skill/SKILL.md",
+      "computedHash": "074176a7c86baeea322124c5d3dd0104561d752ca408ff994ae742b61c19ca66"
+    },
+    "fullstack-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "fullstack-developer-skill/SKILL.md",
+      "computedHash": "9f98a8c8d3a4a4113655a3fc312a7a316b48c60eeeffcf26adccaf016053ee29"
+    },
+    "game-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "game-developer-skill/SKILL.md",
+      "computedHash": "ab54b6e7b862a5f1563bc1caccf5d8bfabe1c09774a79d1c8546e924020ec007"
+    },
+    "general-purpose": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "general-skill/SKILL.md",
+      "computedHash": "4e4d74787306b247599fb51c4c9a074eeae950dc115f5dbf76489e57b93a3392"
+    },
+    "git-workflow-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "git-workflow-manager-skill/SKILL.md",
+      "computedHash": "5ccf23864656c42d32024cdfe7dd4fe1b759dabfdd1e32800d59b1c868ceed1b"
+    },
+    "golang-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "golang-pro-skill/SKILL.md",
+      "computedHash": "a8fc4d747f097700f3b0c50b1b4c2f180d345226263e54df1e1f4600d2aea1a7"
+    },
+    "graphql-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "graphql-architect-skill/SKILL.md",
+      "computedHash": "5d709da682c39486a547bb9d6f417ede64668cef8e7715ca6a7c8faa5004b851"
+    },
+    "incident-responder": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "incident-responder-skill/SKILL.md",
+      "computedHash": "889ba8a03698a84eb941d3c957cd83b669f8028aafce8a8d3fca144ab525d03d"
+    },
+    "internal-comms": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "internal-comms-skill/SKILL.md",
+      "computedHash": "6c6b07cdb0321d968acfa4b405cdfd7535a33c17c79b8c75cbd246b06892f8dc"
+    },
+    "iot-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "iot-engineer-skill/SKILL.md",
+      "computedHash": "f11f6256844e190811d7528171166c8a093c6d0f7563b976ba52680c95940be1"
+    },
+    "it-ops-orchestrator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "it-ops-orchestrator-skill/SKILL.md",
+      "computedHash": "1f9e44700c2e4b99b17e7890179ab0e4712233f55131bda1c139bb8fbe9a357b"
+    },
+    "java-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "java-architect-skill/SKILL.md",
+      "computedHash": "9b42500a3aff6398f203bb970d3efd2b174f830bd9a78613e1af948041a5a196"
+    },
+    "javascript-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "javascript-pro-skill/SKILL.md",
+      "computedHash": "67eabfcaa3e76e7a6ef013d6c89fc2a1bb44754fc612402ef4adcb683709af76"
+    },
+    "kafka-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "kafka-engineer-skill/SKILL.md",
+      "computedHash": "f002695e1a70214545a05c02e9c7803cc422556a1d0ef4ffc93cc5aa1079e394"
+    },
+    "knowledge-synthesizer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "knowledge-synthesizer-skill/SKILL.md",
+      "computedHash": "2247b2b35a01bceef2526db39a196017b4e09e0f6b6f7a2020e0d52f32a8d552"
+    },
+    "kotlin-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "kotlin-specialist-skill/SKILL.md",
+      "computedHash": "2f3aa43fdf6161b42a88ca6801c14f0efd4003e1450e61321a18fae8dab9ca52"
+    },
+    "kubernetes-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "kubernetes-specialist-skill/SKILL.md",
+      "computedHash": "c2ba2ccc23394ac4847f943c093d0f3eb9bebe90fc09242d04a48da6a12f1fba"
+    },
+    "laravel-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "laravel-specialist-skill/SKILL.md",
+      "computedHash": "c0b1d8002434cae5d4f4cf360048d673db5e59b52cefca68cd65b1977220580a"
+    },
+    "legacy-modernizer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "legacy-modernizer-skill/SKILL.md",
+      "computedHash": "6ca73e4d21c01f53750d910f17d18f27a325d781be019c9e55b374c495f95a5c"
+    },
+    "legal-advisor": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "legal-advisor-skill/SKILL.md",
+      "computedHash": "41d09c43c883de2a6cbcfee3bffd5758465d9c50f97ec3c3fcc9251d0e578d63"
+    },
+    "llm-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "llm-architect-skill/SKILL.md",
+      "computedHash": "91b67e08a250edcd52401c1afc9ddf5268c44efd0e142517bf8ccc2bd0da4bac"
+    },
+    "m365-admin": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "m365-admin-skill/SKILL.md",
+      "computedHash": "25a734109b19463613698a61433eac00b4ad95b097d87efec64af7b558d4a9d2"
+    },
+    "machine-learning-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "machine-learning-engineer-skill/SKILL.md",
+      "computedHash": "38f5e4b7bcfc6cfd57b73b7a05d236c0362d05b1bf5ddf35a2d95abf3c39d451"
+    },
+    "macos-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "macos-developer-skill/SKILL.md",
+      "computedHash": "297ffe07842b283e96c4c23485efe83ff829952358761c0031d4934eb6e7c727"
+    },
+    "market-researcher": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "market-researcher-skill/SKILL.md",
+      "computedHash": "c11dee6c6a933ca07070e5a8a8b91ff1eb02febb348b0148c87086a371def07b"
+    },
+    "mcp-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "mcp-developer-skill/SKILL.md",
+      "computedHash": "e08c11a625b26e9f6ee176bac684e3ebd0e71af545091019946f2cde956a3b38"
+    },
+    "microservices-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "microservices-architect-skill/SKILL.md",
+      "computedHash": "020719c8336daca1f30d5e4f33ae891e9f5a48f49ac05af4058843b9b87c4bc7"
+    },
+    "ml-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "ml-engineer-skill/SKILL.md",
+      "computedHash": "9b678f69afdf068e536d556d84cd02905e094a74faafb2b977727f90d9def440"
+    },
+    "mlops-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "mlops-engineer-skill/SKILL.md",
+      "computedHash": "65ee309850aca8558d853dd59ec5608ce09583c4e54b6936c4515b0c35bf6af5"
+    },
+    "mobile-app-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "mobile-app-developer-skill/SKILL.md",
+      "computedHash": "82aa24d50a30f077c9016b7bd93ea319dba5ee7434955bfbf200c9fc7b6ea371"
+    },
+    "mobile-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "mobile-developer-skill/SKILL.md",
+      "computedHash": "a06edc26a3afdf772f379e6b324655dc406a7434d0ba6ef53ad67ac44508db91"
+    },
+    "multi-agent-coordinator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "multi-agent-coordinator-skill/SKILL.md",
+      "computedHash": "fcab9d5cca338260742d9557ffad34d28f80617d5e3830e58c0ffe012ecd89cd"
+    },
+    "multimodal-analysis": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "multimodal-looker-skill/SKILL.md",
+      "computedHash": "bfa5b91530bce99b663d1f916ed609abeacc328b4a82e77278480e9b31c27819"
+    },
+    "network-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "network-engineer-skill/SKILL.md",
+      "computedHash": "cbfc828c32e7feb9777b531963ff0aad07e3a1adb254cf5af17c7ed8d5714871"
+    },
+    "nextjs-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "nextjs-developer-skill/SKILL.md",
+      "computedHash": "ec730d714696f2a661661609a501e8db48105b4661d78e03f1712900c8a80b20"
+    },
+    "nlp-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "nlp-engineer-skill/SKILL.md",
+      "computedHash": "ef7f832f311ee98287f160f4b0d9b588af5cf58bc08c0c96623a369392735063"
+    },
+    "payment-integration": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "payment-integration-skill/SKILL.md",
+      "computedHash": "3ac82f1eeae124eafd7583c9a8415f9913161fbf3d30d3deca1cd91ad7e64df2"
+    },
+    "pdf-skill": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "pdf-skill/SKILL.md",
+      "computedHash": "9a029c94e4885cce3a904db2a688aa8d90a98ed169f57b70c9a33506333354aa"
+    },
+    "penetration-tester": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "penetration-tester-skill/SKILL.md",
+      "computedHash": "3db05ea870f5280565a94f8edc96fa29387b36d23acc0683ab65969216e2b1f4"
+    },
+    "performance-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "performance-engineer-skill/SKILL.md",
+      "computedHash": "c82c282388ff1a7a8f3041452fd705b31e6649c1a6341a9a0b0e7fca373c6f55"
+    },
+    "performance-monitor": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "performance-monitor-skill/SKILL.md",
+      "computedHash": "61d60f5585dd35ae4f2f2897d310f28f27a7f0aac191ce20425d8d6bea8a8b1b"
+    },
+    "performance-testing": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "performance-testing-skill/SKILL.md",
+      "computedHash": "3cf94566a0e7bfd6a0ae7e4d93ce780c98bfc55bb5e5aad3eb7ee5c91f73dc07"
+    },
+    "php-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "php-pro-skill/SKILL.md",
+      "computedHash": "b63c97dd85baa451fe47072c17b06c8fe617d569b3e9a7f2f09795c528d827b4"
+    },
+    "platform-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "platform-engineer-skill/SKILL.md",
+      "computedHash": "5070add4c76f9ee14b3fd6575f1ddde40f7efe80dba2a590fbef0733de51276c"
+    },
+    "postgres-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "postgres-pro-skill/SKILL.md",
+      "computedHash": "dc7da9caf808c5774ba1295ee3103692439732af60d3c8de2cfe26a42db3f6df"
+    },
+    "powershell-5.1-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "powershell-5.1-expert-skill/SKILL.md",
+      "computedHash": "20a6e3cf90d638f5844993a3b59108845caaa75a6726c986b3e66f223245384d"
+    },
+    "powershell-7-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "powershell-7-expert-skill/SKILL.md",
+      "computedHash": "6ab717c4d5ba6b59c7f6e57245dfd55a3dfd469742aefc48ddcb450572660d16"
+    },
+    "powershell-module-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "powershell-module-architect-skill/SKILL.md",
+      "computedHash": "8b7a1d50a7ba830227bb6dafada78a39d17552ab1f41eac1466f51549eab40de"
+    },
+    "powershell-security-hardening": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "powershell-security-hardening-skill/SKILL.md",
+      "computedHash": "8ffff9e147f11822bb0d81a4e8a13e891b88dc54a1d55e168cd5bf45fee16d22"
+    },
+    "powershell-ui-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "powershell-ui-architect-skill/SKILL.md",
+      "computedHash": "624c5ba7e0bbdef9ff43cadf66fe6a730c38b0cb7b642beeeddc497987b3fb0a"
+    },
+    "pptx-skill": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "pptx-skill/SKILL.md",
+      "computedHash": "483b64eeb015e10bd494888936c0313f08c726e23621edc53da2905487d616a7"
+    },
+    "product-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "product-manager-skill/SKILL.md",
+      "computedHash": "5193fb8866d10facd24c3e46b79309253107455665fe7da0e1070fa237297b14"
+    },
+    "project-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "project-manager-skill/SKILL.md",
+      "computedHash": "836203cc09374f9fec7a72c52d877c8d1c7df79580ce965921c7ec07a239c846"
+    },
+    "prompt-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "prompt-engineer-skill/SKILL.md",
+      "computedHash": "888a28e92b50120b80c93e1c5fc4f0669d647272628814bc682b8ec47668cb5e"
+    },
+    "python-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "python-pro-skill/SKILL.md",
+      "computedHash": "6da915f46eb799f7e99b22ab581595bf563cb42440c72dbbda12171fb8fe33d2"
+    },
+    "qa-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "qa-expert-skill/SKILL.md",
+      "computedHash": "77dc44ff658b0a317ec759174224140ff2376ee8183df74a81134a38812f2b75"
+    },
+    "quant-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "quant-analyst-skill/SKILL.md",
+      "computedHash": "99ada7f2ca8d29ba2c74ef7a5e82383a5a9c0797eda657a4c85200b947b58d8a"
+    },
+    "rails-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "rails-expert-skill/SKILL.md",
+      "computedHash": "026ea53528bdc5dc3fe2265ec8a3603395e736cc02122d3703edc30b390a34c6"
+    },
+    "react-native-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "react-native-specialist-skill/SKILL.md",
+      "computedHash": "443e9cfc48ce9149142a1092ae5c88962e589cacaf6961a66d30d88037e0334a"
+    },
+    "react-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "react-specialist-skill/SKILL.md",
+      "computedHash": "c328da91602b7eb60c11c3742a82607e21a1eb8c791ee59d6b49f77d4849fcc7"
+    },
+    "refactoring-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "refactoring-specialist-skill/SKILL.md",
+      "computedHash": "c47ed656ac12b7cf3eb36d0e4b6d8426a0f736763b73fcd84693be142ae3e53e"
+    },
+    "research-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "research-analyst-skill/SKILL.md",
+      "computedHash": "f7c8eb86c53d6f7ab2963294c72cdbf538ad4a29cdbe087313bb24149fc608f8"
+    },
+    "risk-manager": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "risk-manager-skill/SKILL.md",
+      "computedHash": "d4ba401ff1aec95b8a10e827074a809b998e5399926b4a86b04df7c4dba4d780"
+    },
+    "rust-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "rust-engineer-skill/SKILL.md",
+      "computedHash": "414e36b6c940659a486b24a9486fa0fddc0b5a9c5d9299069859541981c4cab9"
+    },
+    "sales-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "sales-engineer-skill/SKILL.md",
+      "computedHash": "862e090fba4b88a10f3bb2f2a833d248a1989b821804b04b4843fea79b4716d8"
+    },
+    "scrum-master": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "scrum-master-skill/SKILL.md",
+      "computedHash": "1a17a945abf63ea3fecc99cc77262bd7169e29bf24abe27469549e3bda2e62fb"
+    },
+    "search-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "search-specialist-skill/SKILL.md",
+      "computedHash": "751fc8b8fa2f83612240ea51f115373c3b185be6985da9f81b6b91fb75231c97"
+    },
+    "security-auditor": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "security-auditor-skill/SKILL.md",
+      "computedHash": "05a8ea7e46a4ca1afd5a2bf6a13a48fe37c9ef917e88dc155f7d22b8eec0b4d0"
+    },
+    "security-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "security-engineer-skill/SKILL.md",
+      "computedHash": "921e1c1c9469094354eea6f448ce9360f9d143e9e4e057de310bcf4d6deedebb"
+    },
+    "seo-specialist": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "seo-specialist-skill/SKILL.md",
+      "computedHash": "b137de755f25a8dbb19a14e7dd25f516465cda3e7bef713645e8c49736691a9c"
+    },
+    "skill-creator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "skill-creator-skill/SKILL.md",
+      "computedHash": "d57066bc49c2f13254c06261ba6a984d3a6c8aa1d85abcbaf1071f758c602f47"
+    },
+    "slack-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "slack-expert-skill/SKILL.md",
+      "computedHash": "9df5c4da302a9f09eced8766b270ad1a166b604914181201038aba97e20b88a3"
+    },
+    "solution-architect": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "solution-architect-skill/SKILL.md",
+      "computedHash": "d021f2eff88b588d7479da8fdc9c3cafb6f117c6cff8fac1a72956567c861281"
+    },
+    "spring-boot-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "spring-boot-engineer-skill/SKILL.md",
+      "computedHash": "2736905fba3b3da739845e3b82d0016c672906079927dc26ae55f9e3e8fa2f8b"
+    },
+    "sql-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "sql-pro-skill/SKILL.md",
+      "computedHash": "dc79fa818e9c8669fc7b58133ebe3273c46c5d43633a1068ee109ff7c2e383c2"
+    },
+    "sre-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "sre-engineer-skill/SKILL.md",
+      "computedHash": "f259165b3a2d9abdbcd43c0623cfe4fe468d7e150c820b618716118f61df5384"
+    },
+    "strategic-planning": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "plan-skill/SKILL.md",
+      "computedHash": "dd172f7f3293bfb3f3bec1f5efe81d1914206bb3a1ce8f7ca561238b87fd4940"
+    },
+    "swift-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "swift-expert-skill/SKILL.md",
+      "computedHash": "591003d37faf95be6ef0e94aac871690b5f63ac036095afb3722c193b185c018"
+    },
+    "task-distributor": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "task-distributor-skill/SKILL.md",
+      "computedHash": "463d8dbf876192d5b28a99ee8131af1cbf2c0d6e7fd5189412f2d346de4befd8"
+    },
+    "technical-advisory": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "oracle-skill/SKILL.md",
+      "computedHash": "591517f763df0b024215735b108321bc4ff117694c5948e88359976411479701"
+    },
+    "technical-writer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "technical-writer-skill/SKILL.md",
+      "computedHash": "5eadd8bf59fb4f549c582c681f77c4b9f6a694fcafd1d1cb29e35d7ae6634ddc"
+    },
+    "terraform-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "terraform-engineer-skill/SKILL.md",
+      "computedHash": "8a1b31c2bb65a41ac5ad0a48432e14bed481359dfd97fefead9908fd2f87ff73"
+    },
+    "test-automator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "test-automator-skill/SKILL.md",
+      "computedHash": "d7e6fc9aa6da69b68c7ece40690de746020bfa0b7d1585a41f200d9d4f92bea0"
+    },
+    "theme-factory": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "theme-factory-skill/SKILL.md",
+      "computedHash": "052613a19813473180140afff01208e0f25dc3272064cc9f6d2b891ff5031416"
+    },
+    "threejs-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "threejs-pro-skill/SKILL.md",
+      "computedHash": "dd5bdbbae244e6f18c0367638efa5cd7e9fc9273cf7ad29ddcacf217c212de25"
+    },
+    "tooling-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "tooling-engineer-skill/SKILL.md",
+      "computedHash": "e2ab930cd8b46447e754bf17c669b4ee5a7c1f9ea172df697cfbab8119234ac1"
+    },
+    "trend-analyst": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "trend-analyst-skill/SKILL.md",
+      "computedHash": "d76f3fd9162d4c4f335ee4ca43831555e9dcec04f311bb5dc59cceeb2b0261bd"
+    },
+    "typescript-pro": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "typescript-pro-skill/SKILL.md",
+      "computedHash": "c54c092c539b4bc76a4c4a5a269a1fd59cddd5d87ae548307ffc97f11c7bd28a"
+    },
+    "ui-designer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "ui-designer-skill/SKILL.md",
+      "computedHash": "1b75115a2561d58b274be44e17b2550c7922b5d1262e037f30e6e30ccc023a15"
+    },
+    "ux-researcher": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "ux-researcher-skill/SKILL.md",
+      "computedHash": "00d0dbf4995ce93e0af2d0e3b834d816f96f85cdc6a705a4130dc83f7ec8d7d4"
+    },
+    "video-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "video-engineer-skill/SKILL.md",
+      "computedHash": "3eed6fe25f6e8e62d522ebd800c4d8989c8a685ea7ba3694eefb09834344580f"
+    },
+    "vue-expert": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "vue-expert-skill/SKILL.md",
+      "computedHash": "2fcd503c638ba2e39f7624282bb9141828dd0f198444d17e6b9b647cbc5c658d"
+    },
+    "websocket-engineer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "websocket-engineer-skill/SKILL.md",
+      "computedHash": "248e31e3bcf3b1f6606ed0cce211e24b98cd8e7ea16ee8725326899e3c6350b8"
+    },
+    "windows-app-developer": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "windows-app-developer-skill/SKILL.md",
+      "computedHash": "16a3be60f5561fc8ce64f0ba09a27b22a04aff203584642777c0f8de435159a5"
+    },
+    "windows-infra-admin": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "windows-infra-admin-skill/SKILL.md",
+      "computedHash": "928677a48f04512b44caed71b759688baf7a6832397b6d073293c4d6e8eed5cf"
+    },
+    "wordpress-master": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "wordpress-master-skill/SKILL.md",
+      "computedHash": "9d1652b7c6fd6f634da65924ead5ce99aa3b8ec1a55dc76c725a1682113240fc"
+    },
+    "workflow-orchestrator": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "workflow-orchestrator-skill/SKILL.md",
+      "computedHash": "76d2d458ecc0c097f0b7ead54e76d63968b2a16072b95a158a6ad3b643de80a7"
+    },
+    "xlsx": {
+      "source": "xgaisystems/claude-supercode-skills-404kidwiz",
+      "sourceType": "github",
+      "skillPath": "xlsx-skill/SKILL.md",
+      "computedHash": "876804966f3d3f8f9befd9aaf633f46cfec5838d0083ca3e1c956be1eacf466e"
+    }
+  }
+}
