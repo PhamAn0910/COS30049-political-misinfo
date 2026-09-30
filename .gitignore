@@ -1,0 +1,10 @@
+.DS_Store
+.agents/
+.claude/
+.vscode/
+Phase1.md
+_pdf_text/
+dataset-criteria.md
+hd-compliance-assessment.html
+research/
+skills-lock.json
