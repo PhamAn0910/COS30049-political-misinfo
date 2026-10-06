@@ -8,9 +8,9 @@
 ## 🎯 Guiding Strategy: Cross-Functional Slices
 Rather than siloing members into single technical layers (e.g., one person doing only frontend), **each member contributes to Documentation, Machine Learning, and Application Development** across all 3 assignments.
 
-- **Member 1:** Integration & Backend Lead *(Scope, Baseline ML, Core API, Backend Tests)*
-- **Member 2:** Model & Frontend Core Lead *(Architecture, DistilBERT Transformer, Core UI, Demo Lead)*
-- **Member 3:** Analytics, Graph & Visualization Lead *(UI Mockups, Advanced ML, Charts & Advanced Features)*
+- **Member 1:** Full-Stack & Integration Lead *(Scope, Baseline ML, FastAPI Backend, React App Shell, Pytest Suite)*
+- **Member 2:** ML & Data Engineering Lead *(Architecture, Data Preprocessor, DistilBERT Fine-tuning, INT8 Quantization, Verification Widget UI, Demo Lead)*
+- **Member 3:** Analytics, Graph & Visualization Lead *(UI Mockups, Graph Analytics, Ridge Regressor, 6 Recharts/D3 Charts)*
 
 ---
 
@@ -18,28 +18,31 @@ Rather than siloing members into single technical layers (e.g., one person doing
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               MEMBER 1: Integration Lead                               │
+│                        MEMBER 1: Full-Stack & Integration Lead                         │
 ├───────────────────┬──────────────────────────────────┬─────────────────────────────────┤
 │   Assignment 1    │           Assignment 2           │          Assignment 3           │
-│ Project Charter   │ Dataset Ingestion & Cleaning     │ FastAPI Skeleton & Lifespan     │
-│ Scope & Risks     │ Political Text Preprocessor      │ POST /predict Core Endpoint     │
-│ Project Schedule  │ Baseline ML (TF-IDF + LogReg)    │ Pytest Suite & Error Validation │
+│ Project Charter   │ Baseline ML (TF-IDF + LogReg)    │ FastAPI Skeleton & Lifespan     │
+│ Scope & Risks     │ Baseline F1 & Metric Benchmark   │ React + Vite + Tailwind Scaffold│
+│ Project Schedule  │ Baseline Export (joblib)         │ Base Layout & App Shell         │
+│                   │                                  │ POST /predict Core Endpoint     │
+│                   │                                  │ Pytest Suite & API Client/Hooks │
 └───────────────────┴──────────────────────────────────┴─────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               MEMBER 2: Core Tech Lead                                 │
+│                        MEMBER 2: ML & Data Engineering Lead                            │
 ├───────────────────┬──────────────────────────────────┬─────────────────────────────────┤
 │   Assignment 1    │           Assignment 2           │          Assignment 3           │
-│ Architecture Doc  │ Primary ML (DistilBERT Training) │ React + Vite + Tailwind Scaffold│
-│ WBS Breakdown     │ INT8 Dynamic Quantization        │ Prediction UI & Animated Gauge  │
-│ Roles & Standards │ Model Export & Size Benchmark    │ Video Demo Lead & Coordination  │
+│ Architecture Doc  │ Dataset Sourcing (FakeNewsNet)   │ Model Verification Widget UI    │
+│ WBS Breakdown     │ Text Preprocessor (Regex, Norm)  │ (InputForm, ConfidenceGauge,    │
+│ Roles & Standards │ DistilBERT Fine-Tuning (MPS)     │ ResultCard, SpreadRiskBadge)    │
+│                   │ INT8 Dynamic Quantization        │ Video Demo Lead & Coordination  │
 └───────────────────┴──────────────────────────────────┴─────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                          MEMBER 3: Analytics & Insights Lead                           │
+│                 MEMBER 3: Analytics, Graph & Visualization Lead                        │
 ├───────────────────┬──────────────────────────────────┬─────────────────────────────────┤
 │   Assignment 1    │           Assignment 2           │          Assignment 3           │
-│ UI/UX Mockups     │ Graph Community Detection        │ 5x Interactive Recharts & D3 Graph
+│ UI/UX Mockups     │ Graph Community Detection        │ 6 Interactive Recharts & D3 Graph
 │ Acceptance Specs  │ Cascade Spread Regressor (Ridge) │ Advanced Features (CSV, Batch)  │
 │ Control Test Plan │ Feature Importance & Clustering  │ GET /metrics & /cascades Routes │
 └───────────────────┴──────────────────────────────────┴─────────────────────────────────┘
@@ -85,29 +88,29 @@ flowchart TD
 
     subgraph A2 ["🤖 ASSIGNMENT 2: Data Engineering & Machine Learning"]
         direction TB
-        A1_SYNC --> M1_A2_1
+        A1_SYNC --> M2_A2_1
 
         subgraph A2_Step1 ["Step 1: Foundation (Blocking Prerequisite) 🔒"]
-            M1_A2_1["M1: Dataset Sourcing (FakeNewsNet + PHEME)\n& Preprocessing Engine (Regex, Hashtags, URLs)"]:::m1
+            M2_A2_1["M2: Dataset Sourcing (FakeNewsNet + PHEME)\n& Preprocessing Engine (Regex, Hashtags, URLs)"]:::m2
         end
 
         subgraph A2_Step2 ["Step 2: 3-Way Parallel ML Training ⚡"]
-            M1_A2_2["M1: Train Baseline ML\n(TF-IDF + Logistic Regression)"]:::m1
-            M2_A2_1["M2: Fine-Tune DistilBERT\n(Binary Veracity Classification)"]:::m2
+            M1_A2_1["M1: Train Baseline ML\n(TF-IDF + Logistic Regression)"]:::m1
+            M2_A2_2["M2: Fine-Tune DistilBERT\n(Binary Veracity Classification)"]:::m2
             M3_A2_1["M3: Graph Clustering (Louvain/K-Means)\n& Spread Prediction (Ridge Regressor)"]:::m3
         end
 
         subgraph A2_Step3 ["Step 3: Optimization & Export 🔒"]
-            M2_A2_2["M2: Dynamic Quantization (INT8 <200MB)"]:::m2
+            M2_A2_3["M2: Dynamic Quantization (INT8 <200MB)"]:::m2
             A2_EXPORT["Export Models (.pt, .joblib) & Benchmark Results"]:::sync
         end
 
-        M1_A2_1 --> M1_A2_2
-        M1_A2_1 --> M2_A2_1
-        M1_A2_1 --> M3_A2_1
+        M2_A2_1 --> M1_A2_1
         M2_A2_1 --> M2_A2_2
-        M1_A2_2 --> A2_EXPORT
-        M2_A2_2 --> A2_EXPORT
+        M2_A2_1 --> M3_A2_1
+        M2_A2_2 --> M2_A2_3
+        M1_A2_1 --> A2_EXPORT
+        M2_A2_3 --> A2_EXPORT
         M3_A2_1 --> A2_EXPORT
     end
 
@@ -116,20 +119,20 @@ flowchart TD
         A2_EXPORT --> A3_Init
 
         subgraph A3_Init ["Step 1: Parallel Scaffold & Contracts ⚡"]
-            M1_A3_1["M1: FastAPI App Scaffold\n& Lifespan Model Loader"]:::m1
-            M2_A3_1["M2: React + Vite + Tailwind Scaffold\n& App Shell / Layout"]:::m2
+            M1_A3_1["M1: FastAPI App & React App Shell\n(Tailwind, Layout, Lifespan Loader)"]:::m1
+            M2_A3_1["M2: Prediction Widget Spec\n& Model Weights Verification"]:::m2
             M3_A3_1["M3: Extract Graph & Metrics JSON\nfrom A2 Experiments"]:::m3
         end
 
         subgraph A3_Core ["Step 2: Core Development ⚡"]
-            M1_A3_2["M1: POST /predict Endpoint\n& Preprocessing Integration"]:::m1
-            M2_A3_2["M2: Claim Input Form\n& Animated Veracity Gauge"]:::m2
+            M1_A3_2["M1: POST /predict Endpoint\n& API Client/Hooks Integration"]:::m1
+            M2_A3_2["M2: Model Verification Widget UI\n(InputForm, Gauge, ResultCard)"]:::m2
             M3_A3_2["M3: GET /metrics & /cascades APIs\n+ Interactive Recharts & D3 Graph"]:::m3
         end
 
         subgraph A3_Advanced ["Step 3: Advanced Features & Polish ⚡"]
-            M1_A3_3["M1: Pytest Test Suite\n& Error Handlers (400/500)"]:::m1
-            M2_A3_3["M2: Model Comparison Mode\n& Responsive Mobile/Tablet Check"]:::m2
+            M1_A3_3["M1: Pytest Test Suite\n& Base Layout Polish"]:::m1
+            M2_A3_3["M2: Widget Comparison Mode\n& Responsive Mobile Check"]:::m2
             M3_A3_3["M3: CSV Export & Batch Upload\n+ Echo Chamber Filter"]:::m3
         end
 
@@ -160,18 +163,18 @@ flowchart TD
 
 ## 📅 Chronological Execution Schedule
 
-| Timeline Phase | Member 1 (Integration) | Member 2 (Core Tech) | Member 3 (Analytics) | Execution Mode |
+| Timeline Phase | Member 1 (Full-Stack & Integration) | Member 2 (ML & Data Engineering) | Member 3 (Analytics & Visualization) | Execution Mode |
 |---|---|---|---|---|
 | **A1: Days 1–3** | Draft Project Charter & Scope Risk Register | Draft System Architecture & Technology Stack | Design UI Wireframes & Dashboard Layouts | **Parallel ⚡** |
 | **A1: Days 4–6** | Draft Timeline, Gantt Chart & Milestones | Build Work Breakdown Structure (WBS) | Write Acceptance Criteria & Control Test Specs | **Coordinated 🔄** |
 | **A1: Day 7** | *All Members Review, Format, and Submit Assignment 1 Package* | | | **Milestone 🎯** |
-| **A2: Days 8–10** | Source FakeNewsNet + PHEME & Write Preprocessor | *Prepare training environment (PyTorch MPS/CUDA)* | *Analyze social graph schema & feature set* | **Prerequisite 🔒** *(M1 leads)* |
+| **A2: Days 8–10** | *Prepare Baseline ML environment* | Source FakeNewsNet + PHEME & Write Preprocessor | *Analyze social graph schema & feature set* | **Prerequisite 🔒** *(M2 leads)* |
 | **A2: Days 11–15** | Train TF-IDF + Logistic Regression Baseline | Fine-Tune DistilBERT Transformer | Perform Graph Community Detection & Ridge Regression | **Parallel ⚡** *(All 3 train models)* |
 | **A2: Days 16–18** | Benchmark Baseline metrics (F1, confusion matrix) | Perform INT8 Dynamic Quantization (<200MB) | Extract feature importance & community cluster data | **Parallel ⚡** |
 | **A2: Day 19** | *All Members Consolidate Notebooks, Model Artifacts & ML Report* | | | **Milestone 🎯** |
-| **A3: Days 20–22** | Scaffold FastAPI app & Lifespan model loader | Scaffold React+Vite+Tailwind & Main Layout | Format graph/metrics JSON data for API responses | **Parallel ⚡** |
-| **A3: Days 23–26** | Build & test `POST /predict` endpoint | Build Input Form, Veracity Card & Gauge | Build `GET /metrics` routes & Interactive Charts | **Parallel ⚡** |
-| **A3: Days 27–29** | Write Pytest suite & input validation | Implement Model Comparison & Responsive UI | Implement CSV Export & Batch Claim Upload | **Parallel ⚡** |
+| **A3: Days 20–22** | Scaffold FastAPI app & React App Shell Layout | Prepare verification widget specs & load model weights | Format graph/metrics JSON data for API responses | **Parallel ⚡** |
+| **A3: Days 23–26** | Build & test `POST /predict` endpoint & API hooks | Build Verification Widget UI (InputForm, Gauge, Card) | Build `GET /metrics` routes & Interactive Charts | **Parallel ⚡** |
+| **A3: Days 27–29** | Write Pytest suite & input validation | Implement Widget Comparison & Responsive UI | Implement CSV Export & Batch Claim Upload | **Parallel ⚡** |
 | **A3: Day 30** | Run Semantic Control Tests & API benchmarks | Coordinate & Record 7-min Video Demo | Verify chart tooltips & visual clarity | **Final Sprint 🚀** |
 
 ---
@@ -183,4 +186,4 @@ flowchart TD
    - **A1:** Balanced between project planning, architectural design, and UI specs.
    - **A2:** Satisfies all requirements for primary model (DistilBERT), baseline model (TF-IDF), clustering (Louvain), and regression (Ridge).
    - **A3:** Satisfies frontend, backend, chart diversity (≥5 charts), error handling, and video presentation criteria.
-3. **Clear Interface Contracts:** Once M1 finishes the preprocessing script in A2, all 3 can train models independently. Once M1 defines the API schemas in A3, frontend and backend development happen concurrently without blocking.
+3. **Clear Interface Contracts:** Once M2 finishes the preprocessing script in A2, all 3 can train models independently. Once M1 defines the API schemas and React App Shell in A3, frontend and backend development happen concurrently without blocking.

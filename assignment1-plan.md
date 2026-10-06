@@ -41,14 +41,14 @@ To ensure high cohesion, prevent single points of failure, and satisfy the rubri
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                               3-MEMBER WORKLOAD BREAKDOWN MATRIX                                │
 ├──────────────────────────────┬──────────────────────────────────┬───────────────────────────────┤
-│  MEMBER 1: Integration Lead  │    MEMBER 2: Core Tech Lead      │  MEMBER 3: Analytics Lead     │
+│  MEMBER 1: Full-Stack Lead   │   MEMBER 2: ML & Data Lead       │  MEMBER 3: Analytics Lead     │
 ├──────────────────────────────┼──────────────────────────────────┼───────────────────────────────┤
 │ • Project Charter & Scope    │ • System Architecture & Stack    │ • UI/UX Prototype & Flow      │
 │ • Risk Register & Schedule   │ • WBS Breakdown & Hierarchy      │ • Acceptance Criteria Specs   │
-│ • Preprocessor Engine        │ • DistilBERT Transformer Fine    │ • Graph Community Detection   │
-│ • Baseline (TF-IDF + LogReg) │ • INT8 Dynamic Quantization      │ • Spread Regressor (Ridge)    │
-│ • FastAPI Core & Pytest      │ • React Input & Veracity UI      │ • Interactive Recharts & D3   │
-│ • API Validation & Errors    │ • Video Walkthrough Lead         │ • CSV Export & Batch Upload   │
+│ • Baseline (TF-IDF + LogReg) │ • Preprocessor & Ingestion Engine│ • Graph Community Detection   │
+│ • FastAPI Core & Pytest      │ • DistilBERT Transformer Fine    │ • Spread Regressor (Ridge)    │
+│ • React App Shell & Layout   │ • INT8 Dynamic Quantization      │ • Interactive Recharts & D3   │
+│ • API Validation & Client    │ • Prediction Widget UI & Video   │ • CSV Export & Batch Upload   │
 └──────────────────────────────┴──────────────────────────────────┴───────────────────────────────┘
 ```
 
@@ -111,7 +111,7 @@ Project: Political Misinformation Detection Platform
 │   ├── 1.2 Time & Schedule Management
 │   ├── 1.3 Risk Assessment & Mitigation Plan
 │   └── 1.4 Meeting Minutes & Quality Monitoring
-├── 2.0 Data Engineering & Preprocessing (Lead: M1)
+├── 2.0 Data Engineering & Preprocessing (Lead: M2)
 │   ├── 2.1 PHEME & FakeNewsNet Dataset Acquisition
 │   ├── 2.2 Preprocessing Engine (Regex, Hashtags, URL Masking)
 │   └── 2.3 Exploratory Data Analysis & Class Balancing
@@ -126,9 +126,9 @@ Project: Political Misinformation Detection Platform
 │   ├── 4.2 Prediction & Spread Endpoints (POST /api/predict)
 │   ├── 4.3 Metrics & Cascade Endpoints (GET /api/metrics, /cascades)
 │   └── 4.4 Automated Pytest Suite & Error Handlers
-├── 5.0 Frontend Dashboard & Visualization (Lead: M2 & M3)
-│   ├── 5.1 React + Vite + Tailwind Scaffold & Layout (M2)
-│   ├── 5.2 Input Form, Result Card & Animated Gauge (M2)
+├── 5.0 Frontend Dashboard & Visualization (Lead: M1 & M3)
+│   ├── 5.1 React + Vite + Tailwind Scaffold & Layout (M1)
+│   ├── 5.2 Prediction Widget UI & Animated Gauge (M2)
 │   ├── 5.3 Interactive Recharts (Radar, Area, Scatter, Matrix, Donut) (M3)
 │   ├── 5.4 D3.js Force-Directed Social Network Graph (M3)
 │   └── 5.5 Advanced Features (CSV Export, Batch Upload, Compare Mode) (M3)
@@ -146,8 +146,8 @@ Project: Political Misinformation Detection Platform
 | **1.1** | Scope Definition | M1 | Draft project charter, boundaries, in/out of scope statement. | Section 4 of A1 Doc | 4h | None |
 | **1.2** | Schedule & WBS | M2/M1 | Build 3-level WBS hierarchy, WBS dictionary, and Gantt chart. | Section 4 & 5 of A1 Doc | 6h | 1.1 |
 | **1.3** | Risk Management | M1 | Identify technical/team risks, calculate severity, draft mitigations. | Section 6 of A1 Doc | 4h | 1.1 |
-| **2.1** | Dataset Ingestion | M1 | Acquire PHEME political threads and FakeNewsNet PolitiFact data. | Raw data in `/backend/data/` | 3h | None |
-| **2.2** | Text Preprocessing | M1 | Implement `preprocessor.py` (hashtag splitting, URL masking, mentions). | Python module + unit tests | 4h | 2.1 |
+| **2.1** | Dataset Ingestion | M2 | Acquire PHEME political threads and FakeNewsNet PolitiFact data. | Raw data in `/backend/data/` | 3h | None |
+| **2.2** | Text Preprocessing | M2 | Implement `preprocessor.py` (hashtag splitting, URL masking, mentions). | Python module + unit tests | 4h | 2.1 |
 | **2.3** | EDA & Class Weighting | M3 | Analyze class distributions, tweet lengths, and compute loss weights. | Notebook `01_eda.ipynb` | 4h | 2.2 |
 | **3.1** | Baseline ML Model | M1 | Train TF-IDF + Logistic Regression pipeline on political text. | `tfidf_logreg.joblib` | 4h | 2.2 |
 | **3.2** | DistilBERT Classifier | M2 | Fine-tune DistilBERT with PyTorch MPS acceleration and weighted loss. | `distilbert_model/` | 8h | 2.2, 2.3 |
@@ -158,14 +158,14 @@ Project: Political Misinformation Detection Platform
 | **4.2** | Core Predict Route | M1 | Implement `POST /api/predict` linking text classifier and spread model. | `routes/predict.py` | 5h | 4.1, 3.4 |
 | **4.3** | Metrics & Graph APIs | M3 | Implement `GET /api/metrics` and `GET /api/cascades/network` routes. | `routes/metrics.py`, `cascades.py` | 4h | 4.1, 3.3 |
 | **4.4** | Backend Test Suite | M1 | Write Pytest tests for edge cases (empty text, 5000+ chars, schema faults). | `backend/tests/` (100% pass) | 4h | 4.2, 4.3 |
-| **5.1** | React & Tailwind Setup | M2 | Scaffold Vite React app, configure Tailwind CSS, dark mode, layout shell. | `frontend/` project skeleton | 4h | None |
+| **5.1** | React & Tailwind Setup | M1 | Scaffold Vite React app, configure Tailwind CSS, dark mode, layout shell. | `frontend/` project skeleton | 4h | None |
 | **5.2** | Prediction UI & Gauge | M2 | Build claim input textarea, animated veracity card, Framer Motion gauge. | `InputForm.jsx`, `ResultCard.jsx` | 6h | 5.1, 4.2 |
 | **5.3** | Interactive Recharts | M3 | Build Confusion Matrix, Radar, Cascade Scatter, and Timeline Area charts. | `Charts/*.jsx` components | 7h | 5.1, 4.3 |
 | **5.4** | D3 Network Graph | M3 | Implement force-directed social graph with node dragging, zoom, clusters. | `NetworkGraph.jsx` | 6h | 5.1, 4.3 |
 | **5.5** | Advanced Features | M3 | Implement CSV export, bulk batch claim upload, and model comparison. | Advanced feature components | 5h | 5.2, 5.3 |
 | **6.1** | End-to-End Testing | All | Connect frontend to backend, test full user flows and error toasts. | Working full-stack build | 4h | 4.4, 5.5 |
 | **6.2** | Semantic Control Test | All | Verify model distinguishes matched vocabulary claims (factual vs fake). | Control test validation log | 2h | 6.1 |
-| **6.3** | Responsive Layout Test | M2 | Audit and test layout on mobile (375px), tablet (768px), desktop (1280px). | Responsive UI audit checklist | 2h | 6.1 |
+| **6.3** | Responsive Layout Test | M1/M2 | Audit and test layout on mobile (375px), tablet (768px), desktop (1280px). | Responsive UI audit checklist | 2h | 6.1 |
 | **6.4** | Video Walkthrough | M2/All | Script, record, and edit ≤7-minute HD video demonstration showing all roles. | Video `.mp4` + YouTube link | 6h | 6.2, 6.3 |
 
 ---
@@ -193,7 +193,7 @@ gantt
     A1 Submission (12 Oct by 3:59pm)       :milestone, a1_m, 2026-10-12, 0d
 
     section A2: Machine Learning Pipeline
-    M1: Dataset Sourcing & Preprocessor    :active, a2_1, 2026-10-13, 5d
+    M2: Dataset Sourcing & Preprocessor    :active, a2_1, 2026-10-13, 5d
     M1: Train TF-IDF Baseline Model        :a2_2, after a2_1, 4d
     M2: DistilBERT Fine-Tuning (MPS)       :crit, a2_3, after a2_1, 7d
     M3: Graph Clustering & Ridge Regressor :a2_4, after a2_1, 6d
@@ -203,7 +203,7 @@ gantt
 
     section A3: Full-Stack App & Demo
     M1: FastAPI Skeleton & Lifespan Loader :crit, a3_1, 2026-11-10, 4d
-    M2: React+Vite Scaffold & Core Layout  :a3_2, 2026-11-10, 4d
+    M1: React+Vite Scaffold & Core Layout  :a3_2, 2026-11-10, 4d
     M1: POST /predict & Pytest Suite       :crit, a3_3, after a3_1, 5d
     M2: Prediction UI & Veracity Gauge     :a3_4, after a3_2, 6d
     M3: GET /metrics & Interactive Recharts:a3_5, after a3_1, 7d
@@ -219,7 +219,7 @@ The project's critical path represents the longest sequence of dependent activit
 
 $$\text{Critical Path} = \mathbf{2.1} \rightarrow \mathbf{2.2} \rightarrow \mathbf{3.2} \rightarrow \mathbf{3.5} \rightarrow \mathbf{4.1} \rightarrow \mathbf{4.2} \rightarrow \mathbf{6.1} \rightarrow \mathbf{6.2} \rightarrow \mathbf{6.4}$$
 
-1. **Dataset Acquisition & Preprocessing (M1)**: Blocks all ML training.
+1. **Dataset Acquisition & Preprocessing (M2)**: Blocks all ML training.
 2. **DistilBERT Fine-Tuning (M2)**: Primary model training requires the longest compute and validation cycle.
 3. **INT8 Quantization (M2)**: Optimizes artifact footprint to `<200MB` before backend loading.
 4. **FastAPI Lifespan Loader & `/predict` Route (M1)**: Establishes backend inference pipeline.
@@ -241,7 +241,7 @@ Risks are evaluated using a standard 5×5 Likelihood ($L$) vs. Consequence/Impac
 
 | Risk ID | Category | Risk Description | Likelihood (1–5) | Impact (1–5) | Severity (L×I) | Proactive Mitigation Strategy | Contingency / Fallback Plan | Owner | Status |
 |:---:|:---:|:---|:---:|:---:|:---:|:---|:---|:---:|:---:|
-| **R1** | Data | PHEME or FakeNewsNet data format discrepancies or corrupt JSON threads | 2 | 4 | **8 (Med)** | Build unified schema converter in `preprocessor.py` with validation checks. | Fallback to PolitiFact CSV fact-checks and pre-structured PyTorch Geometric graph. | M1 | Open |
+| **R1** | Data | PHEME or FakeNewsNet data format discrepancies or corrupt JSON threads | 2 | 4 | **8 (Med)** | Build unified schema converter in `preprocessor.py` with validation checks. | Fallback to PolitiFact CSV fact-checks and pre-structured PyTorch Geometric graph. | M2 | Open |
 | **R2** | Model | DistilBERT achieves Macro F1 < 0.75 due to class imbalance | 3 | 5 | **15 (High)** | Implement weighted cross-entropy loss and dynamic threshold tuning. | Increase training epochs (3→5), add focal loss, or fine-tune DistilRoBERTa. | M2 | Open |
 | **R3** | Model | INT8 dynamic quantization degrades accuracy by >3% | 2 | 4 | **8 (Med)** | Perform layer-by-layer quantization benchmarking against test partition. | Adopt FP16 half-precision weights or prune redundant attention heads. | M2 | Open |
 | **R4** | UI/UX | D3 Force-Directed Network Graph lags on large node sets | 3 | 3 | **9 (Med)** | Limit rendered nodes to top 300 influencers/cascades; run simulation in Web Worker. | Implement paginated subgraph filtering and SVG canvas fallback. | M3 | Open |
@@ -276,7 +276,7 @@ Risks are evaluated using a standard 5×5 Likelihood ($L$) vs. Consequence/Impac
 | **Backend Latency** | Endpoint response time $< 500\text{ms}$ on local M3 | Pytest benchmark run | M1 |
 | **Memory Footprint** | Quantized model RAM $< 200\text{MB}$ | Process memory profiler | M2 |
 | **Data Visualizations** | $\ge 5$ interactive chart types + D3.js Network Graph | UI visual inspection & interaction | M3 |
-| **Responsive Design** | Flawless rendering at $375\text{px}$, $768\text{px}$, $1280\text{px}$ | Browser responsive dev tools | M2 |
+| **Responsive Design** | Flawless rendering at $375\text{px}$, $768\text{px}$, $1280\text{px}$ | Browser responsive dev tools | M1/M2 |
 | **Video Demonstration** | $\le 7$ minutes video covering all roles and features | Video recording audit | All |
 
 #### 5.3 Communication Plan & Meeting Minutes Log (Criterion 10 — 1 pt)
