@@ -1,0 +1,338 @@
+\documentclass[11pt, a4paper]{article}
+
+% ==============================================================================
+% PACKAGES & GEOMETRY
+% ==============================================================================
+\usepackage[
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.3cm,
+  right=2.3cm,
+  headheight=16pt,
+  footskip=1.2cm
+]{geometry}
+
+% --- Typography & Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{inconsolata}
+\usepackage{microtype}
+\usepackage{textcomp}
+
+% --- Color Palette ---
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{brandNavy}{RGB}{15, 34, 64}
+\definecolor{brandBlue}{RGB}{37, 99, 235}
+\definecolor{brandAccent}{RGB}{2, 132, 199}
+\definecolor{textDark}{RGB}{30, 41, 59}
+\definecolor{borderGray}{RGB}{226, 232, 240}
+\definecolor{headerBg}{RGB}{241, 245, 249}
+\definecolor{rowAlt}{RGB}{248, 250, 252}
+\definecolor{bgLight}{RGB}{248, 250, 252}
+
+% --- Tables & Arrays ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{calc}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{5pt}
+
+% --- Lists ---
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=3pt, parsep=2pt, partopsep=0pt, leftmargin=1.8em}
+
+% --- Header & Footer ---
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{textDark!70}\textsf{\textit{COS30049 --- Meeting Minutes}}}
+\fancyhead[R]{\small\color{textDark!70}\textsf{\textit{MisinfoShield Analytics}}}
+\fancyfoot[L]{\small\color{textDark!70}\textsf{\textit{Swinburne University of Technology}}}
+\fancyfoot[R]{\small\color{textDark!70}\textsf{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% --- Hyperlinks ---
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Meeting Minutes - MisinfoShield Analytics},
+  pdfauthor={Pham Truong Que An, Nguyen Nhat Nam, Nguyen Le Quoc Bao},
+  pdfsubject={COS30049 Computing Technology Innovation Project},
+  colorlinks=true,
+  linkcolor=brandBlue,
+  citecolor=brandBlue,
+  urlcolor=brandAccent,
+  bookmarksnumbered=true
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1.5pt minus 1pt}
+
+\begin{document}
+
+% ==============================================================================
+% TITLE BANNER
+% ==============================================================================
+\thispagestyle{empty}
+
+\begin{center}
+  {\scshape\large Swinburne University of Technology}\\[2pt]
+  {\small School of Science, Computing and Engineering Technologies}\\[8pt]
+  {\bfseries\LARGE COS30049 --- Computing Technology Innovation Project}\\[6pt]
+  {\Large\textbf{Meeting Minutes: MisinfoShield Analytics}}\\[4pt]
+  {\small Milestone 1 Planning Phase (Weeks 1--4)}
+\end{center}
+
+\vspace{0.5cm}
+
+% ==============================================================================
+% MEETING 1
+% ==============================================================================
+\section*{Meeting 1}
+\label{sec:meeting1}
+
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{@{}L{3.5cm} Y@{}}
+    \toprule
+    \textbf{Team Name:} & MisinfoShield Analytics \\
+    \textbf{Meeting No:} & 1 \\
+    \textbf{Location:} & Google Meet (Virtual) \\
+    \textbf{Date:} & 16 September 2026 \\
+    \textbf{Meeting Start Time:} & 10:00 (UTC+7) \\
+    \textbf{Attending:} & Pham Truong Que An (M2, Team Lead), Nguyen Nhat Nam (M3), Nguyen Le Quoc Bao (M1) \\
+    \textbf{Apologies:} & None \\
+    \textbf{Matters arising from Previous minutes:} & No (First meeting) \\
+    \textbf{Confirmation of minutes from last meeting:} & N/A \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Key Agenda Items \& Discussions}
+\begin{enumerate}
+  \item \textbf{Team Formation and Role Allocation}: Introduction of all three members, discussion of individual strengths and preferences.
+  \item \textbf{Project Domain Topic Selection}: Analysis of the three available topics; unanimous selection of Topic 1: Misinformation Detection (Cybersecurity).
+  \item \textbf{Unit Rubric Analysis}: Detailed review of COS30049 Assignment 1 rubric requirements including Scope, WBS, Risk Register, Schedule, Communication Plan, and UI/UX Prototype.
+  \item \textbf{Technical Stack Discussion}: Preliminary agreement on Python/FastAPI for backend, React 18 for frontend, PyTorch for ML models.
+\end{enumerate}
+
+\subsection*{Decisions Made \& Action Items}
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \begin{tabularx}{\linewidth}{@{}L{6cm} L{3cm} L{2cm} L{2cm}@{}}
+    \toprule
+    \textbf{Action Item} & \textbf{Description} & \textbf{Assigned To} & \textbf{Due} \\
+    \midrule
+    Gather PHEME and FakeNewsNet datasets & Download, inspect, and organize benchmark datasets for ML pipeline & M3 (Nam) & Week 2 \\
+    Set up GitHub repository & Initialize repo with branch protection, issue templates, and project board & M2 (An) & Week 2 \\
+    Create shared Google Drive folder & For WBS Dictionary, meeting minutes, and documentation drafts & M1 (Bao) & Week 1 \\
+    Draft initial WBS structure & High-level work package breakdown for review in Meeting 2 & M2 (An) & Week 2 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{0.3cm}
+\noindent \textbf{Meeting Closed At:} 11:15 (UTC+7)\\
+\textbf{Next Meeting Time, Date and Location:} 23 September 2026, 10:00, Google Meet
+
+\newpage
+
+% ==============================================================================
+% MEETING 2
+% ==============================================================================
+\section*{Meeting 2}
+\label{sec:meeting2}
+
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{@{}L{3.5cm} Y@{}}
+    \toprule
+    \textbf{Team Name:} & MisinfoShield Analytics \\
+    \textbf{Meeting No:} & 2 \\
+    \textbf{Location:} & Google Meet (Virtual) \\
+    \textbf{Date:} & 23 September 2026 \\
+    \textbf{Meeting Start Time:} & 10:00 (UTC+7) \\
+    \textbf{Attending:} & Pham Truong Que An (M2, Team Lead), Nguyen Nhat Nam (M3), Nguyen Le Quoc Bao (M1) \\
+    \textbf{Apologies:} & None \\
+    \textbf{Matters arising from Previous minutes:} & Yes \\
+    \textbf{Issues raised from previous minutes:} & Dataset acquisition in progress; GitHub repo created; Google Drive folder shared. \\
+    \textbf{Confirmation of minutes from last meeting:} & Yes (Approved by all members) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Key Agenda Items \& Discussions}
+\begin{enumerate}
+  \item \textbf{System Architecture Definition}: End-to-end data flow from raw social media text through preprocessing, DistilBERT classification, Ridge regression spread prediction, and Louvain graph clustering.
+  \item \textbf{ML Model Strategy}: Confirmed DistilBERT (transformer) as primary classifier with TF-IDF + Logistic Regression as baseline for contrastive Semantic Control Test.
+  \item \textbf{Tech Stack Confirmation}:
+  \begin{itemize}
+    \item Backend: FastAPI (async), PyTorch (MPS on Apple Silicon), PyTest
+    \item Frontend: React 18, Vite, Tailwind CSS, Recharts, D3.js, Framer Motion
+    \item ML: DistilBERT fine-tuning, INT8 dynamic quantization, scikit-learn Ridge/Louvain
+    \item Deployment: Local Docker Compose for grading reproducibility
+  \end{itemize}
+  \item \textbf{Quantization Strategy}: Agreed on PyTorch dynamic INT8 quantization targeting <200MB model artifact.
+  \item \textbf{Semantic Control Test}: Designed contrastive matched-vocabulary benchmark (4 pairs) to prove contextual understanding.
+\end{enumerate}
+
+\subsection*{Decisions Made \& Action Items}
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \begin{tabularx}{\linewidth}{@{}L{6cm} L{3cm} L{2cm} L{2cm}@{}}
+    \toprule
+    \textbf{Action Item} & \textbf{Description} & \textbf{Assigned To} & \textbf{Due} \\
+    \midrule
+    Draft WBS Dictionary & Detailed 3-level WBS with ownership, hours, dependencies & M2 (An) & Week 3 \\
+    Draft Requirements Specification & MoSCoW functional and ISO 25010 non-functional requirements & M3 (Nam) & Week 3 \\
+    Design UI/UX Mockups & Google Stitch prototypes for all 7 screens & M1 (Bao) & Week 3 \\
+    Implement preprocessor.py & Regex pipeline for emoji, homoglyph, hashtag, URL handling & M3 (Nam) & Week 3 \\
+    Set up CI/CD pipeline & GitHub Actions for lint, type-check, test on PR & M2 (An) & Week 3 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{0.3cm}
+\noindent \textbf{Meeting Closed At:} 11:30 (UTC+7)\\
+\textbf{Next Meeting Time, Date and Location:} 30 September 2026, 10:00, Google Meet
+
+\newpage
+
+% ==============================================================================
+% MEETING 3
+% ==============================================================================
+\section*{Meeting 3}
+\label{sec:meeting3}
+
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{@{}L{3.5cm} Y@{}}
+    \toprule
+    \textbf{Team Name:} & MisinfoShield Analytics \\
+    \textbf{Meeting No:} & 3 \\
+    \textbf{Location:} & Google Meet (Virtual) \\
+    \textbf{Date:} & 30 September 2026 \\
+    \textbf{Meeting Start Time:} & 10:00 (UTC+7) \\
+    \textbf{Attending:} & Pham Truong Que An (M2, Team Lead), Nguyen Nhat Nam (M3), Nguyen Le Quoc Bao (M1) \\
+    \textbf{Apologies:} & None \\
+    \textbf{Matters arising from Previous minutes:} & Yes \\
+    \textbf{Issues raised from previous minutes:} & WBS Dictionary drafted; Requirements Specification 80\% complete; UI mockups in progress; preprocessor.py implemented; CI/CD pipeline configured. \\
+    \textbf{Confirmation of minutes from last meeting:} & Yes (Approved by all members) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Key Agenda Items \& Discussions}
+\begin{enumerate}
+  \item \textbf{WBS Decomposition Review}: Walkthrough of 6 work packages, 21 work packages at Level 3, verified 100\% Rule compliance.
+  \item \textbf{Risk Register Construction}: Identified 8 risks across Data, Model, UI/UX, Backend, Team, Quality categories using 5x5 likelihood-impact matrix.
+  \item \textbf{UI Wireframe Review}: Presented Google Stitch mockups for all 7 screens; incorporated tutor feedback on multimodal image verification.
+  \item \textbf{Nielsen Heuristic Mapping}: Mapped all 10 heuristics to prototype features; documented in heuristic evaluation matrix.
+  \item \textbf{Schedule and CPM Analysis}: Critical path identified as 2.1 $\to$ 2.2 $\to$ 3.2 $\to$ 3.5 $\to$ 4.1 $\to$ 4.2 $\to$ 6.1 $\to$ 6.2 $\to$ 6.4.
+\end{enumerate}
+
+\subsection*{Decisions Made \& Action Items}
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \begin{tabularx}{\linewidth}{@{}L{6cm} L{3cm} L{2cm} L{2cm}@{}}
+    \toprule
+    \textbf{Action Item} & \textbf{Description} & \textbf{Assigned To} & \textbf{Due} \\
+    \midrule
+    Finalize LaTeX report sections & Compile all sections into innovation-assignment1.tex & M2 (An) & Week 4 \\
+    Complete UI mockups & All 7 screens finalized with multimodal verification & M1 (Bao) & Week 4 \\
+    Build Risk Register table & 8 risks with severity, mitigation, contingency, lead & M2 (An) & Week 4 \\
+    Draft Scope Baseline & In/Out of scope matrix, change control procedure & M2 (An) & Week 4 \\
+    Prepare contribution form draft & Agreed 33.3\% share each, section ownership & All & Week 4 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{0.3cm}
+\noindent \textbf{Meeting Closed At:} 11:45 (UTC+7)\\
+\textbf{Next Meeting Time, Date and Location:} 07 October 2026, 10:00, Google Meet
+
+\newpage
+
+% ==============================================================================
+% MEETING 4
+% ==============================================================================
+\section*{Meeting 4}
+\label{sec:meeting4}
+
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{@{}L{3.5cm} Y@{}}
+    \toprule
+    \textbf{Team Name:} & MisinfoShield Analytics \\
+    \textbf{Meeting No:} & 4 \\
+    \textbf{Location:} & Google Meet (Virtual) \\
+    \textbf{Date:} & 07 October 2026 \\
+    \textbf{Meeting Start Time:} & 10:00 (UTC+7) \\
+    \textbf{Attending:} & Pham Truong Que An (M2, Team Lead), Nguyen Nhat Nam (M3), Nguyen Le Quoc Bao (M1) \\
+    \textbf{Apologies:} & None \\
+    \textbf{Matters arising from Previous minutes:} & Yes \\
+    \textbf{Issues raised from previous minutes:} & All report sections drafted; UI mockups completed; Risk Register finalized; Contribution form drafted. \\
+    \textbf{Confirmation of minutes from last meeting:} & Yes (Approved by all members) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{Key Agenda Items \& Discussions}
+\begin{enumerate}
+  \item \textbf{Final Review of Assignment 1 Document}: Complete read-through of innovation-assignment1.tex for formatting, cross-references, table numbering, figure references.
+  \item \textbf{Formatting Audit}: Verified page margins, font consistency, table alignment, caption formatting, bibliography style (Harvard).
+  \item \textbf{Harvard Reference Verification}: All 8 references checked for completeness, formatting consistency, and in-text citation alignment.
+  \item \textbf{Acceptance Criteria Audit}: Verified all 13 acceptance criteria (AC-01 through AC-13) traceable to requirements and have clear verification methods.
+  \item \textbf{Group Assessment Contribution Form Sign-off}: All three members confirmed 33.3\% equal contribution share and signed the form.
+  \item \textbf{Submission Checklist}: PDF compilation test, file naming convention, separate submission files (Meeting Minutes, Contribution Form, Project Management Plan).
+\end{enumerate}
+
+\subsection*{Decisions Made \& Action Items}
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \begin{tabularx}{\linewidth}{@{}L{6cm} L{3cm} L{2cm} L{2cm}@{}}
+    \toprule
+    \textbf{Action Item} & \textbf{Description} & \textbf{Assigned To} & \textbf{Due} \\
+    \midrule
+    Final PDF compilation & Compile innovation-assignment1.tex to PDF, verify all figures/tables render & M2 (An) & 11 Oct 2026 \\
+    Compile meeting-minutes.tex & Generate separate meeting minutes PDF & M1 (Bao) & 11 Oct 2026 \\
+    Compile contribution-form.tex & Generate separate contribution form PDF & M3 (Nam) & 11 Oct 2026 \\
+    Submit all 3 files via Canvas & Upload PDFs before deadline: 12 Oct 2026 23:59 & M2 (An) & 12 Oct 2026 \\
+    Archive GitHub release v1.0 & Tag release with all source, docs, and artifacts & M2 (An) & 12 Oct 2026 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\vspace{0.3cm}
+\noindent \textbf{Meeting Closed At:} 12:00 (UTC+7)\\
+\textbf{Next Meeting Time, Date and Location:} 14 October 2026, 10:00, Google Meet (Milestone 2 Kickoff)
+
+\end{document}

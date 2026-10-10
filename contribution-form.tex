@@ -1,0 +1,319 @@
+\documentclass[11pt, a4paper]{article}
+
+% ==============================================================================
+% PACKAGES & GEOMETRY
+% ==============================================================================
+\usepackage[
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.3cm,
+  right=2.3cm,
+  headheight=16pt,
+  footskip=1.2cm
+]{geometry}
+
+% --- Typography & Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{inconsolata}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{amssymb}
+
+% --- Color Palette ---
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{brandNavy}{RGB}{15, 34, 64}
+\definecolor{brandBlue}{RGB}{37, 99, 235}
+\definecolor{brandAccent}{RGB}{2, 132, 199}
+\definecolor{textDark}{RGB}{30, 41, 59}
+\definecolor{borderGray}{RGB}{226, 232, 240}
+\definecolor{headerBg}{RGB}{241, 245, 249}
+\definecolor{rowAlt}{RGB}{248, 250, 252}
+\definecolor{bgLight}{RGB}{248, 250, 252}
+\definecolor{passGreenBg}{RGB}{220, 252, 231}
+\definecolor{passGreenText}{RGB}{22, 101, 52}
+
+% --- Tables & Arrays ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{calc}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{5pt}
+
+% --- Lists ---
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=3pt, parsep=2pt, partopsep=0pt, leftmargin=1.8em}
+
+% --- Header & Footer ---
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{textDark!70}\textsf{\textit{COS30049 --- Group Contribution Form}}}
+\fancyhead[R]{\small\color{textDark!70}\textsf{\textit{MisinfoShield Analytics}}}
+\fancyfoot[L]{\small\color{textDark!70}\textsf{\textit{Swinburne University of Technology}}}
+\fancyfoot[R]{\small\color{textDark!70}\textsf{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% --- Callout Boxes ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  formbox/.style={
+    enhanced,
+    colback=bgLight,
+    colframe=brandBlue,
+    arc=3pt,
+    boxrule=1pt,
+    leftrule=4pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\bfseries\color{brandNavy},
+    breakable
+  }
+}
+
+% --- Hyperlinks ---
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Group Assessment Contribution Form - MisinfoShield Analytics},
+  pdfauthor={Pham Truong Que An, Nguyen Nhat Nam, Nguyen Le Quoc Bao},
+  pdfsubject={COS30049 Computing Technology Innovation Project},
+  colorlinks=true,
+  linkcolor=brandBlue,
+  citecolor=brandBlue,
+  urlcolor=brandAccent,
+  bookmarksnumbered=true
+}
+
+\newcommand{\signatureline}{\hrulefill}
+\newcommand{\dateline}{\hrulefill}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1.5pt minus 1pt}
+
+\begin{document}
+
+% ==============================================================================
+% TITLE BANNER
+% ==============================================================================
+\thispagestyle{empty}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=brandNavy,
+  colframe=brandNavy,
+  arc=4pt,
+  boxrule=0pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt
+]
+  \centering
+  {\color{white}\scshape\large Swinburne University of Technology}\\[2pt]
+  {\color{white!80}\small School of Science, Computing and Engineering Technologies}\\[8pt]
+  {\color{white}\bfseries\LARGE COS30049 --- Computing Technology Innovation Project}\\[6pt]
+  {\color{white!95}\Large\textbf{Group Assessment Contribution Form}}\\[4pt]
+  {\color{white!80}\small Milestone 1: Assignment 1 Submission}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+% ==============================================================================
+% COURSE & PROJECT INFO
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{Course and Project Information}]
+  \begin{tabularx}{\linewidth}{@{}L{4.5cm} Y@{}}
+    \textbf{Course:} & COS30049 Computing Technology Innovation Project \\
+    \textbf{Project/Assignment Title:} & Assignment 1: Comprehensive Project Management Plan \& System Specification \\
+    \textbf{Platform Name:} & MisinfoShield Analytics \\
+    \textbf{Group Number:} & Group 1 \\
+    \textbf{Submission Date:} & 12 October 2026 \\
+  \end{tabularx}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% GROUP MEMBERS
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{1. Group Members}]
+  \vspace{0.2cm}
+  \begin{tabularx}{\linewidth}{@{}C{0.8cm} L{4.5cm} C{2.5cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{No.} & \textbf{Full Name} & \textbf{Student ID} & \textbf{Role} \\
+    \midrule
+    1 & Nguyen Le Quoc Bao & 106245001 & M1 - Full-Stack \& Integration Lead \\
+    2 & Pham Truong Que An & 105192148 & M2 - Team Lead, ML \& Data Engineering Lead \\
+    3 & Nguyen Nhat Nam & 106214409 & M3 - Analytics, Graph \& Visualization Lead \\
+    \bottomrule
+  \end{tabularx}
+\end{tcolorbox}
+
+\newpage
+
+% ==============================================================================
+% TEAM TASK & CONTRIBUTION LOG
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{2. Team Task \& Contribution Log}]
+  \small
+  \textit{To be completed and signed by all group members. This section documents the specific tasks each member was responsible for and provides evidence of their work. All members must reach a consensus on the described contributions.}
+
+  \vspace{0.3cm}
+
+  \begin{tabularx}{\linewidth}{@{}L{3cm} L{6.5cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Member} & \textbf{Tasks and Deliverables} & \textbf{Evidence} \\
+    \midrule
+    \textbf{M1: Nguyen Le Quoc Bao} &
+    \begin{itemize}[before=\vspace{-1.2em}]
+      \item Cover Page \& Table of Contents
+      \item Section 1: Project Background \& Problem
+      \item Section 2: Team Structure \& Allocation
+      \item Section 5: Time Management, Gantt \& CPM
+      \item Section 6: Risk Management Plan (8 Risks)
+      \item Section 7: Monitoring \& Change Control
+      \item Section 10: Communication Plan (with All)
+      \item Section 11: References (with All)
+    \end{itemize} &
+    Sections 1, 2, 5, 6, 7 in Assignment 1; Gantt chart; Risk Register \\
+    \rowcolor{rowAlt}
+    \textbf{M2: Pham Truong Que An (Team Lead)} &
+    \begin{itemize}[before=\vspace{-1.2em}]
+      \item Section 3: Project Requirements (FRs \& NFRs)
+      \item Section 4: Scope Management \& WBS Dictionary
+      \item Section 10: Meeting Minutes Documentation
+      \item Appendix A: Signed Contribution Form
+      \item Section 11: References (with All)
+      \item General editing and LaTeX compilation
+      \item GitHub repository setup and configuration
+    \end{itemize} &
+    Sections 3, 4, 10, Appendix A in Assignment 1; WBS Dictionary spreadsheet; LaTeX source; GitHub repo \\
+    \textbf{M3: Nguyen Nhat Nam} &
+    \begin{itemize}[before=\vspace{-1.2em}]
+      \item Section 8: Closure \& Acceptance Plan (with M2)
+      \item Section 9: Project Design \& UI/UX (5 Screens)
+      \item Section 10: Communication Plan (with All)
+      \item Section 11: References (with All)
+    \end{itemize} &
+    Sections 8, 9 in Assignment 1; UI/UX Mockups (Google Stitch) \\
+    \bottomrule
+  \end{tabularx}
+\end{tcolorbox}
+
+\newpage
+
+% ==============================================================================
+% CONTRIBUTION EVALUATION
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{3. Team Member Contribution Evaluation}]
+  \small
+  \textit{As a group, discuss and evaluate the contributions of each team member in the table below. The final evaluations must represent a consensus agreed upon by the entire team.}
+
+  \vspace{0.3cm}
+
+  \begin{tabularx}{\linewidth}{@{}C{0.8cm} L{4.5cm} C{2cm} C{2.5cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{No.} & \textbf{Team Member} & \textbf{Student ID} & \textbf{Agreed Share} & \textbf{Consensus Notes} \\
+    \midrule
+    1 & Nguyen Le Quoc Bao & 106245001 & 33.3\% & Equal contribution; Full-Stack \& Integration Lead, project schedule, risk management \\
+    2 & Pham Truong Que An & 105192148 & 33.3\% & Equal contribution; Team Lead, ML \& Data Engineering Lead, requirements, scope, LaTeX compilation \\
+    3 & Nguyen Nhat Nam & 106214409 & 33.3\% & Equal contribution; Analytics, Graph \& Visualization Lead, UI/UX design, closure \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.3cm}
+
+  \begin{tcolorbox}[colback=passGreenBg, colframe=passGreenText, arc=3pt, boxrule=1pt, left=8pt, right=8pt, top=6pt, bottom=6pt]
+    \small
+    \textbf{Contribution and Grading Policy (per Swinburne guidelines):}
+    \begin{itemize}
+      \item \textbf{Normal Grade}: Members contributing 33\% or more will receive the full project mark.
+      \item \textbf{Penalty}: Members contributing less than 33\% will incur a penalty. Their grade will be calculated as:
+      \[ \text{Individual Grade} = \left(\frac{\text{Contribution Percentage}}{33}\right) \times \text{Group Mark} \]
+      \item \textbf{Example}: If the total group mark is 15, and a member contributes 20\%, their grade will be $(20/33) \times 15 = 9.09$.
+    \end{itemize}
+    \textbf{Result}: All three members have agreed on equal 33.3\% contribution share. No penalties apply.
+  \end{tcolorbox}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% DETAILED CONTRIBUTION BREAKDOWN
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{4. Detailed Contribution Breakdown by Assignment Section}]
+  \small
+  \begin{tabularx}{\linewidth}{@{}L{4cm} C{1.5cm} C{1.5cm} C{1.5cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Assignment 1 Section} & \textbf{M1 (Bao)} & \textbf{M2 (An)} & \textbf{M3 (Nam)} & \textbf{Notes} \\
+    \midrule
+    1. Project Background & \checkmark & & & Bao: Problem context, innovation statement \\
+    2. Team Structure & \checkmark & & & Bao: Role allocation table, workload matrix \\
+    3. Requirements Spec & & \checkmark & & An: FR/NFR tables, data standards, control test \\
+    4. Scope \& WBS & & \checkmark & & An: Scope statement, WBS dict, boundaries, change control \\
+    5. Time Management & \checkmark & & & Bao: Schedule, Gantt, CPM analysis \\
+    6. Risk Management & \checkmark & & & Bao: 8-risk register, mitigations \\
+    7. Monitoring \& QA & \checkmark & & & Bao: Quality gates, change control procedure \\
+    8. Closure \& Acceptance & & & \checkmark & Nam \& An: Acceptance matrix, handover \\
+    9. UI/UX Prototype & & & \checkmark & Nam: 5 screens, design system, Nielsen audit \\
+    10. Communication & \checkmark & \checkmark & \checkmark & An: Minutes log; All: Communication plan \\
+    11. References & \checkmark & \checkmark & \checkmark & All: Harvard reference compilation \\
+    Appendix A & & \checkmark & & An: Contribution table, artifact traceability \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.2cm}
+  \textit{Legend: \checkmark = Primary author/lead; blank = reviewer/contributor}
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% SIGNATURES
+% ==============================================================================
+\begin{tcolorbox}[formbox, title=\textbf{5. Formal Sign-Off}]
+  \vspace{0.2cm}
+
+  \begin{tabularx}{\linewidth}{@{}L{5.5cm} Z C{3.5cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Team Member} & \textbf{Signature} & \textbf{Date} \\
+    \midrule
+    Nguyen Le Quoc Bao (M1) & \textit{Nguyen Le Quoc Bao} & 10 October 2026 \\
+    Pham Truong Que An (M2, Team Lead) & \textit{Pham Truong Que An} & 10 October 2026 \\
+    Nguyen Nhat Nam (M3) & \textit{Nguyen Nhat Nam} & 10 October 2026 \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.5cm}
+  \centering
+  \textbf{By signing above, all team members confirm:}
+  \begin{enumerate}
+    \item The contribution breakdown accurately reflects each member's work.
+    \item All members agree to the 33.3\% equal share allocation.
+    \item This form represents the consensus of the entire team.
+    \item We understand the grading policy and penalty provisions.
+  \end{enumerate}
+\end{tcolorbox}
+
+
+
+\end{document}
