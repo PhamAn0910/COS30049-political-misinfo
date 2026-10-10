@@ -1,0 +1,1151 @@
+\documentclass[11pt, a4paper]{article}
+
+% ==============================================================================
+% PACKAGES & GEOMETRY
+% ==============================================================================
+\usepackage[
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.3cm,
+  right=2.3cm,
+  headheight=16pt,
+  footskip=1.2cm
+]{geometry}
+
+% --- Typography & Fonts ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo} % Professional Palatino font for body text
+\usepackage[scaled=0.92]{helvet} % Helvetica for sans-serif headings/badges
+\usepackage{inconsolata} % Monospace font for code/identifiers
+\usepackage{microtype}
+\usepackage{textcomp}
+
+% --- Mathematics ---
+\usepackage{amsmath, amssymb, amsfonts}
+
+% --- Color Palette ---
+\usepackage[table,xcdraw]{xcolor}
+\definecolor{brandNavy}{RGB}{15, 34, 64}
+\definecolor{brandBlue}{RGB}{37, 99, 235}
+\definecolor{brandAccent}{RGB}{2, 132, 199}
+\definecolor{textDark}{RGB}{30, 41, 59}
+\definecolor{borderGray}{RGB}{226, 232, 240}
+\definecolor{headerBg}{RGB}{241, 245, 249}
+\definecolor{rowAlt}{RGB}{248, 250, 252}
+\definecolor{bgLight}{RGB}{248, 250, 252}
+
+% Semantic Badge Colors
+\definecolor{mustRedBg}{RGB}{254, 226, 226}
+\definecolor{mustRedText}{RGB}{153, 27, 27}
+\definecolor{shouldAmberBg}{RGB}{254, 243, 199}
+\definecolor{shouldAmberText}{RGB}{146, 64, 14}
+\definecolor{passGreenBg}{RGB}{220, 252, 231}
+\definecolor{passGreenText}{RGB}{22, 101, 52}
+
+% --- Tables & Arrays ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{calc}
+
+% Column alignments
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+
+\renewcommand{\arraystretch}{1.28}
+\setlength{\tabcolsep}{4.5pt}
+
+% --- Lists ---
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=3pt, parsep=2pt, partopsep=0pt, leftmargin=1.8em}
+
+% --- Figures & Captions ---
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figures/}{./figures/}{media/}{./media/}{./}}
+\usepackage[font={small,sf}, labelfont={bf,color=brandNavy}, skip=6pt]{caption}
+\usepackage{subcaption}
+
+% --- Section Formats (titlesec) ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{brandNavy}}
+  {\thesection.}{0.6em}{}
+  [\vspace{-0.2em}{\color{brandBlue}\titlerule[1.5pt]}\vspace{0.3em}]
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{brandNavy}}
+  {\thesubsection}{0.6em}{}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{brandNavy!90!black}}
+  {\thesubsubsection}{0.6em}{}
+
+\titlespacing*{\section}{0pt}{14pt plus 2pt minus 2pt}{6pt plus 2pt minus 1pt}
+\titlespacing*{\subsection}{0pt}{10pt plus 2pt minus 2pt}{4pt plus 1pt minus 1pt}
+\titlespacing*{\subsubsection}{0pt}{7pt plus 2pt minus 1pt}{3pt plus 1pt minus 1pt}
+
+% --- Header & Footer (fancyhdr) ---
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{textDark!70}\textsf{\textit{COS30049 --- Project Management Plan}}}
+\fancyhead[R]{\small\color{textDark!70}\textsf{\textit{MisinfoShield Analytics}}}
+\fancyfoot[L]{\small\color{textDark!70}\textsf{\textit{Swinburne University of Technology}}}
+\fancyfoot[R]{\small\color{textDark!70}\textsf{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% --- Callout Boxes (tcolorbox) ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  academicbox/.style={
+    enhanced,
+    colback=bgLight,
+    colframe=brandBlue,
+    arc=3pt,
+    boxrule=1pt,
+    leftrule=4pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\bfseries\color{brandNavy},
+    breakable
+  }
+}
+
+% --- Paragraph Styling ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1.5pt minus 1pt}
+\emergencystretch=1.5em
+
+% --- Hyperlinks & PDF Metadata ---
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Assignment 1: Comprehensive Project Management Plan - MisinfoShield Analytics},
+  pdfauthor={Pham Truong Que An, Nguyen Nhat Nam, Nguyen Le Quoc Bao},
+  pdfsubject={COS30049 Computing Technology Innovation Project},
+  colorlinks=true,
+  linkcolor=brandBlue,
+  citecolor=brandBlue,
+  urlcolor=brandAccent,
+  bookmarksnumbered=true
+}
+
+% --- Semantic UI Badges ---
+\newcommand{\badgeMust}{\colorbox{mustRedBg}{\textcolor{mustRedText}{\scriptsize\textsf{\textbf{MUST}}}}}
+\newcommand{\badgeShould}{\colorbox{shouldAmberBg}{\textcolor{shouldAmberText}{\scriptsize\textsf{\textbf{SHOULD}}}}}
+\newcommand{\badgeCould}{\colorbox{headerBg}{\textcolor{textDark}{\scriptsize\textsf{\textbf{COULD}}}}}
+\newcommand{\badgeHigh}{\colorbox{mustRedBg}{\textcolor{mustRedText}{\scriptsize\textsf{\textbf{High}}}}}
+\newcommand{\badgeMed}{\colorbox{shouldAmberBg}{\textcolor{shouldAmberText}{\scriptsize\textsf{\textbf{Med}}}}}
+\newcommand{\badgeLow}{\colorbox{passGreenBg}{\textcolor{passGreenText}{\scriptsize\textsf{\textbf{Low}}}}}
+\newcommand{\badgeDone}{\colorbox{passGreenBg}{\textcolor{passGreenText}{\scriptsize\textsf{\textbf{Done}}}}}
+\newcommand{\code}[1]{\texttt{\small #1}}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+% ==============================================================================
+% TITLE & EXECUTIVE METADATA BANNER
+% ==============================================================================
+\thispagestyle{empty}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=brandNavy,
+  colframe=brandNavy,
+  arc=4pt,
+  boxrule=0pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt
+]
+  \centering
+  {\color{white}\scshape\large Swinburne University of Technology}\\[2pt]
+  {\color{white!80}\small School of Science, Computing and Engineering Technologies}\\[8pt]
+  {\color{white}\bfseries\LARGE COS30049 --- Computing Technology Innovation Project}\\[6pt]
+  {\color{white!95}\Large\textbf{Comprehensive Project Management Plan \& System Specification}}\\[4pt]
+  {\color{white!80}\small Milestone 1 Deliverable: Requirements, Scope Baseline, WBS Dictionary, Risk Register, and UI/UX Prototype}
+\end{tcolorbox}
+
+\vspace{0.25cm}
+
+\begin{tcolorbox}[academicbox, title=\textbf{Project Metadata \& Team Allocation Matrix}]
+  \begin{tabularx}{\linewidth}{@{}L{2.8cm} Y L{3.0cm} Y@{}}
+    \textbf{Project Title:} & \multicolumn{3}{Y}{\textbf{Automated Political \& Breaking News Misinformation Detection Dashboard}} \\
+    \textbf{Platform Name:} & \emph{MisinfoShield Analytics} & \textbf{Submission Date:} & 12th October 2026 \\
+    \textbf{Domain Topic:} & Misinformation Detection (Cybersecurity) & \textbf{Target Release:} & Milestone 1 (Assignment 1) \\
+  \end{tabularx}
+
+  \vspace{0.15cm}
+  \hrule
+  \vspace{0.15cm}
+
+  \textbf{Team Members \& Core Responsibilities:}
+  \vspace{0.1cm}
+
+  \begin{tabularx}{\linewidth}{@{}L{4.2cm} C{2.2cm} C{1.6cm} Y@{}}
+    \toprule
+    \textbf{Member Name} & \textbf{Student ID} & \textbf{Role Tag} & \textbf{Core Deliverable Focus} \\
+    \midrule
+    \textbf{Pham Truong Que An} & 105192148 & M1 (Lead) & Full-Stack \& Integration Lead (Scope, Baseline ML, FastAPI, PyTest) \\
+    \textbf{Nguyen Nhat Nam} & 106214409 & M2 (Lead) & ML \& Data Engineering Lead (DistilBERT, Quantization, Preprocessor) \\
+    \textbf{Nguyen Le Quoc Bao} & 106245001 & M3 (Lead) & Analytics \& Visualization Lead (Louvain Graph, Ridge Regressor, UI/UX) \\
+    \bottomrule
+  \end{tabularx}
+\end{tcolorbox}
+
+\vspace{0.15cm}
+
+% ==============================================================================
+% TABLE OF CONTENTS
+% ==============================================================================
+\tableofcontents
+\newpage
+
+% ==============================================================================
+% SECTION 1: PROJECT BACKGROUND & PROBLEM
+% ==============================================================================
+\section{Project Background and Problem Statement}
+\label{sec:background}
+
+Over recent decades, social media platforms have evolved into the primary channel through which the general public discovers and perceives real-time news. This trend is particularly pronounced during critical socio-economic and geo-political global crises that impose far-reaching consequences on public safety and democratic stability. During breaking crisis situations---such as civil unrest, armed conflicts, active security incidents, or political elections---social platforms are frequently exploited as weaponized vectors for the rapid dissemination of coordinated misinformation.
+
+In these volatile environments, traditional manual fact-checking and rule-based verification mechanisms fail due to the sheer volume, velocity, and linguistic variety of user-generated content. Compounding this challenge is the increasing sophistication of adversarial evasion tactics: misinformation campaigns frequently deploy subtle rhetorical framing, homoglyphic character substitutions (e.g., swapping Latin `a' with Cyrillic lookalike characters), and stylized camelCase hashtags (such as \code{\#StopTheSteal}) to bypass naive keyword filters. Furthermore, modern algorithmic feeds and recommendation topologies form polarizing echo chambers, causing false rumors to diffuse significantly faster, deeper, and broader than verified truths (Vosoughi, Roy \& Aral, 2018; Zubiaga et al., 2016).
+
+\begin{tcolorbox}[academicbox, title=\textbf{Core Research Question \& Technological Innovation}]
+  \textit{How can a full-stack automated platform combine contextual deep learning (DistilBERT), social diffusion modeling (Ridge regression), and topological community detection (Louvain modularity) to provide real-time, explainable, and multimodal misinformation verification on commodity hardware?}
+\end{tcolorbox}
+
+To address these vulnerabilities, this project develops \textbf{MisinfoShield Analytics}, an end-to-end full-stack analytics platform that couples:
+\begin{enumerate}
+  \item \textbf{Bidirectional Contextual Natural Language Processing}: A fine-tuned, INT8 dynamically quantized DistilBERT transformer for binary veracity classification with calibrated Softmax probabilities;
+  \item \textbf{Social Network Graph Topology Analysis}: Louvain community modularity clustering ($Q \ge 0.45$) on user interaction cascades to isolate polarized echo chambers;
+  \item \textbf{Cascade Virality \& Reach Prediction}: An L2-regularized Ridge Regression model estimating audience diffusion potential based on user authority priors;
+  \item \textbf{Multimodal Media Forensics}: An integrated image verification module assessing synthetic AI-generation markers, reverse-search provenance, and text-image semantic consistency.
+\end{enumerate}
+
+Trained and evaluated on established academic benchmarks---specifically the \textbf{PHEME} dataset of breaking rumor cascades (Zubiaga et al., 2016) and the \textbf{FakeNewsNet (PolitiFact)} repository (Shu et al., 2020)---the proposed system delivers a robust, real-time fact-checking pipeline for journalists, safety analysts, and everyday citizens.
+
+% ==============================================================================
+% SECTION 2: TEAM STRUCTURE & WORKLOAD ALLOCATION
+% ==============================================================================
+\section{Team Structure and Workload Allocation}
+\label{sec:team-structure}
+
+To eliminate single points of failure and ensure equitable workload distribution across all three project milestones (Assignments 1, 2, and 3), the team implements a \textbf{Cross-Functional Vertical Slice Strategy} (PMI, 2021; Kerzner, 2017). Rather than isolating members into single horizontal tiers (e.g., one individual working solely on frontend design), each member takes cross-cutting ownership across Documentation, Machine Learning, and Software Development.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Cross-Functional Team Workload Allocation Across All 3 Assignments}
+  \label{tab:team-workload}
+  \begin{tabularx}{\textwidth}{@{}l L{3.5cm} L{4.4cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Member} & \textbf{Assignment 1: Management} & \textbf{Assignment 2: ML Pipeline} & \textbf{Assignment 3: Full-Stack \& Demo} \\
+    \midrule
+    \textbf{Member 1 (M1)} &
+    Project Charter, Scope Statement, WBS Dictionary, Schedule, CPM Analysis, Risk Plan. &
+    Baseline TF-IDF + Logistic Regression, Baseline Macro F1 Benchmark, Model Serializer. &
+    FastAPI Core REST Engine, Lifespan Model Loader, React Layout Shell, PyTest Suite ($\ge 85$\%). \\
+    \rowcolor{rowAlt}
+    \textbf{Member 2 (M2)} &
+    Architecture Specification, Requirements Engineering, Data Standards, Demo Strategy. &
+    Dataset Acquisition, Unified Regex Preprocessor, DistilBERT Fine-Tuning, INT8 Quantization. &
+    Claim Input Form, Animated Veracity Gauge, Multimodal Result Cards, 7-min Video Demo Lead. \\
+    \textbf{Member 3 (M3)} &
+    UI/UX Mockups (Google Stitch), Nielsen Heuristic Audit, Acceptance Criteria Specs. &
+    PHEME Graph Extraction, Louvain Echo Chamber Clustering, Ridge Spread Regressor. &
+    6 Recharts Analytics Dashboards, D3.js Network Graph, CSV Batch Engine, Export Module. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+This cross-functional structure guarantees that every team member builds operational knowledge of the full machine learning lifecycle and application stack, facilitating seamless peer code reviews, shared debugging, and resilient risk mitigation throughout the 12-week development timeline.
+
+% ==============================================================================
+% SECTION 3: PROJECT REQUIREMENTS SPECIFICATION
+% ==============================================================================
+\section{Project Requirements Specification}
+\label{sec:requirements}
+
+\subsection{Overview \& Requirements Engineering Methodology}
+System requirements for the platform were formulated using an engineering framework grounded in ISO/IEC/IEEE 29148:2018 (Requirements Engineering) and ISO/IEC 25010:2011 (Software Quality Evaluation) (ISO/IEC/IEEE, 2018; ISO/IEC, 2011).
+
+The platform is designed around three key stakeholder personas:
+\begin{enumerate}
+  \item \textbf{Investigative Journalists \& Fact-Checkers}: Require high precision on nuanced political claims, batch processing capabilities, and reproducible audit-trail exports.
+  \item \textbf{General Public / Everyday Users}: Require immediate, intuitive veracity ratings, plain-language confidence explanations, and multimodal media checks.
+  \item \textbf{Trust \& Safety Analysts}: Require network diffusion topology, echo-chamber community metrics, and viral cascade spread projections.
+\end{enumerate}
+
+\subsection{Functional Requirements (FR)}
+Table~\ref{tab:functional-requirements} specifies the functional requirements prioritized using the \textbf{MoSCoW} framework (\emph{Must have, Should have, Could have, Won't have}).
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \caption{Functional Requirements Specification (MoSCoW Prioritized)}
+  \label{tab:functional-requirements}
+  \begin{tabularx}{\textwidth}{@{}C{1.1cm} L{2.2cm} C{0.8cm} Y L{3.1cm} L{2.8cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Req ID} & \textbf{Title \& Priority} & \textbf{Lead} & \textbf{Description \& Algorithmic Logic} & \textbf{Inputs \& Constraints} & \textbf{Expected Outputs} \\
+    \midrule
+    \textbf{FR-01} & \textbf{Text Veracity Classifier}\newline\badgeMust & M2 &
+    Ingests political claims and classifies them as Factual (0) or Misinformation (1) using a fine-tuned, INT8 quantized DistilBERT transformer with calibrated Softmax probabilities. &
+    Raw text string ($3 - 5,000$ chars). Preprocessed for emojis, homoglyphs, camelCase hashtags, and URLs. &
+    Predicted label (\code{"factual"} / \code{"misinfo"}), confidence (0.0--100.0\%), and probability breakdown. \\
+    \rowcolor{rowAlt}
+    \textbf{FR-02} & \textbf{Cascade Virality Regressor}\newline\badgeMust & M3 &
+    Predicts expected audience reach (unique impressions) and assigns a Spread Risk level (\code{Low}, \code{Moderate}, \code{High}) using an L2-regularized Ridge Regression model. &
+    Account follower count ($\ge 0$), verified status (\code{bool}), and claim veracity probability. &
+    Estimated reach integer and discrete risk badge (\code{Low} $<1\text{k}$, \code{Mod} $1\text{k}-10\text{k}$, \code{High} $\ge 10\text{k}$). \\
+    \textbf{FR-03} & \textbf{Echo Chamber Clustering}\newline\badgeShould & M3 &
+    Partitions social interaction networks into polarized user clusters using the Louvain modularity algorithm ($Q \ge 0.45$) on PHEME interaction graphs. &
+    Adjacency matrix of user interactions (retweets/replies) and node metadata. &
+    Community cluster IDs, graph modularity score, and sub-graph topology (top 300 nodes). \\
+    \rowcolor{rowAlt}
+    \textbf{FR-04} & \textbf{Baseline \& Control Test}\newline\badgeMust & M1 &
+    Runs a parallel TF-IDF + Logistic Regression pipeline to empirically demonstrate DistilBERT's contextual superiority on matched-vocabulary claim pairs. &
+    Same preprocessed input string evaluated simultaneously by both models. &
+    Comparative prediction delta and side-by-side metric comparison card. \\
+    \textbf{FR-05} & \textbf{FastAPI REST Service}\newline\badgeMust & M1 &
+    Asynchronous RESTful API managing model lifespan loading, CORS, and Pydantic request/response schema validation. &
+    HTTP JSON requests across 5 endpoints (\code{/predict}, \code{/metrics}, \code{/cascades/stats}, etc.). &
+    Standardized JSON payloads with HTTP status codes (\code{200}, \code{400}, \code{422}, \code{500}). \\
+    \rowcolor{rowAlt}
+    \textbf{FR-06} & \textbf{Visual Analytics Dashboard}\newline\badgeMust & All &
+    Interactive React 18 SPA featuring an animated Framer Motion veracity gauge, dynamic result cards, and $\ge 5$ interactive charts. &
+    REST API JSON data streams. &
+    Real-time animated gauge, Confusion Matrix, Radar chart, Scatter plot, Area timeline, and D3 graph. \\
+    \textbf{FR-07} & \textbf{Batch \& Productivity Tools}\newline\badgeShould & M3 &
+    Power-user tools including batch CSV claim upload (up to 500 rows), audit-trail CSV export, model comparison mode, and persistent light theme. &
+    User-uploaded \code{.csv} files or session history state. &
+    Downloadable RFC 4180 CSV export, tabular batch results, and persistent theme state. \\
+    \rowcolor{rowAlt}
+    \textbf{FR-08} & \textbf{Image Verification Module}\newline\badgeShould & M3 &
+    Evaluates an uploaded image on 3 criteria: (1) AI-generation synthetic score, (2) reverse-image dataset provenance, and (3) text-image semantic consistency. &
+    One \code{.jpg}/\code{.png} image $\le 5\text{MB}$, optional claim text ($1-5,000$ chars). Local dataset search; RAM $< 1.0\text{GB}$. &
+    AI likelihood (0--100\%), provenance summary, spam level, consistency flag, and combined multimodal verdict. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Non-Functional Requirements (NFR)}
+Table~\ref{tab:non-functional-requirements} details the non-functional requirements categorized under the \textbf{ISO/IEC 25010} quality model.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Non-Functional Requirements Specification (ISO/IEC 25010 Categorized)}
+  \label{tab:non-functional-requirements}
+  \begin{tabularx}{\textwidth}{@{}C{1.2cm} L{2.8cm} Y L{3.2cm} C{1.9cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Req ID} & \textbf{Quality Category} & \textbf{Target Quantitative Metric} & \textbf{Verification Method} & \textbf{Traceability} \\
+    \midrule
+    \textbf{NFR-01} & \textbf{Performance \& Latency} &
+    Single-claim inference latency \textbf{$<500\text{ms}$} on Apple Silicon M3; static API routes \textbf{$<100\text{ms}$}; initial frontend load (FCP) \textbf{$<1.5\text{s}$}. &
+    PyTest automated latency benchmark logging 100 sequential requests. &
+    WBS 4.4, 6.1 (M1) \\
+    \rowcolor{rowAlt}
+    \textbf{NFR-02} & \textbf{Memory \& Footprint} &
+    INT8 quantized model artifact \textbf{$<200\text{MB}$} (target $\approx 65-90\text{MB}$); backend operational RAM \textbf{$<1.0\text{GB}$} for local execution. &
+    Process memory profiler logging RSS memory during peak inference load. &
+    WBS 3.5 (M2) \\
+    \textbf{NFR-03} & \textbf{Model Accuracy} &
+    Macro F1-Score \textbf{$\ge 0.75$}, Accuracy \textbf{$\ge 80.0$\%}, ROC-AUC \textbf{$\ge 0.82$} on held-out test split; 100\% pass on Semantic Control Test. &
+    Automated classification report and confusion matrix evaluation script. &
+    WBS 3.2, 6.2 (M2) \\
+    \rowcolor{rowAlt}
+    \textbf{NFR-04} & \textbf{Robustness \& Resilience} &
+    \textbf{100\% graceful error handling}; zero unhandled 500 crashes; HTTP 400 for empty/oversized input ($>5,000$ chars); React Error Boundaries. &
+    Automated negative fuzz testing via PyTest and boundary unit tests. &
+    WBS 4.4 (M1) \\
+    \textbf{NFR-05} & \textbf{Usability \& Responsive} &
+    \textbf{WCAG 2.1 Level AA} compliance (contrast $\ge 4.5:1$); fluid layout across Mobile ($375\text{px}$), Tablet ($768\text{px}$), Desktop ($1280\text{px}+$); $\le 3$ clicks to any feature. &
+    Multi-viewport responsive audit and Nielsen's 10 Heuristics checklist. &
+    WBS 5.1, 6.3 (All) \\
+    \rowcolor{rowAlt}
+    \textbf{NFR-06} & \textbf{Maintainability} &
+    Backend test coverage \textbf{$\ge 85.0$\%}; strict Pydantic type safety; modular architecture with zero circular dependencies. &
+    \code{pytest --cov=app tests/} executing automated test suite. &
+    WBS 4.4 (M1) \\
+    \textbf{NFR-07} & \textbf{Security \& Privacy} &
+    Zero persistent storage of unconsented raw PII; user handle anonymization (\code{@USER}); XSS input sanitization; calibrated probabilistic outputs. &
+    Static security code audit and input sanitization verification suite. &
+    WBS 2.2, 4.2 (M2/M1) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Data Engineering, ML Stack \& Semantic Control Test}
+
+\subsubsection{Dataset Stack}
+To satisfy the rubric requirement for real-world social media data with behavioral features, the platform integrates two benchmark datasets:
+\begin{enumerate}
+  \item \textbf{PHEME Dataset} (Zubiaga et al., 2016): 5,802 conversational threads (105,348 tweets) across 5 breaking political/crisis events (\emph{Ferguson unrest, Ottawa Parliament shooting, Putin disappearance, Charlie Hebdo, Sydney Siege}), providing retweet cascades and user metadata.
+  \item \textbf{FakeNewsNet (PolitiFact)} (Shu et al., 2020): 23,196 political claims fact-checked by PolitiFact with temporal social diffusion timelines.
+\end{enumerate}
+
+\subsubsection{Preprocessing Engine Pipeline (\code{preprocessor.py})}
+Raw social media text undergoes 6 sequential transformation steps:
+\begin{enumerate}
+  \item \textbf{Unicode Normalization}: NFKD normalization neutralizes Cyrillic/homoglyph lookalikes (e.g., Cyrillic lookalikes $\to$ standard Latin characters).
+  \item \textbf{Emoji Stripping}: Eliminates pictographs via regex pattern matching while preserving punctuation sentiment cues.
+  \item \textbf{Hashtag Splitting}: Deconstructs camelCase political tags (\code{\#StopTheSteal} $\to$ \code{Stop The Steal}).
+  \item \textbf{Token Masking}: Replaces URLs with \code{[URL]} and user handles with \code{@USER}.
+  \item \textbf{Punctuation Compression}: Collapses sensational duplicate marks (\code{???} $\to$ \code{?}, \code{!!!} $\to$ \code{!}).
+  \item \textbf{Length Normalization}: Truncates sequence length to 256 tokens for optimal transformer throughput.
+\end{enumerate}
+
+\subsubsection{Semantic "Control Test" Benchmark}
+To prove that the fine-tuned DistilBERT transformer evaluates contextual semantics rather than relying on superficial keyword matching, the system must pass the contrastive matched-vocabulary benchmark in Table~\ref{tab:control-test}.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Semantic Control Test Benchmark (Contrastive Matched-Vocabulary Pairs)}
+  \label{tab:control-test}
+  \begin{tabularx}{\textwidth}{@{}C{1.2cm} Y C{2.6cm} L{3.3cm} L{3.0cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Test Case} & \textbf{Claim Text} & \textbf{Ground Truth} & \textbf{Expected DistilBERT (Context-Aware)} & \textbf{Expected TF-IDF (Keyword-Biased)} \\
+    \midrule
+    \textbf{Pair 1A} &
+    \emph{"BREAKING: Leaked documents confirm election officials destroyed 50,000 valid ballots overnight in swing state. \#StopTheSteal"} &
+    Misinformation &
+    Misinformation ($\ge 90$\%) &
+    Misinformation (High) \\
+    \rowcolor{rowAlt}
+    \textbf{Pair 1B} &
+    \emph{"Election officials confirmed all 50,000 ballots were securely audited and counted following standard legal verification procedures."} &
+    Factual &
+    Factual ($\ge 85$\%) &
+    Misinformation \newline\textcolor{mustRedText}{\textbf{(False Positive!)}} \\
+    \textbf{Pair 2A} &
+    \emph{"Ferguson police department caught staging fake evidence to frame protesters during evening curfew. Media blacked out!"} &
+    Misinformation &
+    Misinformation ($\ge 88$\%) &
+    Misinformation (High) \\
+    \rowcolor{rowAlt}
+    \textbf{Pair 2B} &
+    \emph{"Department of Justice independent report concluded Ferguson police operated within documented curfew protocols during protests."} &
+    Factual &
+    Factual ($\ge 85$\%) &
+    Misinformation \newline\textcolor{mustRedText}{\textbf{(False Positive!)}} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ==============================================================================
+% SECTION 4: SCOPE MANAGEMENT & WBS
+% ==============================================================================
+\section{Scope Management and Work Breakdown Structure}
+\label{sec:scope-management}
+
+\subsection{Project Scope Statement \& Boundaries}
+Scope management for MisinfoShield Analytics follows the \textbf{PMBOK Guide (7th Edition)} standard (PMI, 2021). The scope baseline defines explicit functional boundaries across all three assessment milestones to prevent uncontrolled scope expansion.
+
+\subsubsection{Product Scope vs. Project Scope}
+\begin{itemize}
+  \item \textbf{Product Scope}: A full-stack web analytics platform integrating a fine-tuned, INT8 quantized DistilBERT transformer classifier, an L2-regularized Ridge Regression cascade spread model, a Louvain graph clustering module, a FastAPI backend service, and a responsive React 18 dashboard with $\ge 5$ interactive charts and a D3.js force-directed network graph.
+  \item \textbf{Project Scope}: The complete lifecycle processes required to deliver the platform---dataset acquisition and cleaning, exploratory data analysis, ML model fine-tuning and evaluation, REST API development, frontend component engineering, automated testing, quality audits, project documentation, and a $\le 7$-minute demonstration video.
+\end{itemize}
+
+\subsubsection{Scope Boundaries Matrix}
+Table~\ref{tab:scope-boundaries} defines in-scope deliverables versus explicit out-of-scope items to guarantee technical feasibility within the 12-week timeframe.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Project In-Scope vs. Out-of-Scope Boundary Matrix}
+  \label{tab:scope-boundaries}
+  \begin{tabularx}{\textwidth}{@{}L{2.5cm} Y Y Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Dimension} & \textbf{In-Scope Deliverables} & \textbf{Out-of-Scope Exclusions} & \textbf{Rationale \& Risk Mitigation} \\
+    \midrule
+    \textbf{Datasets} &
+    Ingestion \& cleaning of \textbf{PHEME} political event cascades and \textbf{FakeNewsNet (PolitiFact)} news items. &
+    Live Twitter/X API scraping during demonstration or production execution. &
+    Twitter/X API rate limits, authentication fragility, and academic evaluation repeatability. \\
+    \rowcolor{rowAlt}
+    \textbf{Machine Learning} &
+    4 ML method types: DistilBERT (Transformer), TF-IDF + LogReg (Baseline), Louvain (Graph), Ridge (Spread). PyTorch INT8 quantization ($<200\text{MB}$). &
+    Training multi-billion parameter LLMs (e.g., LLaMA-70B, GPT-4) or large-scale multi-modal vision models. &
+    Memory footprint ceiling ($<1.0\text{GB}$ RAM) and local Apple Silicon M3 hardware constraints. \\
+    \textbf{Backend API} &
+    Monolithic asynchronous \textbf{FastAPI} service with 5 RESTful endpoints, CORS middleware, and lifespan model loader. &
+    Multi-container microservices, Kubernetes orchestration, or distributed Kafka streaming. &
+    Monolithic architecture eliminates network latency overhead and container deployment failure modes during grading. \\
+    \rowcolor{rowAlt}
+    \textbf{Frontend UI/UX} &
+    Single-page React 18 + Vite + Tailwind CSS app; $\ge 5$ Recharts types; D3.js network graph; light theme; batch CSV analysis; CSV history export. &
+    Native mobile apps (iOS Swift, Android Kotlin) or complex multi-tenant RBAC systems. &
+    Responsive web design ($375\text{px}-1280\text{px}+$) satisfies mobile evaluation without native app compilation overhead. \\
+    \textbf{Testing \& QA} &
+    PyTest automated test suite ($\ge 85$\% coverage), Semantic Control Test validation, and multi-device responsive audits. &
+    Enterprise load testing ($>10,000$ concurrent users) or external penetration testing audits. &
+    Unit assessment focuses on functional correctness and model veracity rather than cloud scalability. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Work Breakdown Structure (WBS)}
+The Work Breakdown Structure follows the \textbf{100\% Rule} (PMI, 2021), decomposing all project deliverables into a 3-level hierarchy across 6 core work packages.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.98\textwidth, height=0.32\textheight, keepaspectratio]{image6.png}
+  \caption{Work Breakdown Structure (WBS) 3-Level Decomposition Hierarchy}
+  \label{fig:wbs}
+\end{figure}
+
+\subsection{Detailed WBS Dictionary}
+Table~\ref{tab:wbs-dictionary} provides the comprehensive WBS Dictionary, defining work package scopes, ownership, deliverables, acceptance criteria, estimated hours, and dependency chains.
+
+\begingroup
+\scriptsize
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}C{0.7cm} L{1.8cm} C{0.6cm} L{5.3cm} L{3.8cm} C{0.7cm} C{0.8cm}@{}}
+  \caption{Comprehensive WBS Dictionary Specification} \label{tab:wbs-dictionary} \\
+  \toprule
+  \rowcolor{headerBg}
+  \textbf{WBS} & \textbf{Work Package} & \textbf{Lead} & \textbf{Scope \& Technical Description} & \textbf{Deliverable \& Acceptance Criteria} & \textbf{Hours} & \textbf{Pred.} \\
+  \midrule
+  \endfirsthead
+
+  \toprule
+  \rowcolor{headerBg}
+  \textbf{WBS} & \textbf{Work Package} & \textbf{Lead} & \textbf{Scope \& Technical Description} & \textbf{Deliverable \& Acceptance Criteria} & \textbf{Hours} & \textbf{Pred.} \\
+  \midrule
+  \endhead
+
+  \midrule
+  \multicolumn{7}{r}{\textit{Continued on next page\dots}} \\
+  \bottomrule
+  \endfoot
+
+  \bottomrule
+  \endlastfoot
+
+  \textbf{1.1} & Scope \& Charter & M1 & Author project charter, problem context, in/out of scope matrix, and stakeholder profiles. & Section 1, 2, 4 of A1; verified by all members. & 4h & None \\
+  \rowcolor{rowAlt}
+  \textbf{1.2} & Schedule \& CPM & M2/M1 & Construct 3-level WBS, WBS Dictionary, Gantt schedule, and Critical Path Method (CPM) network. & Section 4 \& 5 of A1; 100\% Rule compliance. & 6h & 1.1 \\
+  \textbf{1.3} & Risk Register & M1 & Identify technical, model, schedule, and team risks; calculate 5x5 severity; draft mitigations. & Section 6 of A1; $\ge 8$ categorized risks. & 4h & 1.1 \\
+  \rowcolor{rowAlt}
+  \textbf{1.4} & Governance & All & Establish communication protocols, Git workflow, quality gates, and maintain 4 meeting logs. & Section 7, 10 \& Appendix A; signed meeting logs. & 4h & 1.1, 1.2 \\
+  \textbf{2.1} & Dataset Ingestion & M2 & Acquire, inspect, and parse PHEME political threads and FakeNewsNet PolitiFact files into uniform schema. & \code{/backend/data/}; raw files loaded cleanly. & 3h & 1.1 \\
+  \rowcolor{rowAlt}
+  \textbf{2.2} & Preprocessor & M2 & Implement \code{preprocessor.py} for emoji removal, NFKD normalization, hashtag splitting, and URL masking. & \code{preprocessor.py}; 100\% regex unit test pass. & 4h & 2.1 \\
+  \textbf{2.3} & EDA \& Balancing & M3 & Analyze class distributions, tweet lengths, vocabulary frequencies; compute inverse-class loss weights. & \code{01\_eda.ipynb}; class balance ratios computed. & 4h & 2.2 \\
+  \rowcolor{rowAlt}
+  \textbf{3.1} & Baseline ML & M1 & Train TF-IDF vectorizer ($10\text{k}$ features, n-grams $1-2$) + Logistic Regression classifier on political text. & \texttt{\scriptsize tfidf\_logreg.joblib}; Baseline Macro F1 logged. & 4h & 2.2, 2.3 \\
+  \textbf{3.2} & DistilBERT Fine-Tune & M2 & Fine-tune \texttt{\scriptsize distilbert-base} with PyTorch MPS, weighted Cross-Entropy, and AdamW optimizer. & \code{/backend/models/}; F1 $\ge 0.75$, Acc $\ge 80$\%. & 8h & 2.2, 2.3 \\
+  \rowcolor{rowAlt}
+  \textbf{3.3} & Graph Clustering & M3 & Extract user interaction graph from PHEME threads; run Louvain modularity algorithm ($Q \ge 0.45$). & \texttt{\scriptsize community\_clusters.joblib}; $Q \ge 0.45$. & 5h & 2.1 \\
+  \textbf{3.4} & Virality Regressor & M3 & Train L2-regularized Ridge Regression model on user followers, verified status, and veracity scores. & \texttt{\scriptsize spread\_regressor.joblib}; $R^2 \ge 0.55$, MAE low. & 5h & 2.1, 2.3 \\
+  \rowcolor{rowAlt}
+  \textbf{3.5} & Quantization & M2 & Quantize DistilBERT Linear layers to \code{qint8} via PyTorch dynamic quantization; benchmark latency. & \texttt{\scriptsize distilbert\_quantized.pt}; Size $<200\text{MB}$. & 3h & 3.2 \\
+  \textbf{4.1} & FastAPI Scaffold & M1 & Scaffold FastAPI app with async lifespan model loader, CORS middleware, and global exception handlers. & \code{backend/app/main.py}; clean startup/shutdown. & 4h & 3.5 \\
+  \rowcolor{rowAlt}
+  \textbf{4.2} & Prediction Routes & M1 & Implement \code{POST /api/predict} route executing preprocessor, DistilBERT inference, and spread regressor. & \code{routes/predict.py}; Latency $<500\text{ms}$. & 5h & 4.1, 3.4, 3.5 \\
+  \textbf{4.3} & Metrics Routes & M3 & Implement \code{GET /api/metrics}, \code{GET /api/cascades/stats}, and \code{GET /api/cascades/network} routes. & \code{routes/metrics.py}; valid JSON metrics. & 4h & 4.1, 3.3 \\
+  \rowcolor{rowAlt}
+  \textbf{4.4} & Pytest Test Suite & M1 & Author automated test suite covering positive inputs, edge cases (empty text, $>5\text{k}$ chars), and status codes. & \code{backend/tests/}; Coverage $\ge 85$\%, zero 500s. & 4h & 4.2, 4.3 \\
+  \textbf{5.1} & React Scaffold & M1 & Initialize Vite + React 18 project with Tailwind CSS, Lucide icons, light theme provider, and layout shell. & \code{frontend/src/}; clean build, responsive shell. & 4h & None \\
+  \rowcolor{rowAlt}
+  \textbf{5.2} & Claim Input UI & M2 & Build claim textarea (character counter, presets), social metadata sliders, and animated gauge card. & \code{InputForm.jsx}, \code{ResultCard.jsx}; Framer Motion. & 6h & 5.1, 4.2 \\
+  \textbf{5.3} & Recharts Suite & M3 & Develop Confusion Matrix, Radar chart, Scatter virality plot, Donut score, and Brush Timeline Area chart. & \code{Charts/*.jsx}; 5+ interactive chart types. & 7h & 5.1, 4.3 \\
+  \rowcolor{rowAlt}
+  \textbf{5.4} & D3 Network Graph & M3 & Implement interactive D3.js network graph displaying PHEME user clusters with drag, zoom, and hover details. & \code{NetworkGraph.jsx}; 60fps on 300 nodes. & 6h & 5.1, 4.3 \\
+  \textbf{5.5} & Batch \& Export UI & M3 & Build batch CSV claim uploader, audit-trail CSV history export, and side-by-side comparison view. & \code{BatchUpload.jsx}, \code{Export.jsx}; RFC 4180 CSV. & 5h & 5.2, 5.3 \\
+  \rowcolor{rowAlt}
+  \textbf{6.1} & Full Integration & All & Connect frontend Axios client to FastAPI backend; test end-to-end data flow, error toasts, and loading states. & Integrated Local App; full user flow verified. & 4h & 4.4, 5.5 \\
+  \textbf{6.2} & Control Benchmark & All & Execute contrastive matched-vocabulary benchmark (Real vs. Fake) across DistilBERT and TF-IDF pipelines. & Control Test Report; DistilBERT passes 4 pairs. & 2h & 6.1 \\
+  \rowcolor{rowAlt}
+  \textbf{6.3} & Responsive Audit & M1/M2 & Verify fluid layouts, touch targets, and contrast ratios across Mobile ($375\text{px}$), Tablet ($768\text{px}$), Desktop ($1280\text{px}$). & Responsive Audit Log; WCAG 2.1 AA compliant. & 2h & 6.1 \\
+  \textbf{6.4} & Demo Video & M2/All & Script, record, and edit $\le 7$-minute HD video walkthrough showcasing team roles, technical decisions, and UI. & Final \code{.mp4} + YouTube URL; $\le 7$ min runtime. & 6h & 6.2, 6.3 \\
+\end{longtable}
+\endgroup
+
+\subsection{Scope Validation \& Change Control Governance}
+To preserve project integrity and prevent uncontrolled expansion (scope creep), MisinfoShield Analytics enforces formal scope baseline governance.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.98\textwidth, height=0.30\textheight, keepaspectratio]{image3.png}
+  \caption{Scope Baseline Validation and Change Control Governance Workflow}
+  \label{fig:change-control}
+\end{figure}
+
+\subsubsection{Scope Baseline Freezing}
+Upon completion of Milestone 1 (Assignment 1), the project scope baseline (Scope Statement, WBS, and WBS Dictionary) is formally frozen. Any subsequent additions must undergo the formal 4-step Change Control Procedure.
+
+\subsubsection{Change Control Procedure}
+\begin{enumerate}
+  \item \textbf{Change Request (CR) Logging}: The requesting team member submits a written CR specifying technical motivation, affected WBS work packages, and estimated implementation hours.
+  \item \textbf{Impact Assessment}: The team evaluates the CR against the Critical Path ($2.1 \to 2.2 \to 3.2 \to 3.5 \to 4.1 \to 4.2 \to 6.1 \to 6.2 \to 6.4$) and the memory budget ($< 1.0\text{GB}$ RAM).
+  \item \textbf{Consensus Voting}: All three team members must approve the change unanimously ($3/3$ votes). If consensus fails, the default action is rejection.
+  \item \textbf{Baseline Synchronization}: Approved changes trigger formal updates to the WBS Dictionary, Gantt chart, and task backlog prior to code merging via peer-reviewed Git Pull Requests.
+\end{enumerate}
+
+\subsubsection{Scope Creep Mitigation Strategies}
+\begin{itemize}
+  \item \textbf{Strict Adherence to MoSCoW Prioritization}: "Won't Have" items (live Twitter scraping, native mobile apps, Kubernetes orchestration) are strictly blocked from sprint backlogs.
+  \item \textbf{Vertical Slice Delivery}: Each work package delivers a testable, end-to-end increment rather than broad, unfinished architectural layers.
+  \item \textbf{Definition of Done (DoD)}: A work package is complete only when it satisfies all acceptance criteria in Table~\ref{tab:wbs-dictionary}, passes automated tests, and adheres to code quality gates.
+\end{itemize}
+
+% ==============================================================================
+% SECTION 5: TIME MANAGEMENT & SCHEDULING
+% ==============================================================================
+\section{Time Management and Scheduling}
+\label{sec:time-management}
+
+\subsection{Project Schedule \& Milestones}
+The 12-week development execution plan is organized across three primary milestones aligned with unit assessment dates:
+\begin{itemize}
+  \item \textbf{Milestone 1 (Week 4 --- Oct 12)}: Assignment 1 Submission (Comprehensive Project Management Plan, Meeting Minutes Log, Signed Contribution Form).
+  \item \textbf{Milestone 2 (Week 8 --- Nov 09)}: Assignment 2 Submission (Preprocessed Datasets, Trained ML Models, INT8 Quantized Artifacts, Model Evaluation Report).
+  \item \textbf{Milestone 3 (Week 12 --- Dec 07)}: Assignment 3 Submission (FastAPI Backend, React Dashboard Frontend, $\ge 5$ Interactive Charts, D3 Network Graph, $\le 7$-Minute Video Demo).
+\end{itemize}
+
+\subsection{Development Schedule (Gantt Chart Structure)}
+Project tasks are organized sequentially across three workstreams: Planning \& Design (A1), Machine Learning Pipeline (A2), and Full-Stack Application \& Demo (A3). Dependencies rely on explicit milestone handoffs to ensure build stability.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.98\textwidth, height=0.32\textheight, keepaspectratio]{image9.png}
+  \caption{12-Week Development Schedule and Milestone Gantt Chart}
+  \label{fig:gantt}
+\end{figure}
+
+\subsection{Critical Path Method (CPM) Analysis}
+The project's critical path represents the longest sequence of dependent activities, where any delay will directly postpone project completion (Kerzner, 2017):
+
+\begin{tcolorbox}[academicbox, title=\textbf{Critical Path Sequence (\textbf{100\%} Zero Float)}]
+  \centering
+  \textbf{Task 2.1} $\to$ \textbf{Task 2.2} $\to$ \textbf{Task 3.2} $\to$ \textbf{Task 3.5} $\to$ \textbf{Task 4.1} $\to$ \textbf{Task 4.2} $\to$ \textbf{Task 6.1} $\to$ \textbf{Task 6.2} $\to$ \textbf{Task 6.4}
+\end{tcolorbox}
+
+\begin{itemize}
+  \item \textbf{Tasks 2.1 \& 2.2 (Dataset Acquisition \& Preprocessing)}: Raw PHEME/FakeNewsNet data ingestion blocks all downstream ML training and graph feature extraction.
+  \item \textbf{Task 3.2 (DistilBERT Fine-Tuning)}: Requires the highest computational resource allocation and longest validation cycle for primary model training.
+  \item \textbf{Task 3.5 (INT8 Quantization)}: Optimizes artifact footprint to under $200\text{MB}$ before backend memory allocation and Docker image sizing can be finalized.
+  \item \textbf{Tasks 4.1 \& 4.2 (FastAPI Lifespan Loader \& \code{/predict} Route)}: Establishes the core backend inference pipeline necessary for frontend data binding.
+  \item \textbf{Tasks 6.1 \& 6.2 (Front-Backend Integration \& Control Testing)}: Validates end-to-end semantic veracity classification and side-by-side baseline contrast.
+  \item \textbf{Task 6.4 (7-Minute Video Demonstration)}: Final deliverable showcasing full functionality across desktop, tablet, and mobile interfaces.
+\end{itemize}
+
+% ==============================================================================
+% SECTION 6: RISK MANAGEMENT PLAN
+% ==============================================================================
+\section{Risk Management Plan}
+\label{sec:risk-management}
+
+\subsection{Risk Assessment Framework}
+Risks are evaluated using a standard $5 \times 5$ Likelihood ($L$) vs. Consequence/Impact ($I$) matrix, yielding Severity Scores ($S = L \times I$):
+\begin{itemize}
+  \item \textbf{High / Critical Risk ($S \ge 15$)}: Requires immediate proactive mitigation, dedicated fallback mechanisms, and continuous monitoring.
+  \item \textbf{Medium Risk ($S = 8 - 14$)}: Requires defined contingency fallbacks and weekly milestone reviews.
+  \item \textbf{Low Risk ($S < 8$)}: Accepted risk tracked via standard project meeting logs.
+\end{itemize}
+
+\subsection{Comprehensive 8-Risk Register}
+Table~\ref{tab:risk-register} details the comprehensive risk register spanning data, model, backend, frontend, team, and quality dimensions.
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \caption{Comprehensive 8-Risk Register and Mitigation Matrix}
+  \label{tab:risk-register}
+  \begin{tabularx}{\textwidth}{@{}C{0.8cm} C{1.2cm} Y C{0.5cm} C{0.5cm} C{1.3cm} Y Y C{0.7cm} C{1.0cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{ID} & \textbf{Category} & \textbf{Risk Description} & \textbf{L} & \textbf{I} & \textbf{Severity} & \textbf{Proactive Mitigation Strategy} & \textbf{Contingency / Fallback Plan} & \textbf{Lead} & \textbf{Status} \\
+    \midrule
+    \textbf{R-01} & Data & Corrupt JSON threads or schema drift in PHEME dataset. & 2 & 4 & 8~\badgeMed & Build unified schema converter in \code{preprocessor.py} with validation checks. & Fallback to PolitiFact CSV fact-checks and pre-structured PyTorch Geometric graph. & M2 & Open \\
+    \rowcolor{rowAlt}
+    \textbf{R-02} & Model & DistilBERT Macro F1 $< 0.75$ due to class imbalance. & 3 & 5 & 15~\badgeHigh & Implement weighted cross-entropy loss and dynamic threshold tuning. & Increase training epochs ($3 \to 5$), add focal loss, or fine-tune DistilRoBERTa. & M2 & Open \\
+    \textbf{R-03} & Model & INT8 dynamic quantization drops accuracy by $>3$\%. & 2 & 4 & 8~\badgeMed & Perform layer-by-layer quantization benchmarking against test partition. & Adopt FP16 half-precision weights or prune redundant attention heads. & M2 & Open \\
+    \rowcolor{rowAlt}
+    \textbf{R-04} & UI/UX & D3 Force-Directed Graph lags on large node counts. & 3 & 3 & 9~\badgeMed & Limit rendered nodes to top 300 influencers; run simulation in Web Worker. & Implement paginated subgraph filtering and SVG canvas fallback. & M3 & Open \\
+    \textbf{R-05} & Backend & Model RAM footprint exceeds local $1.0\text{GB}$ threshold. & 2 & 4 & 8~\badgeMed & Quantize model to $<200\text{MB}$; unload training dependencies during inference. & Deploy lightweight ONNX Runtime execution engine. & M1 & Open \\
+    \rowcolor{rowAlt}
+    \textbf{R-06} & Team & API contract mismatch between FastAPI and React UI. & 3 & 4 & 12~\badgeMed & Define strict Pydantic schemas and OpenAPI JSON specifications in Week 5. & Run mock API servers via MSW (Mock Service Worker) during frontend development. & M1/M2 & Open \\
+    \textbf{R-07} & Team & Unplanned team member illness or unavailability. & 2 & 4 & 8~\badgeMed & Adopt cross-functional slices so each member understands adjacent codebases. & Redistribute remaining tasks across other 2 members; re-scope optional features. & All & Open \\
+    \rowcolor{rowAlt}
+    \textbf{R-08} & Quality & Model fails Semantic Control Test on matched vocabulary. & 3 & 5 & 15~\badgeHigh & Train with adversarial hard negatives; incorporate domain contextual tokens. & Fine-tune attention heads specifically on syntax structure and certainty adverbs. & M2 & Open \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ==============================================================================
+% SECTION 7: MONITORING & CHANGE CONTROL
+% ==============================================================================
+\section{Monitoring, Change Control and Quality Assurance}
+\label{sec:monitoring}
+
+\subsection{Quality Assurance Gates}
+System quality is maintained across three mandatory quality gates prior to deliverable handoffs:
+\begin{itemize}
+  \item \textbf{Gate 1 (Data Quality Gate)}: Sanitize all unhandled Unicode homoglyphs, empty fields, or unmasked URLs permitted in cleaned training partitions.
+  \item \textbf{Gate 2 (Model Benchmark Gate)}: DistilBERT classifier must achieve Macro F1 $\ge 0.75$, Accuracy $\ge 80.0$\%, and ROC-AUC $\ge 0.82$ on the held-out test partition before export.
+  \item \textbf{Gate 3 (Code Quality Gate)}: 100\% pass rate on the PyTest test suite ($\ge 85$\% line coverage) and zero ESLint errors on all Git Pull Requests.
+\end{itemize}
+
+\subsection{Change Control Procedure}
+To prevent uncontrolled scope creep while accommodating technical refinements, any scope modifications after Milestone 1 must follow a strict 4-step workflow:
+\begin{enumerate}
+  \item \textbf{Change Request (CR) Logging}: The requesting member submits a written CR specifying the technical justification, impacted WBS work packages, and estimated implementation hours.
+  \item \textbf{Impact Assessment}: The team evaluates the proposed change against the Critical Path ($2.1 \to 2.2 \to 3.2 \to 3.5 \to 4.1 \to 4.2 \to 6.1 \to 6.2 \to 6.4$) and the memory overhead limit (under $1.0\text{GB}$ of RAM).
+  \item \textbf{Consensus Voting}: Unanimous approval ($3/3$ votes) is required to adopt a change. Disapproved requests are formally archived without modification to the baseline.
+  \item \textbf{Baseline Synchronization}: Approved changes trigger formal updates to the WBS Dictionary, Gantt chart, and task backlog prior to code merging via peer-reviewed Git Pull Requests.
+\end{enumerate}
+
+% ==============================================================================
+% SECTION 8: CLOSURE & ACCEPTANCE PLAN
+% ==============================================================================
+\section{Closure and Acceptance Plan}
+\label{sec:closure}
+
+\subsection{Overview}
+The closure phase ensures that all deliverables match the functional and non-functional specifications defined in Section~\ref{sec:requirements}. Rather than deferring acceptance testing to the final week, each milestone concludes with an explicit verification gate: Milestone 1 (Document sign-off), Milestone 2 (Model sign-off), and Milestone 3 (Full-Stack system acceptance). This aligns with the Closing Process Group in the PMBOK Guide (PMI, 2021).
+
+\subsection{Acceptance Criteria Matrix}
+Table~\ref{tab:acceptance-criteria} links every acceptance criterion directly to requirement IDs from Tables~\ref{tab:functional-requirements} and~\ref{tab:non-functional-requirements}.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{System Acceptance Criteria Matrix}
+  \label{tab:acceptance-criteria}
+  \begin{tabularx}{\textwidth}{@{}C{1.1cm} Y C{2.2cm} L{3.5cm} C{0.8cm} C{0.8cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{ID} & \textbf{Acceptance Criterion (Target Metric)} & \textbf{Linked Req.} & \textbf{Verification Method} & \textbf{Lead} & \textbf{Due} \\
+    \midrule
+    \textbf{AC-01} & Macro F1 $\ge 0.75$, accuracy $\ge 80$\%, ROC-AUC $\ge 0.82$ on held-out test split. & FR-01, NFR-03 & Automated evaluation script \& classification report. & M2 & A2 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-02} & Semantic Control Test: all 4 pairs in Table~\ref{tab:control-test} classified correctly by DistilBERT. & FR-04, NFR-03 & Manual verification run following Section~\ref{sec:control-procedure}. & M2, M3 & A3 \\
+    \textbf{AC-03} & TF-IDF + LogReg baseline trained and exported, with side-by-side comparison. & FR-04 & Notebook 03 output and compare-mode screenshot. & M1 & A2 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-04} & Louvain clustering reaches modularity $Q \ge 0.45$ and cluster IDs exported for top 300 nodes. & FR-03 & Notebook 06 output and graph data validator. & M3 & A2 \\
+    \textbf{AC-05} & Ridge regressor returns expected reach and risk badge (\code{Low}, \code{Mod}, \code{High}); $R^2 \ge 0.55$. & FR-02 & Notebook 07 and API schema test. & M3 & A2/A3 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-06} & Quantized model $< 200\text{MB}$ and backend operational RAM $< 1.0\text{GB}$. & NFR-02 & File size check and process memory profiler. & M2 & A2/A3 \\
+    \textbf{AC-07} & Single-claim inference $< 500\text{ms}$ and static routes $< 100\text{ms}$ on M3. & NFR-01 & PyTest latency benchmark logging 100 requests. & M1 & A3 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-08} & All 5 endpoints return correct HTTP status codes (\code{200}, \code{400}, \code{422}), zero 500s. & FR-05, NFR-04 & PyTest negative and boundary tests. & M1 & A3 \\
+    \textbf{AC-09} & Backend test coverage $\ge 85.0$\%. & NFR-06 & \code{pytest --cov=app tests/} execution. & M1 & A3 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-10} & At least 5 interactive chart types plus D3 network graph, with tooltips and zoom. & FR-06 & Interactive UI inspection checklist. & M3 & A3 \\
+    \textbf{AC-11} & CSV export, batch upload (up to 500 rows), comparison mode, and light theme operational. & FR-07 & Manual functional walkthrough test. & M3 & A3 \\
+    \rowcolor{rowAlt}
+    \textbf{AC-12} & Responsive layout at $375\text{px}$, $768\text{px}$, $1280\text{px}$; contrast $\ge 4.5:1$; $\le 3$ clicks to any feature. & NFR-05 & Multi-viewport audit and Nielsen checklist. & M2, M3 & A3 \\
+    \textbf{AC-13} & Demo video $\le 7$ minutes, showcasing all three members and full feature set. & Unit Spec & Timestamped video recording audit. & M2 & A3 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Semantic Control Test Procedure}
+\label{sec:control-procedure}
+The Control Test is the critical acceptance check confirming that the model evaluates linguistic context rather than keyword bias:
+\begin{enumerate}
+  \item Ingest the 4 contrastive claim pairs from Table~\ref{tab:control-test} verbatim into the prediction pipeline.
+  \item Transmit each claim through \code{POST /api/predict} for DistilBERT and through the TF-IDF baseline in comparison mode.
+  \item Record the predicted label and confidence into Table~\ref{tab:control-log}, archiving UI screenshot evidence.
+  \item DistilBERT must correctly classify all 4 claims, achieving confidence $\ge 90$\% (1A), $\ge 85$\% (1B), $\ge 88$\% (2A), and $\ge 85$\% (2B).
+  \item Concurrently verify that the TF-IDF baseline misclassifies Pairs 1B and 2B as false positives, empirically validating the necessity of contextual transformer representations.
+\end{enumerate}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Control Test Evidence Log (Executed in Assignment 3)}
+  \label{tab:control-log}
+  \begin{tabularx}{\textwidth}{@{}C{1.2cm} L{3.0cm} Y Y C{1.8cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Pair} & \textbf{Ground Truth} & \textbf{DistilBERT Label / Conf.} & \textbf{TF-IDF Label / Conf.} & \textbf{Pass / Fail} \\
+    \midrule
+    \textbf{1A} & Misinformation & Misinformation ($\ge 90$\%) & Misinformation (High) & Pending (A3) \\
+    \rowcolor{rowAlt}
+    \textbf{1B} & Factual & Factual ($\ge 85$\%) & Misinformation \textcolor{mustRedText}{\textbf{(False Pos.)}} & Pending (A3) \\
+    \textbf{2A} & Misinformation & Misinformation ($\ge 88$\%) & Misinformation (High) & Pending (A3) \\
+    \rowcolor{rowAlt}
+    \textbf{2B} & Factual & Factual ($\ge 85$\%) & Misinformation \textcolor{mustRedText}{\textbf{(False Pos.)}} & Pending (A3) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Acceptance Decision and Sign-off}
+At the end of each assignment milestone, task leads verify their deliverables against Table~\ref{tab:acceptance-criteria}. Cross-verification is enforced: at least one peer member must independently validate every completed deliverable. Final acceptance requires 100\% sign-off on all \badgeMust\ criteria.
+
+\subsection{Handover and Project Archive}
+To ensure reproducibility for academic markers and future researchers, the final submission package comprises:
+\begin{itemize}
+  \item Git repository tagged \code{v1.0} with a standalone setup and execution README;
+  \item Exact dependency manifests (\code{requirements.txt}, \code{package.json}) and serialized model artifacts;
+  \item Jupyter Notebooks (\code{01\_eda.ipynb} through \code{07\_ridge\_spread.ipynb}) with retained execution cell outputs;
+  \item PyTest automated test reports, completed Control Test logs, and the YouTube demo video link;
+  \item Final documentation deliverables and signed Group Assessment Contribution Forms.
+\end{itemize}
+
+\subsection{Post-Project Review}
+Within three days of final submission, a formal 45-minute retrospective meeting will be conducted to review: (1) planned vs. actual effort hours, (2) technical successes and obstacles, and (3) documented lessons learned for future engineering projects.
+
+% ==============================================================================
+% SECTION 9: PROJECT DESIGN & UI/UX PROTOTYPE
+% ==============================================================================
+\section{Project Design and UI/UX Prototype}
+\label{sec:design-uiux}
+
+\subsection{Design Approach \& Methodology}
+The interface prototype demonstrates how MisinfoShield Analytics operates across its core user personas. Designed around the three primary user workflows, the interface provides targeted investigative tools: the \textbf{Dashboard} answers \emph{"Can I trust this claim or image?"}, the \textbf{Analytics} view answers \emph{"How robust and accurate are the underlying models?"}, and the \textbf{Network} view answers \emph{"Who is propagating this rumor, and within which echo chambers?"}.
+
+High-fidelity prototypes were designed using Google Stitch based on custom UI component specifications and audited against Swinburne design guidelines. In response to formative tutor feedback:
+\begin{enumerate}
+  \item The interface adopts a clean, high-contrast \textbf{light theme} optimized for daytime newsroom and editorial readability.
+  \item The dashboard extends beyond text-only checks to support comprehensive \textbf{multimodal image verification} (FR-08), analyzing synthetic AI markers, provenance history, and semantic consistency.
+\end{enumerate}
+
+\subsection{Design System Specification}
+Table~\ref{tab:design-system} summarizes the unified design tokens and component standards implemented across all dashboard screens.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{UI/UX Design System Specifications}
+  \label{tab:design-system}
+  \begin{tabularx}{\textwidth}{@{}L{2.8cm} Y Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Design Element} & \textbf{Specification / Choice} & \textbf{Design Rationale} \\
+    \midrule
+    \textbf{Layout Architecture} &
+    Left sidebar navigation (Dashboard, Analytics, Network, About); bottom tab bar on mobile; breadcrumb header. &
+    Guarantees that every core view is reachable in $\le 3$ clicks, satisfying NFR-05. \\
+    \rowcolor{rowAlt}
+    \textbf{Color Semantics} &
+    Green (\code{\#16A34A}) = Factual; Red (\code{\#DC2626}) = Misinformation / High Risk; Amber (\code{\#D97706}) = Moderate; Indigo (\code{\#4F46E5}) = Active. &
+    Leverages universal mental models; semantic color coding is always reinforced with explicit text labels (WCAG AA). \\
+    \textbf{Background \& Cards} &
+    Near-white canvas (\code{\#F8FAFC}), crisp white container cards (\code{\#FFFFFF}) with thin borders (\code{\#E2E8F0}). &
+    Clean light theme complying with tutor requirements and reducing visual clutter. \\
+    \rowcolor{rowAlt}
+    \textbf{Typography} &
+    Inter / System Sans for interface text; Inconsolata monospace for scores, percentages, tokens, and technical parameters. &
+    Monospace numbers align cleanly in data tables, facilitating rapid numerical comparison. \\
+    \textbf{Components} &
+    Pill badges, animated Framer Motion gauge, collapsible parameter panels, drag-and-drop CSV dropzones. &
+    Consistent component styling ensures intuitive interaction across all screens. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{User Flow Diagram}
+Figure~\ref{fig:user-flow} maps the user journey through the platform, illustrating the input validation loop, model evaluation pipelines, and interactive drill-down routes.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.98\textwidth, height=0.35\textheight, keepaspectratio]{image5.png}
+  \caption{System User Flow and State Transition Architecture}
+  \label{fig:user-flow}
+\end{figure}
+
+\subsection{Prototype Screen Specifications}
+
+\subsubsection{Screen 1: Dashboard (Text Mode)}
+The primary interface for textual veracity evaluation. The left card houses the claim input textarea with a live character counter ($0/5000$), preset benchmark buttons, and social authority sliders (followers, verification status). The right card dynamically renders the predicted veracity label, animated confidence gauge, spread risk badge, preprocessed token breakdown, and prediction history log.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image8.png}
+  \caption{Screen 1: Main Dashboard in Text Veracity Analysis Mode}
+  \label{fig:screen1}
+\end{figure}
+
+\subsubsection{Screen 2: Dashboard (Text + Image Multimodal Mode)}
+Activated when users upload an image. The interface displays image metadata, preview thumbnail, and a comprehensive \textbf{Visual Forensic Breakdown} featuring 4 analysis cards: (1) AI-Generation Synthetic Likelihood, (2) Source \& Reverse-Search Provenance, (3) Social Spam Propagation Level, and (4) Text-Image Semantic Consistency.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image7.png}
+  \caption{Screen 2: Dashboard in Multimodal Text + Image Verification Mode}
+  \label{fig:screen2}
+\end{figure}
+
+\subsubsection{Screen 3: Model Analytics Dashboard}
+Dedicated to model evaluation and comparative benchmarking. Features 4 top-level KPI summary cards (Macro F1, Accuracy, Precision, Recall) and 6 interactive chart components: (1) Confusion Matrix heatmap, (2) Radar metric comparison, (3) Virality Scatter bubble plot, (4) Temporal Area timeline with brush zoom, (5) Category distribution bar chart, and (6) Image forensic breakdown.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image2.png}
+  \caption{Screen 3: Model Analytics and Performance Benchmarking Dashboard}
+  \label{fig:screen3}
+\end{figure}
+
+\subsubsection{Screen 4: Network Explorer (Echo Chamber Analysis)}
+Enables analysts to inspect rumor cascade propagation across social graphs. Includes event filtering (PHEME datasets), user handle search with autocomplete, and an interactive temporal playback slider. The center D3.js force-directed graph colors nodes by Louvain community cluster and scales them by follower count, accompanied by a detailed account inspection drawer.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image4.png}
+  \caption{Screen 4: Network Explorer and Echo Chamber Community Visualizer}
+  \label{fig:screen4}
+\end{figure}
+
+\subsubsection{Screen 5: About and Architecture Documentation}
+Provides plain-language explainability for non-technical stakeholders: data pipeline diagrams, benchmark dataset descriptions (PHEME, FakeNewsNet), model architecture cards, and explicit probabilistic fact-checking disclaimers.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image10.png}
+  \caption{Screen 5: System Architecture and Model Explainability Specification}
+  \label{fig:screen5}
+\end{figure}
+
+\subsubsection{Screen 6: Mobile Responsive Interface (375px Viewport)}
+Demonstrates single-column fluid responsive adaptation for mobile devices. The sidebar collapses into a fixed bottom navigation bar, cards stack vertically, and complex tables transform into compact card feeds.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.34\textwidth, height=0.62\textheight, keepaspectratio]{image1.png}
+  \caption{Screen 6: Mobile Responsive Interface Layout ($375\text{px}$ Viewport)}
+  \label{fig:screen6}
+\end{figure}
+
+\subsubsection{Screen 7: Dashboard Error Handling \& Fallback States}
+Illustrates defensive UI design: empty input validation errors, unsupported image format alerts, and backend timeout toast notifications with automated retry capabilities.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth, height=0.60\textheight, keepaspectratio]{image11.png}
+  \caption{Screen 7: Dashboard Defensive Error Handling and Boundary States}
+  \label{fig:screen7}
+\end{figure}
+
+\subsection{Alignment with Nielsen's 10 Usability Heuristics}
+Table~\ref{tab:nielsen-heuristics} maps the prototype features directly to \textbf{Nielsen's 10 Usability Heuristics} (Nielsen, 1994).
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Heuristic Usability Evaluation Matrix (Nielsen's 10 Principles)}
+  \label{tab:nielsen-heuristics}
+  \begin{tabularx}{\textwidth}{@{}C{0.8cm} L{3.5cm} Y C{1.6cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{\#} & \textbf{Heuristic Principle} & \textbf{Interface Implementation \& Design Feature} & \textbf{Screens} \\
+    \midrule
+    \textbf{H1} & Visibility of System Status &
+    Live API connection badge, model loading indicators, character counters, and temporal cascade playback position. &
+    1, 2, 3, 4, 7 \\
+    \rowcolor{rowAlt}
+    \textbf{H2} & Match with Real World &
+    Clear terminology (\emph{Factual, Misinformation, Echo Chamber}), newsroom metrics, and intuitive traffic-light color conventions. &
+    1, 2, 3 \\
+    \textbf{H3} & User Control \& Freedom &
+    Form Reset buttons, image removal triggers, graph zoom/pan resets, and cancelable batch upload operations. &
+    1, 2, 4, 7 \\
+    \rowcolor{rowAlt}
+    \textbf{H4} & Consistency \& Standards &
+    Unified sidebar layout, standard header breadcrumbs, identical card borders, and persistent typography tokens across all views. &
+    All \\
+    \textbf{H5} & Error Prevention &
+    Disabled submission buttons during invalid states, character counter limits ($5,000$ max), and explicit file upload constraints. &
+    1, 2, 7 \\
+    \rowcolor{rowAlt}
+    \textbf{H6} & Recognition over Recall &
+    Benchmark claim preset buttons, search autocomplete suggestions, graph legends, and descriptive chart tooltip cards. &
+    1, 3, 4 \\
+    \textbf{H7} & Flexibility \& Efficiency &
+    Batch CSV drag-and-drop processing, quick comparison modes, keyboard shortcuts, and one-click audit-trail CSV exports. &
+    1, 3, 4 \\
+    \rowcolor{rowAlt}
+    \textbf{H8} & Aesthetic \& Minimalist &
+    Card-based modular layouts, ample whitespace, collapsible technical parameters, and clear visual hierarchy. &
+    All \\
+    \textbf{H9} & Error Recovery &
+    Inline validation alerts with actionable remediation text (\emph{"Text cannot be empty"}, \emph{"Unsupported image format"}), and timeout retries. &
+    7 \\
+    \rowcolor{rowAlt}
+    \textbf{H10} & Help \& Documentation &
+    Comprehensive About page, contextual info tooltips next to chart titles, and transparent scoring methodology cards. &
+    2, 3, 5 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Accessibility and Responsive Design Compliance}
+The prototype strictly complies with \textbf{WCAG 2.1 Level AA} guidelines (W3C, 2018):
+\begin{itemize}
+  \item \textbf{Color Contrast}: All text and interactive elements maintain a contrast ratio $\ge 4.5:1$ against backgrounds.
+  \item \textbf{Non-Color Dependency}: Information conveyed by color (e.g., green/red veracity status) is always paired with explicit textual labels and iconography.
+  \item \textbf{Responsive Breakpoints}: Fluid CSS Grid and Flexbox layouts adapt seamlessly across Mobile ($375\text{px}$), Tablet ($768\text{px}$), and Desktop ($1280\text{px}+$), verified in Chrome DevTools audits.
+\end{itemize}
+
+% ==============================================================================
+% SECTION 10: COMMUNICATION MANAGEMENT
+% ==============================================================================
+\section{Communication Management and Meeting Minutes}
+\label{sec:communication}
+
+\subsection{Communication Governance \& Protocols}
+Effective communication is vital for maintaining project velocity and preventing misalignment across the 12-week development cycle. Table~\ref{tab:communication-matrix} defines the formal communication channels and operating protocols.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Team Communication Channels and Governance Matrix}
+  \label{tab:communication-matrix}
+  \begin{tabularx}{\textwidth}{@{}L{2.5cm} L{2.8cm} L{2.2cm} Y@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Channel / Medium} & \textbf{Primary Purpose} & \textbf{Frequency} & \textbf{Participants \& Guidelines} \\
+    \midrule
+    \textbf{Microsoft Teams} &
+    Weekly formal standup meetings, sprint reviews, and milestone sign-offs. &
+    Weekly (Tuesdays, 2:00 PM --- 2:45 PM) &
+    All team members. Mandatory attendance; formal minutes logged and archived. \\
+    \rowcolor{rowAlt}
+    \textbf{Discord Server} &
+    Daily asynchronous standups, technical Q\&A, code snippets, and blocker alerts. &
+    Daily / Continuous &
+    All members. Channels: \code{\#general}, \code{\#ml-pipeline}, \code{\#frontend-backend}, \code{\#blockers}. \\
+    \textbf{GitHub Repository} &
+    Version control, Pull Request code reviews, issue tracking, and automated CI. &
+    Continuous / Per commit &
+    All members. Minimum 1 peer approval required prior to merging to \code{main}. \\
+    \rowcolor{rowAlt}
+    \textbf{Google Drive} &
+    Shared document authoring, WBS dictionary spreadsheets, and slide decks. &
+    As needed &
+    All members. Centralized repository for raw datasets, figures, and submission drafts. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Decision-Making and Conflict Resolution}
+\begin{enumerate}
+  \item \textbf{Technical Consensus}: Architectural and ML model decisions are discussed during weekly syncs with empirical evidence (e.g., benchmark F1 metrics).
+  \item \textbf{Democratic Majority}: In the event of divergent design preferences, decisions are decided by a majority ($2/3$) vote.
+  \item \textbf{Escalation Path}: Unresolved disputes affecting project scope or grading are escalated immediately to the academic tutor for guidance.
+\end{enumerate}
+
+\subsection{Weekly Meeting Minutes Log (Weeks 1--4)}
+Table~\ref{tab:meeting-minutes} summarizes the formal meeting minutes conducted during the Milestone 1 planning phase.
+
+\begin{table}[H]
+  \centering
+  \scriptsize
+  \caption{Weekly Meeting Minutes Log (Milestone 1 Planning Phase)}
+  \label{tab:meeting-minutes}
+  \begin{tabularx}{\textwidth}{@{}C{1.1cm} C{1.4cm} L{1.8cm} Y Y C{1.4cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Meeting} & \textbf{Date} & \textbf{Attendees} & \textbf{Key Agenda Items \& Discussions} & \textbf{Decisions Made \& Action Items} & \textbf{Status} \\
+    \midrule
+    \textbf{Meeting 1} & 16 Sep 2026 & An (M1), Nam (M2), Bao (M3) &
+    Team formation, role allocation, project domain topic selection, unit rubric analysis. &
+    Selected Topic 1: Misinformation Detection. M1 elected Full-Stack Lead, M2 ML Lead, M3 Analytics Lead. Action: Gather PHEME and FakeNewsNet datasets. &
+    \badgeDone \\
+    \rowcolor{rowAlt}
+    \textbf{Meeting 2} & 23 Sep 2026 & An (M1), Nam (M2), Bao (M3) &
+    System architecture definition, DistilBERT transformer vs. baseline LogReg strategy, tech stack confirmation. &
+    Confirmed FastAPI backend and React 18 frontend. Agreed on INT8 dynamic quantization and contrastive Semantic Control Test. Action: Draft WBS and requirements. &
+    \badgeDone \\
+    \textbf{Meeting 3} & 30 Sep 2026 & An (M1), Nam (M2), Bao (M3) &
+    WBS decomposition, Risk Register construction, UI wireframe review, Nielsen heuristic mapping. &
+    Approved 3-level WBS and 8-risk register. Finalized Google Stitch UI mockups, adding multimodal image verification per tutor feedback. Action: Draft LaTeX report sections. &
+    \badgeDone \\
+    \rowcolor{rowAlt}
+    \textbf{Meeting 4} & 07 Oct 2026 & An (M1), Nam (M2), Bao (M3) &
+    Final review of Assignment 1 document, formatting audit, Harvard reference verification, contribution form sign-off. &
+    Consolidated all sections into LaTeX template. Audited all 13 acceptance criteria. Unanimously signed Group Assessment Contribution Form. Action: Final PDF submission. &
+    \badgeDone \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ==============================================================================
+% SECTION 11: REFERENCES (HARVARD STYLE)
+% ==============================================================================
+\section{References (Harvard Style)}
+\label{sec:references}
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2.5em]
+  \item \label{ref:iso25010} \textbf{ISO/IEC 25010}, 2011. \emph{Systems and software engineering --- Systems and software Quality Requirements and Evaluation (SQuaRE) --- System and software quality models}. Geneva: International Organization for Standardization.
+
+  \item \label{ref:iso29148} \textbf{ISO/IEC/IEEE 29148}, 2018. \emph{Systems and software engineering --- Life cycle processes --- Requirements engineering}. Geneva: International Organization for Standardization.
+
+  \item \label{ref:kerzner} \textbf{Kerzner, H.}, 2017. \emph{Project Management: A Systems Approach to Planning, Scheduling, and Controlling}. 12th ed. Hoboken, NJ: John Wiley \& Sons.
+
+  \item \label{ref:nielsen} \textbf{Nielsen, J.}, 1994. \emph{Usability Engineering}. San Francisco, CA: Morgan Kaufmann.
+
+  \item \label{ref:pmbok} \textbf{Project Management Institute}, 2021. \emph{A Guide to the Project Management Body of Knowledge (PMBOK Guide)}. 7th ed. Newtown Square, PA: Project Management Institute.
+
+  \item \label{ref:shu} \textbf{Shu, K., Mahudeswaran, D., Wang, S., Lee, D. and Liu, H.}, 2020. FakeNewsNet: A data repository with social context for studying fake news on social media. \emph{Big Data}, 8(3), pp. 171--188.
+
+  \item \label{ref:vosoughi} \textbf{Vosoughi, S., Roy, D. and Aral, S.}, 2018. The spread of true and false news online. \emph{Science}, 359(6380), pp. 1146--1151.
+
+  \item \label{ref:w3c} \textbf{World Wide Web Consortium (W3C)}, 2018. \emph{Web Content Accessibility Guidelines (WCAG) 2.1}. W3C Recommendation. Available at: \url{https://www.w3.org/TR/WCAG21/} [Accessed 9 October 2026].
+
+  \item \label{ref:zubiaga} \textbf{Zubiaga, A., Liakata, M., Procter, R., Hoi, G.W.S. and Tolmie, P.}, 2016. Analysing how people orient to and spread rumours in social media by looking at conversational threads. \emph{PLoS ONE}, 11(3), p. e0150989.
+\end{enumerate}
+
+% ==============================================================================
+% APPENDIX A: GROUP CONTRIBUTION & TRACEABILITY
+% ==============================================================================
+\appendix
+\section{Appendix A: Group Assessment Contribution \& Traceability}
+\label{sec:appendix}
+
+\subsection{Signed Contribution Statement}
+In accordance with Swinburne University of Technology assessment regulations, all three team members have actively contributed to the conceptualization, technical analysis, project management planning, and prototyping of the \textbf{MisinfoShield Analytics} platform.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Team Contribution Breakdown and Sign-Off Matrix}
+  \label{tab:contribution}
+  \begin{tabularx}{\textwidth}{@{}L{4.2cm} C{2.2cm} C{1.6cm} Y C{1.6cm}@{}}
+    \toprule
+    \rowcolor{headerBg}
+    \textbf{Team Member} & \textbf{Student ID} & \textbf{Agreed Share} & \textbf{Primary Deliverable Sections} & \textbf{Formal Sign-off} \\
+    \midrule
+    \textbf{Pham Truong Que An} & 105192148 & 33.3\% & Sections 1, 4, 5, 7 (Scope, Schedule, Change Control) & Signed \\
+    \rowcolor{rowAlt}
+    \textbf{Nguyen Nhat Nam} & 106214409 & 33.3\% & Sections 2, 3, 6, 8 (Architecture, Requirements, Risks) & Signed \\
+    \textbf{Nguyen Le Quoc Bao} & 106245001 & 33.3\% & Sections 8, 9, 10, Appendix (Acceptance, UI/UX, Minutes) & Signed \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Artifact Repository \& Codebase Traceability}
+The complete codebase, documentation, and prototype artifacts are managed within the project repository:
+\begin{itemize}
+  \item \textbf{Backend REST API}: \code{/backend/app/} (FastAPI engine, Pydantic schemas, routes)
+  \item \textbf{Frontend Application}: \code{/frontend/src/} (React 18, Tailwind CSS, Recharts, D3.js)
+  \item \textbf{Machine Learning Notebooks}: \code{/notebooks/} (EDA, DistilBERT fine-tuning, Quantization, Ridge spread)
+  \item \textbf{Automated Test Suite}: \code{/backend/tests/} (PyTest suite, boundary fuzz tests, latency benchmarks)
+  \item \textbf{Project Management Documentation}: \code{/docs/} (WBS Dictionary, Meeting Minutes, Harvard References)
+\end{itemize}
+
+\end{document}
