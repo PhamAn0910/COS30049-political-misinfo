@@ -1,0 +1,145 @@
+{
+  "accuracy": 0.8641,
+  "precision": 0.855,
+  "recall": 0.8593,
+  "macro_f1": 0.857,
+  "confusion_matrix": {
+    "true_positive": 349,
+    "false_positive": 81,
+    "true_negative": 592,
+    "false_negative": 67
+  },
+  "baseline_comparison": {
+    "distilbert_macro_f1": 0.857,
+    "tfidf_logreg_macro_f1": 0.843
+  },
+  "per_source_macro_f1": {
+    "pheme": 0.857,
+    "politifact": 0.8567
+  },
+  "unseen_event_macro_f1": 0.6219,
+  "tfidf_unseen_event_macro_f1": 0.597,
+  "per_event": [
+    {
+      "event": "charliehebdo-all-rnr-threads",
+      "threads": 2026,
+      "rumour": 446,
+      "non_rumour": 1580,
+      "distilbert_macro_f1": 0.7508,
+      "tfidf_macro_f1": 0.749
+    },
+    {
+      "event": "ferguson-all-rnr-threads",
+      "threads": 1115,
+      "rumour": 279,
+      "non_rumour": 836,
+      "distilbert_macro_f1": 0.6441,
+      "tfidf_macro_f1": 0.59
+    },
+    {
+      "event": "germanwings-crash-all-rnr-threads",
+      "threads": 466,
+      "rumour": 235,
+      "non_rumour": 231,
+      "distilbert_macro_f1": 0.6369,
+      "tfidf_macro_f1": 0.738
+    },
+    {
+      "event": "gurlitt-all-rnr-threads",
+      "threads": 122,
+      "rumour": 52,
+      "non_rumour": 70,
+      "distilbert_macro_f1": 0.5356,
+      "tfidf_macro_f1": 0.566
+    },
+    {
+      "event": "ottawashooting-all-rnr-threads",
+      "threads": 879,
+      "rumour": 465,
+      "non_rumour": 414,
+      "distilbert_macro_f1": 0.7131,
+      "tfidf_macro_f1": 0.716
+    },
+    {
+      "event": "prince-toronto-all-rnr-threads",
+      "threads": 224,
+      "rumour": 220,
+      "non_rumour": 4,
+      "distilbert_macro_f1": 0.2911,
+      "tfidf_macro_f1": 0.195
+    },
+    {
+      "event": "putinmissing-all-rnr-threads",
+      "threads": 233,
+      "rumour": 121,
+      "non_rumour": 112,
+      "distilbert_macro_f1": 0.6593,
+      "tfidf_macro_f1": 0.504
+    },
+    {
+      "event": "sydneysiege-all-rnr-threads",
+      "threads": 1197,
+      "rumour": 512,
+      "non_rumour": 685,
+      "distilbert_macro_f1": 0.7445,
+      "tfidf_macro_f1": 0.717
+    }
+  ],
+  "control_test": [
+    {
+      "case": "Misinformation input",
+      "expected": "misinformation",
+      "predicted": "misinformation",
+      "confidence": 0.9793,
+      "result": "pass"
+    },
+    {
+      "case": "Factual input (same keywords)",
+      "expected": "factual",
+      "predicted": "misinformation",
+      "confidence": 0.6184,
+      "result": "fail"
+    },
+    {
+      "case": "Edge case: sensational punctuation",
+      "expected": "misinformation",
+      "predicted": "factual",
+      "confidence": 0.983,
+      "result": "fail"
+    }
+  ],
+  "best_epoch": 3,
+  "best_val_macro_f1": 0.87,
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5172,
+      "val_macro_f1": 0.7831
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3207,
+      "val_macro_f1": 0.8614
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2229,
+      "val_macro_f1": 0.87
+    }
+  ],
+  "hyperparameters": {
+    "model_name": "distilbert-base-uncased",
+    "max_length": 256,
+    "batch_size": 16,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "epochs": 3,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 42
+  },
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "5.18.0",
+  "device": "cuda",
+  "device_name": "Tesla T4"
+}
