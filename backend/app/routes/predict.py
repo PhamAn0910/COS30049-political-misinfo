@@ -5,7 +5,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from app.models.schemas import PredictRequest, PredictResponse
 from app.services.preprocessor import preprocess_political_text
-from app.services.inference import predict_claim
+from app.services.inference import ModelNotLoadedError, predict_claim
 from app.services.cascade import predict_spread
 
 router = APIRouter(tags=["Prediction"])
@@ -25,11 +25,14 @@ async def predict(request: Request, body: PredictRequest):
     cleaned = preprocess_political_text(body.text)
     models = getattr(request.app.state, "models", {})
 
-    veracity_result = predict_claim(
-        cleaned,
-        models.get("distilbert"),
-        models.get("tokenizer"),
-    )
+    try:
+        veracity_result = predict_claim(
+            cleaned,
+            models.get("distilbert"),
+            models.get("tokenizer"),
+        )
+    except ModelNotLoadedError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     spread_result = predict_spread(
         user_followers=body.user_followers,
