@@ -28,3 +28,6 @@ dist/
 # Local-only documents
 plans/
 *.tex
+
+# PHEME veracity release (raw download, about 100k JSON files)
+backend/data/pheme_veracity/
