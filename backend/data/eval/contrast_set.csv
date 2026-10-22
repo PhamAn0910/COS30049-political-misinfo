@@ -1,0 +1,81 @@
+pair_id,pair_type,topic,label,style,text,author,fact_source
+1,style_aligned,election,0,neutral,"Georgia's 2020 hand recount of paper ballots confirmed Biden as the winner, the same result as the machine count.",claude-draft,"Georgia Secretary of State, statewide hand tally of the presidential race (completed Nov 18-19, 2020)"
+1,style_aligned,election,1,sensational,BREAKING: Recount reveals THOUSANDS of ballots were switched by voting machines!!! #StopTheSteal,claude-draft,
+2,style_aligned,election,0,neutral,Michigan's Board of State Canvassers certified the state's 2020 election results in late November 2020.,claude-draft,"Michigan Board of State Canvassers certification vote (Nov 23, 2020)"
+2,style_aligned,election,1,sensational,"Officials REFUSED to certify because dead people voted by the thousands, leaked list proves it!!! #ElectionFraud",claude-draft,
+3,style_aligned,election,0,neutral,Voters can check their registration status on their state election office website before election day.,claude-draft,vote.gov and the US Election Assistance Commission link to every state's registration lookup
+3,style_aligned,election,1,sensational,"You can now VOTE BY TEXT, just send your candidate's name to 55555!!! Share with everyone you know",claude-draft,
+4,style_aligned,election,0,neutral,"In most states, mail-in ballots are checked by matching the voter's signature before they are counted.",claude-draft,"31 states verify signatures on returned mail ballots as of 2024 (NCSL, 'Table 14: How States Verify Voted Absentee Ballots')"
+4,style_aligned,election,1,sensational,"Mail-in ballots are NEVER checked, anyone can vote a hundred times and officials know it!!!",claude-draft,
+5,style_aligned,election,0,neutral,Courts dismissed or rejected dozens of lawsuits that claimed widespread fraud in the 2020 presidential election.,claude-draft,"About 60 post-election suits, nearly all dropped or dismissed for lack of evidence or standing (AP tally; Wikipedia 'Post-election lawsuits related to the 2020 US presidential election')"
+5,style_aligned,election,1,sensational,Courts CONFIRMED massive fraud in the 2020 election but the media buried the story!!! Wake up,claude-draft,
+6,style_aligned,election,0,neutral,Michigan law lets each political party appoint challengers to watch poll workers count ballots.,claude-draft,Michigan Compiled Laws 168.730 (appointment of election challengers by political parties)
+6,style_aligned,election,1,sensational,Poll workers caught on camera SHREDDING ballots at 3am!!! The video they are deleting everywhere #StopTheSteal,claude-draft,
+7,style_aligned,policing,0,neutral,A 2015 Justice Department report found no basis for federal charges against Ferguson officer Darren Wilson over the shooting of Michael Brown.,claude-draft,"US DOJ, Report Regarding the Criminal Investigation into the Shooting Death of Michael Brown (Mar 2015)"
+7,style_aligned,policing,1,sensational,"Ferguson police SECRETLY paid protesters to riot, leaked memo proves it!!! #Ferguson",claude-draft,
+8,style_aligned,policing,0,neutral,Missouri's governor declared a state of emergency and a curfew in Ferguson in August 2014 as protests continued.,claude-draft,"Missouri Governor Jay Nixon, state of emergency and curfew order for Ferguson (Aug 16, 2014)"
+8,style_aligned,policing,1,sensational,Police caught paying CRISIS ACTORS to fake injuries at the protest!!! Video proof inside,claude-draft,
+9,style_aligned,pheme_event,0,neutral,"Two gunmen killed 12 people at the Charlie Hebdo offices in Paris in January 2015, police said.",claude-draft,"Paris prosecutor statements on the Charlie Hebdo attack (Jan 7, 2015)"
+9,style_aligned,pheme_event,1,sensational,"Charlie Hebdo attack was a FALSE FLAG staged by the French government, wake up people!!! #JeSuisCharlie",claude-draft,
+10,style_aligned,pheme_event,0,neutral,Police ended the 16-hour siege at the Lindt cafe in Sydney; the gunman and two hostages died.,claude-draft,"NSW Coroner, Inquest into the deaths arising from the Lindt Cafe siege, findings (May 2017)"
+10,style_aligned,pheme_event,1,sensational,"Sydney siege was STAGED with crisis actors, the media is hiding the truth!!! #sydneysiege",claude-draft,
+11,style_aligned,pheme_event,0,neutral,Police said a single gunman carried out the Ottawa attack and was killed inside the Parliament building.,claude-draft,RCMP statements on the Parliament Hill shooting (Oct 2014)
+11,style_aligned,pheme_event,1,sensational,"BREAKING: At least THREE gunmen still on the loose in Ottawa, shots fired at the mall too!!! Stay inside",claude-draft,
+12,style_aligned,health,0,neutral,Large studies involving millions of children have found no link between the MMR vaccine and autism.,claude-draft,"Hviid et al., Annals of Internal Medicine (2019), 657,461 children; Cochrane review of MMR safety (2020)"
+12,style_aligned,health,1,sensational,"Doctors are HIDING that the MMR vaccine causes autism, the proof they don't want you to see!!!",claude-draft,
+13,style_aligned,health,0,neutral,mRNA vaccines do not change a person's DNA because the mRNA never enters the cell nucleus.,claude-draft,"CDC, 'Myths and Facts about COVID-19 Vaccines' (mRNA does not enter the nucleus)"
+13,style_aligned,health,1,sensational,"COVID vaccines PERMANENTLY rewrite your DNA, scientists finally admit it!!! SHARE before it gets banned",claude-draft,
+14,style_aligned,health,0,neutral,The World Health Organization says radio waves from 5G networks cannot spread viruses.,claude-draft,"WHO, COVID-19 Mythbusters (2020): viruses cannot travel on radio waves or mobile networks"
+14,style_aligned,health,1,sensational,"5G towers are SPREADING the virus, engineers leak the truth!!! #5G #WakeUp",claude-draft,
+15,style_aligned,health,0,neutral,Health agencies say antibiotics do not work against viral infections such as the flu.,claude-draft,"CDC, 'Antibiotic Do's and Don'ts': antibiotics do not work on viruses such as flu"
+15,style_aligned,health,1,sensational,Doctors don't want you to know: antibiotics CURE the flu in 24 hours!!!,claude-draft,
+16,style_aligned,climate,0,neutral,NASA and NOAA data show that the last decade was the warmest since modern records began.,claude-draft,NASA GISS and NOAA global temperature analyses (Jan 2020): 2010s warmest decade on record
+16,style_aligned,climate,1,sensational,"NASA ADMITS global warming is a HOAX, leaked emails prove the data was faked!!!",claude-draft,
+17,style_aligned,climate,0,neutral,Scientists report that rising global temperatures are causing glaciers to retreat worldwide.,claude-draft,IPCC AR6 Working Group I (2021); World Glacier Monitoring Service mass-balance series
+17,style_aligned,climate,1,sensational,Glaciers are actually GROWING everywhere and the media won't tell you!!! #ClimateHoax,claude-draft,
+18,style_aligned,climate,0,neutral,Satellite records show that Arctic sea ice extent has declined since measurements began in 1979.,claude-draft,"NSIDC Sea Ice Index, satellite record since 1979"
+18,style_aligned,climate,1,sensational,Arctic ice is at a RECORD HIGH and scientists are paid to lie about it!!!,claude-draft,
+19,style_aligned,immigration,0,neutral,Several large studies have found that immigrants in the United States are incarcerated at lower rates than native-born citizens.,claude-draft,"Landgrave and Nowrasteh, Cato Institute (2020); Abramitzky et al., NBER working paper 31440 (2023)"
+19,style_aligned,immigration,1,sensational,Illegal immigrants commit MOST violent crimes in America and police are ordered to hide the numbers!!!,claude-draft,
+20,style_aligned,immigration,0,neutral,"Non-citizens, including green card holders, are barred from voting in US federal elections under a 1996 federal law.",claude-draft,"18 U.S.C. 611, added by the Illegal Immigration Reform and Immigrant Responsibility Act (1996)"
+20,style_aligned,immigration,1,sensational,BREAKING: Government secretly flying MILLIONS of migrants in at night to replace voters!!! Share now,claude-draft,
+21,style_aligned,immigration,0,neutral,Census data show that about 14 percent of the US population was born in another country.,claude-draft,"US Census Bureau, American Community Survey 2019: 13.7% foreign-born"
+21,style_aligned,immigration,1,sensational,Census LEAK: immigrants are now 60 percent of the US population and they are hiding it!!!,claude-draft,
+22,style_aligned,economy,0,neutral,"The Federal Deposit Insurance Corporation insures savings accounts up to $250,000 per depositor at each insured bank.",claude-draft,"FDIC deposit insurance limit of $250,000, made permanent by the Dodd-Frank Act (2010)"
+22,style_aligned,economy,1,sensational,"The central bank will SEIZE all savings accounts next week, insiders warn!!! Withdraw your money NOW",claude-draft,
+23,style_aligned,economy,0,neutral,"The Bureau of Labor Statistics calculates the unemployment rate from a monthly survey of about 60,000 households.",claude-draft,"BLS, Current Population Survey methodology (about 60,000 eligible households per month)"
+23,style_aligned,economy,1,sensational,"The jobs numbers are COMPLETELY fake, a whistleblower confirms real unemployment is 40 percent!!!",claude-draft,
+24,style_aligned,media,0,neutral,Facebook said in April 2018 that it had removed 138 Pages and 135 accounts run by Russia's Internet Research Agency.,claude-draft,"Facebook Newsroom, 'Authenticity Matters: The IRA Has No Place on Facebook' (Apr 3, 2018): 70 Facebook and 65 Instagram accounts, 138 Pages"
+24,style_aligned,media,1,sensational,"Social media giants are SECRETLY deleting every post that criticizes the government, insider leaks prove it!!!",claude-draft,
+25,style_crossed,pheme_event,0,sensational,BREAKING!!! Sydney cafe gunman was out on BAIL while facing dozens of sexual assault charges #sydneysiege,claude-draft,NSW Joint Commonwealth-NSW review of the Martin Place siege (Jan 2015); Monis on bail for accessory-to-murder and 40+ sexual assault charges
+25,style_crossed,pheme_event,1,neutral,Police said the Sydney cafe siege involved three gunmen who escaped through a back door.,claude-draft,
+26,style_crossed,pheme_event,0,sensational,"BREAKING: Co-pilot deliberately crashed the Germanwings plane, French prosecutor says!!! #4U9525",claude-draft,"Marseille prosecutor Brice Robin press conference (Mar 26, 2015); BEA final report (2016)"
+26,style_crossed,pheme_event,1,neutral,Investigators said the Germanwings plane was brought down by a bomb hidden in the cargo hold.,claude-draft,
+27,style_crossed,policing,0,sensational,SHOCKING: Justice Department finds Ferguson police targeted Black residents with fines and tickets!!! #Ferguson,claude-draft,"US DOJ Civil Rights Division, Investigation of the Ferguson Police Department (Mar 2015)"
+27,style_crossed,policing,1,neutral,The Justice Department report concluded that Ferguson officer Darren Wilson should be charged with murder.,claude-draft,
+28,style_crossed,election,0,sensational,Election officials CONFIRM: results certified in all 50 states!!! #Election2020,claude-draft,"All 50 states and DC certified 2020 results by Dec 2020 (National Archives, Certificates of Ascertainment)"
+28,style_crossed,election,1,neutral,A state audit found that more than a million ballots in Arizona were cast in the names of dead voters.,claude-draft,
+29,style_crossed,climate,0,sensational,WOW!!! Scientists confirm 2023 was hotter than any previous year on record #ClimateCrisis,claude-draft,Copernicus C3S Global Climate Highlights 2023 and NASA GISS (Jan 2024): 2023 warmest year on record
+29,style_crossed,climate,1,neutral,Researchers reported that global average temperatures have not increased since 1998.,claude-draft,
+30,style_crossed,health,0,sensational,"URGENT!!! CDC tells Americans to throw out ALL romaine lettuce after E. coli outbreak, check your fridge NOW",claude-draft,"CDC food safety alert on E. coli O157:H7 and romaine lettuce (Nov 20, 2018)"
+30,style_crossed,health,1,neutral,Health officials said washing romaine lettuce with a little bleach makes it safe to eat during the E. coli outbreak.,claude-draft,
+31,style_crossed,election,0,sensational,"BREAKING!!! Republican-backed Arizona audit CONFIRMS Biden won Maricopa County, by even more votes #Arizona",claude-draft,"Cyber Ninjas report to the Arizona Senate (Sept 24, 2021): Biden margin up by 360 votes"
+31,style_crossed,election,1,neutral,The Arizona audit concluded that Trump had won Maricopa County once the ballots were recounted by hand.,claude-draft,
+32,style_crossed,election,0,sensational,"HUGE!!! About two-thirds of eligible voters cast a ballot in 2020, the HIGHEST turnout in over a century #Vote",claude-draft,"US Elections Project 2020 turnout (66.6% of eligible voters, highest since 1900); Census CPS voting supplement (2021)"
+32,style_crossed,election,1,neutral,Official figures show that more votes were cast in Wisconsin in 2020 than there were registered voters in the state.,claude-draft,
+33,style_crossed,policing,0,sensational,JUSTICE!!! Jury finds former officer Derek Chauvin GUILTY of murdering George Floyd #GeorgeFloyd,claude-draft,"Hennepin County District Court verdict, State v. Chauvin (Apr 20, 2021)"
+33,style_crossed,policing,1,neutral,"The Hennepin County medical examiner ruled that George Floyd died of a drug overdose, not from police restraint.",claude-draft,
+34,style_crossed,health,0,sensational,"AMAZING!!! Smallpox is the ONLY human disease ever eradicated, WHO declared it gone in 1980 #Vaccines",claude-draft,"World Health Assembly resolution declaring smallpox eradicated (May 8, 1980)"
+34,style_crossed,health,1,neutral,"Smallpox disappeared because of better sanitation, and vaccination played little part in its decline.",claude-draft,
+35,style_crossed,health,0,sensational,"WARNING!!! Measles is so contagious that up to 9 in 10 unvaccinated people exposed will catch it, get vaccinated!!!",claude-draft,"CDC, 'Measles: Transmission' (up to 9 out of 10 non-immune close contacts infected)"
+35,style_crossed,health,1,neutral,Studies show that the measles vaccine weakens the immune system and makes children more likely to catch other infections.,claude-draft,
+36,style_crossed,climate,0,sensational,ALARMING!!! Carbon dioxide in the air passes 420 parts per million for the first time in human history #ClimateCrisis,claude-draft,NOAA and Scripps Mauna Loa record (June 2022): May 2022 monthly mean 420.99 ppm
+36,style_crossed,climate,1,neutral,Measurements show that carbon dioxide levels in the atmosphere have stayed roughly constant since the 1950s.,claude-draft,
+37,style_crossed,immigration,0,sensational,"FACT!!! More than one in six US workers was born abroad, according to federal labor data #Immigration",claude-draft,"BLS, Foreign-Born Workers: Labor Force Characteristics 2021 (17.4% of the labor force)"
+37,style_crossed,immigration,1,neutral,Federal labor data show that immigrants now make up nearly half of all workers in the United States.,claude-draft,
+38,style_crossed,economy,0,sensational,"SHOCKING!!! US inflation hits 9.1 percent, the HIGHEST in four decades!!! #Inflation",claude-draft,"BLS Consumer Price Index release for June 2022 (July 13, 2022): largest 12-month rise since Nov 1981"
+38,style_crossed,economy,1,neutral,The government stopped publishing inflation figures in 2022 so that rising prices could be hidden from the public.,claude-draft,
+39,style_crossed,pheme_event,0,sensational,"HEARTBREAKING!!! Cpl. Nathan Cirillo, the soldier killed at the Ottawa war memorial, laid to rest in Hamilton with FULL military honours #OttawaShooting",claude-draft,"Regimental funeral for Cpl. Nathan Cirillo in Hamilton, Ontario (Oct 28, 2014)"
+39,style_crossed,pheme_event,1,neutral,Police said the soldier shot at the Ottawa war memorial survived and was released from hospital the next day.,claude-draft,
+40,style_crossed,pheme_event,0,sensational,AMAZING!!! Charlie Hebdo's first issue after the attack SOLD OUT across France within hours #JeSuisCharlie,claude-draft,"Charlie Hebdo issue No. 1178 (Jan 14, 2015): newsstands sold out the morning of release; print run raised to 7.95 million"
+40,style_crossed,pheme_event,1,neutral,Charlie Hebdo announced that it would stop publishing permanently after the January attack.,claude-draft,

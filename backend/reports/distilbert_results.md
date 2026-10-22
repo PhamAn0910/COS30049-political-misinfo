@@ -78,6 +78,81 @@ Sentences from `docs/political-misinfo-plan.md`, cleaned with `preprocess_politi
 | Factual input (same keywords) | factual | >= 85% | misinformation | 0.618 | fail |
 | Edge case: sensational punctuation | misinformation | - | factual | 0.983 | fail |
 
+## Contrast set
+
+`backend/data/eval/contrast_set.csv`: 40 pairs that share a topic and keywords, one factual and
+one misinformation sentence each, with a checkable `fact_source` for every factual row. Evaluation only, never used for
+training or model selection. In `style_aligned` pairs the misinformation is sensational and the factual sentence
+neutral (the Control Test pattern); in `style_crossed` pairs the styles are swapped, so a model that only reads style
+gets both wrong. Pair accuracy counts a pair as right only when both sentences are.
+
+**Headline: style-balanced accuracy**, the mean accuracy over the label x style cells. Plain accuracy rewards style,
+because most pairs are style-aligned. The regex style baseline predicts misinformation when the text has a 4+ letter
+all-caps word, `!!` or "share"; a model reads more than style only if it beats that row on style-balanced accuracy.
+DistilBERT scores 0.510 against the regex's 0.490, so it is within noise of the style baseline
+(gaps under 0.10 are within the noise of a set this size).
+
+| Model | Subset | Pairs | Style-balanced accuracy | Accuracy | Macro F1 | Pair accuracy |
+|---|---|---|---|---|---|---|
+| DistilBERT | All | 40 | 0.510 | 0.525 | 0.525 | 0.250 |
+| DistilBERT | style_aligned | 24 | 0.583 | 0.583 | 0.583 | 0.417 |
+| DistilBERT | style_crossed | 16 | 0.438 | 0.438 | 0.429 | 0.000 |
+| Regex style baseline | All | 40 | 0.490 | 0.588 | 0.587 | 0.575 |
+| Regex style baseline | style_aligned | 24 | 0.979 | 0.979 | 0.979 | 0.958 |
+| Regex style baseline | style_crossed | 16 | 0.000 | 0.000 | 0.000 | 0.000 |
+
+DistilBERT by label and writing style:
+
+| Label | Style | Rows | Accuracy | Mean P(misinformation) |
+|---|---|---|---|---|
+| factual | neutral | 24 | 0.625 | 0.478 |
+| misinformation | sensational | 24 | 0.542 | 0.592 |
+| factual | sensational | 16 | 0.312 | 0.668 |
+| misinformation | neutral | 16 | 0.562 | 0.660 |
+
+Misclassified sentences (38 of 80):
+
+| Pair | Pair type | Expected | P(misinformation) | Text |
+|---|---|---|---|---|
+| 1 | style_aligned | factual | 0.811 | Georgia's 2020 hand recount of paper ballots confirmed Biden as the winner, the same result as the machine count. |
+| 3 | style_aligned | misinformation | 0.137 | You can now VOTE BY TEXT, just send your candidate's name to 55555!!! Share with everyone you know |
+| 4 | style_aligned | misinformation | 0.124 | Mail-in ballots are NEVER checked, anyone can vote a hundred times and officials know it!!! |
+| 7 | style_aligned | factual | 0.690 | A 2015 Justice Department report found no basis for federal charges against Ferguson officer Darren Wilson over the shooting of Michael Brown. |
+| 7 | style_aligned | misinformation | 0.318 | Ferguson police SECRETLY paid protesters to riot, leaked memo proves it!!! #Ferguson |
+| 9 | style_aligned | factual | 0.953 | Two gunmen killed 12 people at the Charlie Hebdo offices in Paris in January 2015, police said. |
+| 10 | style_aligned | factual | 0.970 | Police ended the 16-hour siege at the Lindt cafe in Sydney; the gunman and two hostages died. |
+| 10 | style_aligned | misinformation | 0.045 | Sydney siege was STAGED with crisis actors, the media is hiding the truth!!! #sydneysiege |
+| 11 | style_aligned | factual | 0.980 | Police said a single gunman carried out the Ottawa attack and was killed inside the Parliament building. |
+| 13 | style_aligned | factual | 0.515 | mRNA vaccines do not change a person's DNA because the mRNA never enters the cell nucleus. |
+| 13 | style_aligned | misinformation | 0.468 | COVID vaccines PERMANENTLY rewrite your DNA, scientists finally admit it!!! SHARE before it gets banned |
+| 14 | style_aligned | factual | 0.795 | The World Health Organization says radio waves from 5G networks cannot spread viruses. |
+| 14 | style_aligned | misinformation | 0.481 | 5G towers are SPREADING the virus, engineers leak the truth!!! #5G #WakeUp |
+| 15 | style_aligned | misinformation | 0.363 | Doctors don't want you to know: antibiotics CURE the flu in 24 hours!!! |
+| 17 | style_aligned | factual | 0.533 | Scientists report that rising global temperatures are causing glaciers to retreat worldwide. |
+| 17 | style_aligned | misinformation | 0.050 | Glaciers are actually GROWING everywhere and the media won't tell you!!! #ClimateHoax |
+| 18 | style_aligned | misinformation | 0.022 | Arctic ice is at a RECORD HIGH and scientists are paid to lie about it!!! |
+| 19 | style_aligned | misinformation | 0.166 | Illegal immigrants commit MOST violent crimes in America and police are ordered to hide the numbers!!! |
+| 24 | style_aligned | factual | 0.927 | Facebook said in April 2018 that it had removed 138 Pages and 135 accounts run by Russia's Internet Research Agency. |
+| 24 | style_aligned | misinformation | 0.217 | Social media giants are SECRETLY deleting every post that criticizes the government, insider leaks prove it!!! |
+| 25 | style_crossed | factual | 0.978 | BREAKING!!! Sydney cafe gunman was out on BAIL while facing dozens of sexual assault charges #sydneysiege |
+| 26 | style_crossed | factual | 0.984 | BREAKING: Co-pilot deliberately crashed the Germanwings plane, French prosecutor says!!! #4U9525 |
+| 27 | style_crossed | factual | 0.916 | SHOCKING: Justice Department finds Ferguson police targeted Black residents with fines and tickets!!! #Ferguson |
+| 28 | style_crossed | factual | 0.804 | Election officials CONFIRM: results certified in all 50 states!!! #Election2020 |
+| 29 | style_crossed | factual | 0.936 | WOW!!! Scientists confirm 2023 was hotter than any previous year on record #ClimateCrisis |
+| 29 | style_crossed | misinformation | 0.419 | Researchers reported that global average temperatures have not increased since 1998. |
+| 30 | style_crossed | factual | 0.882 | URGENT!!! CDC tells Americans to throw out ALL romaine lettuce after E. coli outbreak, check your fridge NOW |
+| 31 | style_crossed | factual | 0.690 | BREAKING!!! Republican-backed Arizona audit CONFIRMS Biden won Maricopa County, by even more votes #Arizona |
+| 32 | style_crossed | misinformation | 0.312 | Official figures show that more votes were cast in Wisconsin in 2020 than there were registered voters in the state. |
+| 33 | style_crossed | factual | 0.874 | JUSTICE!!! Jury finds former officer Derek Chauvin GUILTY of murdering George Floyd #GeorgeFloyd |
+| 34 | style_crossed | factual | 0.673 | AMAZING!!! Smallpox is the ONLY human disease ever eradicated, WHO declared it gone in 1980 #Vaccines |
+| 34 | style_crossed | misinformation | 0.359 | Smallpox disappeared because of better sanitation, and vaccination played little part in its decline. |
+| 35 | style_crossed | factual | 0.832 | WARNING!!! Measles is so contagious that up to 9 in 10 unvaccinated people exposed will catch it, get vaccinated!!! |
+| 36 | style_crossed | misinformation | 0.341 | Measurements show that carbon dioxide levels in the atmosphere have stayed roughly constant since the 1950s. |
+| 37 | style_crossed | misinformation | 0.185 | Federal labor data show that immigrants now make up nearly half of all workers in the United States. |
+| 38 | style_crossed | misinformation | 0.483 | The government stopped publishing inflation figures in 2022 so that rising prices could be hidden from the public. |
+| 39 | style_crossed | factual | 0.982 | HEARTBREAKING!!! Cpl. Nathan Cirillo, the soldier killed at the Ottawa war memorial, laid to rest in Hamilton with FULL military honours #OttawaShooting |
+| 40 | style_crossed | misinformation | 0.138 | Charlie Hebdo announced that it would stop publishing permanently after the January attack. |
+
 ## Label semantics
 
 `label=1` means a PHEME rumour or a PolitiFact fake claim. A PHEME rumour is not necessarily false, so "misinformation"
