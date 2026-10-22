@@ -86,6 +86,9 @@ training or model selection. In `style_aligned` pairs the misinformation is sens
 neutral (the Control Test pattern); in `style_crossed` pairs the styles are swapped, so a model that only reads style
 gets both wrong. Pair accuracy counts a pair as right only when both sentences are.
 
+The file is frozen; check a copy with `shasum -a 256 backend/data/eval/contrast_set.csv`, which should print
+`2d4d4bbf9c91afe353c98eceea2123b293daa77569c52eb0e6d7b156b78c0ba9`.
+
 **Headline: style-balanced accuracy**, the mean accuracy over the label x style cells. Plain accuracy rewards style,
 because most pairs are style-aligned. The regex style baseline predicts misinformation when the text has a 4+ letter
 all-caps word, `!!` or "share"; a model reads more than style only if it beats that row on style-balanced accuracy.

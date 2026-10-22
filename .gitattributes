@@ -1,0 +1,2 @@
+# Keep evaluation data byte-identical on every OS so its frozen SHA-256 matches
+backend/data/eval/*.csv -text
