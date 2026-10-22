@@ -24,3 +24,7 @@ backend/models/distilbert_finetuned/
 # Node
 node_modules/
 dist/
+
+# Local-only documents
+plans/
+*.tex
