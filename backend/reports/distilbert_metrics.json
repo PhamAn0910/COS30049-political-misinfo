@@ -1,88 +1,56 @@
 {
-  "accuracy": 0.8641,
-  "precision": 0.855,
-  "recall": 0.8593,
-  "macro_f1": 0.857,
+  "accuracy": 0.9444,
+  "precision": 0.8971,
+  "recall": 0.8434,
+  "macro_f1": 0.8675,
   "confusion_matrix": {
-    "true_positive": 349,
-    "false_positive": 81,
-    "true_negative": 592,
-    "false_negative": 67
+    "true_positive": 87,
+    "false_positive": 17,
+    "true_negative": 813,
+    "false_negative": 36
   },
   "baseline_comparison": {
-    "distilbert_macro_f1": 0.857,
-    "tfidf_logreg_macro_f1": 0.843
+    "distilbert_macro_f1": 0.8675,
+    "tfidf_logreg_macro_f1": 0.784
   },
   "per_source_macro_f1": {
-    "pheme": 0.857,
-    "politifact": 0.8567
+    "pheme": 0.85,
+    "politifact": 0.8441
   },
-  "unseen_event_macro_f1": 0.6219,
-  "tfidf_unseen_event_macro_f1": 0.597,
+  "unseen_event_macro_f1": 0.5458,
+  "tfidf_unseen_event_macro_f1": 0.541,
   "per_event": [
     {
       "event": "charliehebdo-all-rnr-threads",
-      "threads": 2026,
-      "rumour": 446,
-      "non_rumour": 1580,
-      "distilbert_macro_f1": 0.7508,
-      "tfidf_macro_f1": 0.749
-    },
-    {
-      "event": "ferguson-all-rnr-threads",
-      "threads": 1115,
-      "rumour": 279,
-      "non_rumour": 836,
-      "distilbert_macro_f1": 0.6441,
-      "tfidf_macro_f1": 0.59
+      "threads": 1884,
+      "misinformation": 113,
+      "factual": 1771,
+      "distilbert_macro_f1": 0.5276,
+      "tfidf_macro_f1": 0.543
     },
     {
       "event": "germanwings-crash-all-rnr-threads",
-      "threads": 466,
-      "rumour": 235,
-      "non_rumour": 231,
-      "distilbert_macro_f1": 0.6369,
-      "tfidf_macro_f1": 0.738
-    },
-    {
-      "event": "gurlitt-all-rnr-threads",
-      "threads": 122,
-      "rumour": 52,
-      "non_rumour": 70,
-      "distilbert_macro_f1": 0.5356,
-      "tfidf_macro_f1": 0.566
+      "threads": 433,
+      "misinformation": 109,
+      "factual": 324,
+      "distilbert_macro_f1": 0.5584,
+      "tfidf_macro_f1": 0.562
     },
     {
       "event": "ottawashooting-all-rnr-threads",
-      "threads": 879,
-      "rumour": 465,
-      "non_rumour": 414,
-      "distilbert_macro_f1": 0.7131,
-      "tfidf_macro_f1": 0.716
-    },
-    {
-      "event": "prince-toronto-all-rnr-threads",
-      "threads": 224,
-      "rumour": 220,
-      "non_rumour": 4,
-      "distilbert_macro_f1": 0.2911,
-      "tfidf_macro_f1": 0.195
-    },
-    {
-      "event": "putinmissing-all-rnr-threads",
-      "threads": 233,
-      "rumour": 121,
-      "non_rumour": 112,
-      "distilbert_macro_f1": 0.6593,
-      "tfidf_macro_f1": 0.504
+      "threads": 810,
+      "misinformation": 72,
+      "factual": 738,
+      "distilbert_macro_f1": 0.55,
+      "tfidf_macro_f1": 0.516
     },
     {
       "event": "sydneysiege-all-rnr-threads",
-      "threads": 1197,
-      "rumour": 512,
-      "non_rumour": 685,
-      "distilbert_macro_f1": 0.7445,
-      "tfidf_macro_f1": 0.717
+      "threads": 1145,
+      "misinformation": 84,
+      "factual": 1061,
+      "distilbert_macro_f1": 0.5473,
+      "tfidf_macro_f1": 0.542
     }
   ],
   "control_test": [
@@ -90,21 +58,21 @@
       "case": "Misinformation input",
       "expected": "misinformation",
       "predicted": "misinformation",
-      "confidence": 0.9793,
+      "confidence": 0.9024,
       "result": "pass"
     },
     {
       "case": "Factual input (same keywords)",
       "expected": "factual",
-      "predicted": "misinformation",
-      "confidence": 0.6184,
-      "result": "fail"
+      "predicted": "factual",
+      "confidence": 0.9935,
+      "result": "pass"
     },
     {
       "case": "Edge case: sensational punctuation",
       "expected": "misinformation",
       "predicted": "factual",
-      "confidence": 0.983,
+      "confidence": 0.9979,
       "result": "fail"
     }
   ],
@@ -112,24 +80,24 @@
     "path": "backend/data/eval/contrast_set.csv",
     "sha256": "2d4d4bbf9c91afe353c98eceea2123b293daa77569c52eb0e6d7b156b78c0ba9",
     "pairs": 40,
-    "accuracy": 0.525,
-    "style_balanced_accuracy": 0.5104,
-    "macro_f1": 0.5247,
-    "pair_accuracy": 0.25,
+    "accuracy": 0.5125,
+    "style_balanced_accuracy": 0.5156,
+    "macro_f1": 0.5087,
+    "pair_accuracy": 0.2,
     "by_pair_type": {
       "style_aligned": {
         "pairs": 24,
-        "accuracy": 0.5833,
-        "style_balanced_accuracy": 0.5833,
-        "macro_f1": 0.5826,
-        "pair_accuracy": 0.4167
+        "accuracy": 0.5,
+        "style_balanced_accuracy": 0.5,
+        "macro_f1": 0.4921,
+        "pair_accuracy": 0.2083
       },
       "style_crossed": {
         "pairs": 16,
-        "accuracy": 0.4375,
-        "style_balanced_accuracy": 0.4375,
-        "macro_f1": 0.4286,
-        "pair_accuracy": 0.0
+        "accuracy": 0.5312,
+        "style_balanced_accuracy": 0.5312,
+        "macro_f1": 0.5308,
+        "pair_accuracy": 0.1875
       }
     },
     "regex_baseline": {
@@ -157,23 +125,33 @@
       }
     }
   },
-  "best_epoch": 3,
-  "best_val_macro_f1": 0.87,
+  "best_epoch": 4,
+  "best_val_macro_f1": 0.8712,
   "training_history": [
     {
       "epoch": 1,
-      "train_loss": 0.5172,
-      "val_macro_f1": 0.7831
+      "train_loss": 0.5736,
+      "val_macro_f1": 0.777
     },
     {
       "epoch": 2,
-      "train_loss": 0.3207,
-      "val_macro_f1": 0.8614
+      "train_loss": 0.387,
+      "val_macro_f1": 0.8439
     },
     {
       "epoch": 3,
-      "train_loss": 0.2229,
-      "val_macro_f1": 0.87
+      "train_loss": 0.232,
+      "val_macro_f1": 0.8692
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.1442,
+      "val_macro_f1": 0.8712
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0822,
+      "val_macro_f1": 0.8711
     }
   ],
   "hyperparameters": {
@@ -182,13 +160,13 @@
     "batch_size": 16,
     "learning_rate": 2e-05,
     "weight_decay": 0.01,
-    "epochs": 3,
+    "epochs": 5,
     "warmup_ratio": 0.1,
     "max_grad_norm": 1.0,
     "seed": 42
   },
-  "torch_version": "2.11.0+cu130",
+  "torch_version": "2.14.1",
   "transformers_version": "5.18.0",
-  "device": "cuda",
-  "device_name": "Tesla T4"
+  "device": "mps",
+  "device_name": "Apple MPS"
 }

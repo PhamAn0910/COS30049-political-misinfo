@@ -2,7 +2,7 @@
 
 ## Goal Description
 
-Build an **Automated Political & Breaking News Misinformation Detection Dashboard** that uses a fine-tuned Transformer model (DistilBERT) on PHEME and FakeNewsNet (PolitiFact) datasets to classify political claims and breaking news as **Factual (Verified) or Misinformation (Rumor)** with confidence scores and spread risk predictions. The project spans three university assignments (COS30048/COS30049) worth 100% of the unit grade, targeting a **High Distinction (HD)** across all three.
+Build an **Automated Political & Breaking News Misinformation Detection Dashboard** that uses a fine-tuned Transformer model (DistilBERT) on PHEME and FakeNewsNet (PolitiFact) datasets to classify political claims and breaking news as **Factual (Verified) or Misinformation (False)** with confidence scores and spread risk predictions. The project spans three university assignments (COS30048/COS30049) worth 100% of the unit grade, targeting a **High Distinction (HD)** across all three.
 
 ### Outcome
 A full-stack web application (React + FastAPI) where users input political claims or breaking news tweets and receive binary veracity classifications plus cascade/virality predictions — proving the Transformer's attention mechanism understands context and user behavior patterns, not just keywords.
@@ -58,6 +58,8 @@ A full-stack web application (React + FastAPI) where users input political claim
 - **Primary Datasets**: 
   - **PHEME Political Events** (Ferguson, Ottawa Shooting, Putin Missing, Charlie Hebdo) — ~4k threads, ~40k tweets with cascade structures
   - **FakeNewsNet PolitiFact** — Fact-checked political news articles with social diffusion data
+  - **PHEME veracity annotations** — the `true` / `false` / `unverified` annotation of every PHEME rumour (non-rumours are `non-rumour`), joined per thread into `backend/data/pheme_veracity_labels.csv`. They decide the PHEME label; PHEME's own rumour flag is kept only in `cascade_features.csv`.
+- **Label meaning**: `label = 1` (misinformation) is a PHEME rumour annotated `false` or a PolitiFact fake title; `label = 0` (factual) is a `true` rumour, a non-rumour or a PolitiFact real title. Unverified rumours are dropped (truth unknown), and so are the `prince-toronto` and `ebola-essien` events, which are almost entirely false, so the event alone would decide the label. Audit: `backend/reports/split_baselines.md`.
   - **Domain Overlap**: Direct match on Ferguson (civil unrest/political), Putin Missing (geopolitics), Ottawa Shooting (government/security) — creates unified political misinformation domain
 
 ---
@@ -303,7 +305,7 @@ from torch.utils.data import DataLoader
 import torch
 
 MODEL_NAME = "distilbert-base-uncased"
-NUM_LABELS = 2  # 0: Factual/Verified, 1: Misinformation/Rumour
+NUM_LABELS = 2  # 0: Factual/Verified, 1: Misinformation (false)
 LEARNING_RATE = 2e-5
 EPOCHS = 3
 BATCH_SIZE = 16
@@ -317,7 +319,8 @@ criterion = torch.nn.CrossEntropyLoss(weight=weights.to(device))
 
 # Dataset unification:
 # - FakeNewsNet PolitiFact: map 'fake' → 1, 'real' → 0
-# - PHEME: map 'false'/'unverified' → 1, 'true' → 0
+# - PHEME (veracity annotations): map 'false' → 1, 'true'/'non-rumour' → 0; drop 'unverified'
+#   and the prince-toronto / ebola-essien events
 ```
 
 **Training environment**: Local M3 MacBook Air (MPS acceleration). Training ~15k samples × 3 epochs ≈ 20–40 minutes.
@@ -537,7 +540,7 @@ class PredictResponse(BaseModel):
 ```jsx
 // Dynamic color card based on prediction:
 // - "factual"         → Green bg, ✅ icon, "Verified / Factual"
-// - "misinformation"  → Red bg, ❌ icon, "Misinformation / Rumour"
+// - "misinformation"  → Red bg, ❌ icon, "Misinformation"
 //
 // Shows: Label, Confidence %, spread risk badge, expected reach
 // Animated entrance via Framer Motion

@@ -22,7 +22,7 @@ export default function ResultCard({ result }) {
           <div className="flex items-center space-x-3">
             <span className="text-2xl">{isMisinfo ? '❌' : '✅'}</span>
             <h3 className={`text-xl font-bold ${isMisinfo ? 'text-red-700 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
-              {isMisinfo ? 'Misinformation / Unverified Rumor' : 'Factual / Verified Statement'}
+              {isMisinfo ? 'Misinformation' : 'Factual / Verified Statement'}
             </h3>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">

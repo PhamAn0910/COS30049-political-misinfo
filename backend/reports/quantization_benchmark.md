@@ -15,25 +15,25 @@ which is why the artifact is about 139 MB rather than the 65 MB once estimated. 
 
 INT8 is 1.93x smaller.
 
-## Accuracy (test split, 1,089 rows)
+## Accuracy (test split, 953 rows)
 
 | Model | Accuracy | Precision (macro) | Recall (macro) | Macro F1 |
 |---|---|---|---|---|
-| FP32 | 0.8641 | 0.8550 | 0.8593 | 0.8570 |
-| INT8 | 0.8632 | 0.8558 | 0.8535 | 0.8546 |
+| FP32 | 0.9444 | 0.8971 | 0.8434 | 0.8675 |
+| INT8 | 0.9433 | 0.9146 | 0.8186 | 0.8579 |
 
-Macro F1 change: -0.23 points. The two models agree on 97.15% of test predictions.
+Macro F1 change: -0.96 points. The two models agree on 98.43% of test predictions.
 
 ## Latency (median, CPU)
 
 | Model | Single claim (ms) | Batch of 32 (ms) |
 |---|---|---|
-| FP32 | 9.7 | 127.3 |
-| INT8 | 9.4 | 355.7 |
+| FP32 | 15.3 | 125.3 |
+| INT8 | 5.6 | 338.5 |
 
-INT8 speed-up: single claim 1.03x, batch of 32 0.36x.
+INT8 speed-up: single claim 2.73x, batch of 32 0.37x.
 5 warm-up calls, then 50 single-claim calls and 10 batch calls per model.
-On this machine INT8 saves memory rather than time: single-claim latency changes by 1.03x and batched latency by 0.36x. FP32 matrix multiplies run on the platform's optimised BLAS, while `qnnpack` dynamic INT8 kernels also quantize activations on every call; x86 servers using `fbgemm` may behave differently (not measured here). The API scores one claim per request, where the two models are close.
+On this machine INT8 saves memory rather than time: single-claim latency changes by 2.73x and batched latency by 0.37x. FP32 matrix multiplies run on the platform's optimised BLAS, while `qnnpack` dynamic INT8 kernels also quantize activations on every call; x86 servers using `fbgemm` may behave differently (not measured here). The API scores one claim per request, where the two models are close.
 
 
 ## Gates
@@ -45,7 +45,7 @@ On this machine INT8 saves memory rather than time: single-claim latency changes
 
 ## Artifact
 
-- `backend/models/distilbert_quantized.pt`: 138.7 MB, SHA-256 `8dfb5e37771bff10666aad7dafd8bbff9cc9fd5fcd11c443ad00fed5a6172a39`
+- `backend/models/distilbert_quantized.pt`: 138.7 MB, SHA-256 `47c2fbf256d2f760156bf3a00cd9f1b71b110162aa9d189647084abc640c943e`
 - `backend/models/distilbert_tokenizer/`: tokenizer and `config.json`, no weights
 
 The `.pt` file is a `state_dict`; load it with `app.services.inference._load_distilbert`, which rebuilds the
