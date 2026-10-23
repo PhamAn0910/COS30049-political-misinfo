@@ -46,7 +46,7 @@ No test should be skipped; skipped real-artifact tests mean the file is missing 
 - torch 2.14.1 and transformers 5.18.0 (the versions `ml-env` uses). The file is a `state_dict` loaded with
   `torch.load(..., weights_only=True)` into a freshly quantized skeleton, so it does not depend on pickled classes,
   but `torch.ao.quantization` is deprecated and may disappear in a later torch.
-- Import `torch` before `sklearn` in any new script; see `docs/jupyter-kernel-config.md`.
+- Import `torch` before `sklearn` in any new script: both ship their own `libomp`, and loading sklearn's first can crash torch.
 
 ## Rebuild from scratch
 

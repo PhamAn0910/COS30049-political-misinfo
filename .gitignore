@@ -31,3 +31,6 @@ plans/
 
 # PHEME veracity release (raw download, about 100k JSON files)
 backend/data/pheme_veracity/
+
+# Local machine notes, not shared
+docs/jupyter-kernel-config.md
