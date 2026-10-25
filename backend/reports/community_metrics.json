@@ -1,0 +1,176 @@
+{
+  "unit_of_analysis": "cascade (source-tweet embedding); no user ids in the dataset",
+  "tweets_total": 105747,
+  "tweets_in_more_than_one_cascade": 0,
+  "cascades": 6425,
+  "cascades_known_main_events": 5488,
+  "kmeans": {
+    "best_k": 7,
+    "scan": [
+      {
+        "k": 3,
+        "inertia": 4277.5864,
+        "silhouette": 0.0858
+      },
+      {
+        "k": 4,
+        "inertia": 4077.5498,
+        "silhouette": 0.0977
+      },
+      {
+        "k": 5,
+        "inertia": 3900.6328,
+        "silhouette": 0.1089
+      },
+      {
+        "k": 6,
+        "inertia": 3786.9204,
+        "silhouette": 0.1182
+      },
+      {
+        "k": 7,
+        "inertia": 3681.5664,
+        "silhouette": 0.1283
+      },
+      {
+        "k": 8,
+        "inertia": 3607.3188,
+        "silhouette": 0.1179
+      },
+      {
+        "k": 9,
+        "inertia": 3543.9805,
+        "silhouette": 0.1231
+      },
+      {
+        "k": 10,
+        "inertia": 3487.5879,
+        "silhouette": 0.1057
+      },
+      {
+        "k": 11,
+        "inertia": 3449.6528,
+        "silhouette": 0.0998
+      },
+      {
+        "k": 12,
+        "inertia": 3398.4148,
+        "silhouette": 0.0932
+      }
+    ]
+  },
+  "louvain": {
+    "resolution": 1.0,
+    "communities": 23,
+    "modularity": 0.8435,
+    "resolution_scan": [
+      {
+        "resolution": 0.3,
+        "communities": 12,
+        "modularity": 0.934,
+        "ARI vs event": 0.909
+      },
+      {
+        "resolution": 0.5,
+        "communities": 15,
+        "modularity": 0.9,
+        "ARI vs event": 0.846
+      },
+      {
+        "resolution": 0.8,
+        "communities": 19,
+        "modularity": 0.863,
+        "ARI vs event": 0.612
+      },
+      {
+        "resolution": 1.0,
+        "communities": 23,
+        "modularity": 0.843,
+        "ARI vs event": 0.533
+      },
+      {
+        "resolution": 1.5,
+        "communities": 30,
+        "modularity": 0.806,
+        "ARI vs event": 0.389
+      },
+      {
+        "resolution": 2.0,
+        "communities": 34,
+        "modularity": 0.777,
+        "ARI vs event": 0.336
+      }
+    ]
+  },
+  "agreement": {
+    "K-Means vs Louvain": {
+      "ARI": 0.556,
+      "NMI": 0.72
+    },
+    "K-Means vs event": {
+      "ARI": 0.79,
+      "NMI": 0.857
+    },
+    "Louvain vs event": {
+      "ARI": 0.533,
+      "NMI": 0.777
+    }
+  },
+  "cramers_v": {
+    "louvain": 0.3245,
+    "kmeans": 0.2119,
+    "event": 0.2269
+  },
+  "assortativity": {
+    "observed": 0.4961,
+    "null_all_mean": -0.0001,
+    "null_event_mean": 0.0483,
+    "p_vs_null_event": 0.002
+  },
+  "top3_false_heavy_communities": [
+    {
+      "louvain": 15,
+      "cascades": 77,
+      "false_rate": 0.468,
+      "top_event": "germanwings-crash",
+      "event_purity": 1.0,
+      "median_followers": 36380.0,
+      "verified_share": 0.364,
+      "mean_size": 13.662,
+      "false_cascades": 36.0
+    },
+    {
+      "louvain": 14,
+      "cascades": 101,
+      "false_rate": 0.347,
+      "top_event": "sydneysiege",
+      "event_purity": 1.0,
+      "median_followers": 201968.0,
+      "verified_share": 0.634,
+      "mean_size": 25.218,
+      "false_cascades": 35.0
+    },
+    {
+      "louvain": 6,
+      "cascades": 355,
+      "false_rate": 0.208,
+      "top_event": "germanwings-crash",
+      "event_purity": 0.994,
+      "median_followers": 258612.0,
+      "verified_share": 0.693,
+      "mean_size": 8.183,
+      "false_cascades": 74.0
+    }
+  ],
+  "network_sample": {
+    "nodes": 272,
+    "edges": 739
+  },
+  "versions": {
+    "sklearn": "1.9.1",
+    "networkx": "3.7",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "seed": 42
+}

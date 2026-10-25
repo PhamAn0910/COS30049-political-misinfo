@@ -1,0 +1,161 @@
+{
+  "data": {
+    "cascades": 6425,
+    "train": 3757,
+    "val": 805,
+    "test": 805,
+    "excluded_label": 937,
+    "excluded_dup": 121
+  },
+  "target": "log1p(cascade_size)",
+  "features": [
+    "root_user_followers",
+    "root_user_verified"
+  ],
+  "best_alpha": 316.2278,
+  "leakage_check_spearman": {
+    "root_user_followers": 0.182,
+    "root_user_verified": 0.105,
+    "max_depth": 0.837,
+    "reply_count": 0.793,
+    "n_unique_verified": 0.188
+  },
+  "results": {
+    "baseline val": {
+      "r2_log": -0.001,
+      "mae_log": 0.739,
+      "mae_size": 10.227,
+      "rmse_size": 16.199,
+      "spearman": null
+    },
+    "baseline test": {
+      "r2_log": -0.0,
+      "mae_log": 0.745,
+      "mae_size": 11.516,
+      "rmse_size": 21.616,
+      "spearman": null
+    },
+    "ridge val": {
+      "r2_log": 0.052,
+      "mae_log": 0.711,
+      "mae_size": 9.878,
+      "rmse_size": 15.999,
+      "spearman": 0.204
+    },
+    "ridge test": {
+      "r2_log": 0.04,
+      "mae_log": 0.728,
+      "mae_size": 11.293,
+      "rmse_size": 21.51,
+      "spearman": 0.157
+    }
+  },
+  "experiment_b": {
+    "A: train only (val)": {
+      "r2_log": 0.052,
+      "mae_log": 0.711,
+      "mae_size": 9.878,
+      "rmse_size": 15.999,
+      "spearman": 0.204
+    },
+    "B: train + excluded_label (val)": {
+      "r2_log": 0.053,
+      "mae_log": 0.714,
+      "mae_size": 9.905,
+      "rmse_size": 16.179,
+      "spearman": 0.204
+    },
+    "A: train only (test)": {
+      "r2_log": 0.04,
+      "mae_log": 0.728,
+      "mae_size": 11.293,
+      "rmse_size": 21.51,
+      "spearman": 0.157
+    },
+    "B: train + excluded_label (test)": {
+      "r2_log": 0.03,
+      "mae_log": 0.733,
+      "mae_size": 11.349,
+      "rmse_size": 21.7,
+      "spearman": 0.157
+    }
+  },
+  "leave_one_event_out": [
+    {
+      "held-out event": "charliehebdo-all-rnr-threads",
+      "cascades": 1884,
+      "ridge R2": -0.057,
+      "baseline R2": -0.097,
+      "ridge MAE": 11.517,
+      "baseline MAE": 11.827,
+      "ridge Spearman": 0.121
+    },
+    {
+      "held-out event": "sydneysiege-all-rnr-threads",
+      "cascades": 1145,
+      "ridge R2": -0.14,
+      "baseline R2": -0.153,
+      "ridge MAE": 12.289,
+      "baseline MAE": 12.565,
+      "ridge Spearman": 0.045
+    },
+    {
+      "held-out event": "ferguson-all-rnr-threads",
+      "cascades": 854,
+      "ridge R2": -0.013,
+      "baseline R2": -0.007,
+      "ridge MAE": 14.295,
+      "baseline MAE": 14.325,
+      "ridge Spearman": 0.124
+    },
+    {
+      "held-out event": "ottawashooting-all-rnr-threads",
+      "cascades": 810,
+      "ridge R2": 0.059,
+      "baseline R2": -0.011,
+      "ridge MAE": 7.858,
+      "baseline MAE": 8.246,
+      "ridge Spearman": 0.294
+    },
+    {
+      "held-out event": "germanwings-crash-all-rnr-threads",
+      "cascades": 433,
+      "ridge R2": -0.561,
+      "baseline R2": -0.454,
+      "ridge MAE": 8.317,
+      "baseline MAE": 7.929,
+      "ridge Spearman": 0.18
+    }
+  ],
+  "coefficients": {
+    "log followers (standardised)": 0.1917,
+    "verified": 0.0005
+  },
+  "risk_table_test": {
+    "Low": {
+      "cascades": 259,
+      "mean_size": 14.0,
+      "median_size": 10.0
+    },
+    "Moderate": {
+      "cascades": 265,
+      "mean_size": 19.8,
+      "median_size": 15.0
+    },
+    "High": {
+      "cascades": 281,
+      "mean_size": 18.3,
+      "median_size": 16.0
+    }
+  },
+  "risk_cut_points_size": {
+    "low_below": 10.0307,
+    "high_from": 12.1525
+  },
+  "versions": {
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "seed": 42
+}
