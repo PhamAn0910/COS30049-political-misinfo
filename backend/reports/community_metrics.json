@@ -1,176 +1,223 @@
 {
-  "unit_of_analysis": "cascade (source-tweet embedding); no user ids in the dataset",
-  "tweets_total": 105747,
-  "tweets_in_more_than_one_cascade": 0,
-  "cascades": 6425,
-  "cascades_known_main_events": 5488,
-  "kmeans": {
-    "best_k": 7,
-    "scan": [
-      {
-        "k": 3,
-        "inertia": 4277.5864,
-        "silhouette": 0.0858
-      },
-      {
-        "k": 4,
-        "inertia": 4077.5498,
-        "silhouette": 0.0977
-      },
-      {
-        "k": 5,
-        "inertia": 3900.6328,
-        "silhouette": 0.1089
-      },
-      {
-        "k": 6,
-        "inertia": 3786.9204,
-        "silhouette": 0.1182
-      },
-      {
-        "k": 7,
-        "inertia": 3681.5664,
-        "silhouette": 0.1283
-      },
-      {
-        "k": 8,
-        "inertia": 3607.3188,
-        "silhouette": 0.1179
-      },
-      {
-        "k": 9,
-        "inertia": 3543.9805,
-        "silhouette": 0.1231
-      },
-      {
-        "k": 10,
-        "inertia": 3487.5879,
-        "silhouette": 0.1057
-      },
-      {
-        "k": 11,
-        "inertia": 3449.6528,
-        "silhouette": 0.0998
-      },
-      {
-        "k": 12,
-        "inertia": 3398.4148,
-        "silhouette": 0.0932
-      }
-    ]
+  "unit_of_analysis": "user (pseudonymous key from pheme_interactions.csv.gz)",
+  "graph": {
+    "users_with_links": 50041,
+    "edges": 63826,
+    "components": 381,
+    "largest_component_users": 47833,
+    "largest_component_edges": 61942
   },
+  "participations_known_main_events": 58509,
+  "false_share_overall": 0.0642,
   "louvain": {
     "resolution": 1.0,
-    "communities": 23,
-    "modularity": 0.8435,
+    "communities": 143,
+    "modularity": 0.8707,
     "resolution_scan": [
       {
-        "resolution": 0.3,
-        "communities": 12,
-        "modularity": 0.934,
-        "ARI vs event": 0.909
-      },
-      {
         "resolution": 0.5,
-        "communities": 15,
-        "modularity": 0.9,
-        "ARI vs event": 0.846
-      },
-      {
-        "resolution": 0.8,
-        "communities": 19,
-        "modularity": 0.863,
-        "ARI vs event": 0.612
+        "communities": 85,
+        "modularity": 0.883,
+        "ARI vs main event": 0.138
       },
       {
         "resolution": 1.0,
-        "communities": 23,
-        "modularity": 0.843,
-        "ARI vs event": 0.533
-      },
-      {
-        "resolution": 1.5,
-        "communities": 30,
-        "modularity": 0.806,
-        "ARI vs event": 0.389
+        "communities": 143,
+        "modularity": 0.871,
+        "ARI vs main event": 0.043
       },
       {
         "resolution": 2.0,
-        "communities": 34,
-        "modularity": 0.777,
-        "ARI vs event": 0.336
+        "communities": 238,
+        "modularity": 0.862,
+        "ARI vs main event": 0.021
+      }
+    ]
+  },
+  "kmeans": {
+    "best_k": 4,
+    "scan": [
+      {
+        "k": 3,
+        "inertia": 153430.7516,
+        "silhouette": 0.5419
+      },
+      {
+        "k": 4,
+        "inertia": 128691.5365,
+        "silhouette": 0.5557
+      },
+      {
+        "k": 5,
+        "inertia": 108357.9918,
+        "silhouette": 0.3503
+      },
+      {
+        "k": 6,
+        "inertia": 95476.9344,
+        "silhouette": 0.3851
+      },
+      {
+        "k": 7,
+        "inertia": 78249.2741,
+        "silhouette": 0.3729
+      },
+      {
+        "k": 8,
+        "inertia": 68026.5136,
+        "silhouette": 0.4064
+      }
+    ],
+    "roles": [
+      {
+        "cluster": 0,
+        "users": 39235,
+        "median_threads": 1.0,
+        "median_sent": 1.0,
+        "median_received": 0.0,
+        "median_followers": 287.0,
+        "sources_mean": 0.0002,
+        "verified_share": 0.0
+      },
+      {
+        "cluster": 1,
+        "users": 6032,
+        "median_threads": 2.0,
+        "median_sent": 5.0,
+        "median_received": 3.0,
+        "median_followers": 472.0,
+        "sources_mean": 0.0096,
+        "verified_share": 0.0002
+      },
+      {
+        "cluster": 2,
+        "users": 1344,
+        "median_threads": 1.0,
+        "median_sent": 0.0,
+        "median_received": 11.0,
+        "median_followers": 6922.5,
+        "sources_mean": 1.7351,
+        "verified_share": 0.0
+      },
+      {
+        "cluster": 3,
+        "users": 1222,
+        "median_threads": 1.0,
+        "median_sent": 0.0,
+        "median_received": 8.0,
+        "median_followers": 33750.0,
+        "sources_mean": 2.626,
+        "verified_share": 1.0
       }
     ]
   },
   "agreement": {
-    "K-Means vs Louvain": {
-      "ARI": 0.556,
-      "NMI": 0.72
+    "Louvain vs K-Means": {
+      "ARI": 0.001,
+      "NMI": 0.007
     },
-    "K-Means vs event": {
-      "ARI": 0.79,
-      "NMI": 0.857
+    "Louvain vs main event": {
+      "ARI": 0.043,
+      "NMI": 0.23
     },
-    "Louvain vs event": {
-      "ARI": 0.533,
-      "NMI": 0.777
+    "K-Means vs main event": {
+      "ARI": -0.004,
+      "NMI": 0.006
     }
   },
-  "cramers_v": {
-    "louvain": 0.3245,
-    "kmeans": 0.2119,
-    "event": 0.2269
-  },
-  "assortativity": {
-    "observed": 0.4961,
-    "null_all_mean": -0.0001,
-    "null_event_mean": 0.0483,
-    "p_vs_null_event": 0.002
-  },
-  "top3_false_heavy_communities": [
-    {
-      "louvain": 15,
-      "cascades": 77,
-      "false_rate": 0.468,
-      "top_event": "germanwings-crash",
-      "event_purity": 1.0,
-      "median_followers": 36380.0,
-      "verified_share": 0.364,
-      "mean_size": 13.662,
-      "false_cascades": 36.0
+  "concentration": {
+    "cramers_v": {
+      "louvain": 0.2256,
+      "kmeans": 0.0198,
+      "event": 0.199
     },
+    "null_event_mean": 0.1912,
+    "null_event_max": 0.2287,
+    "p_vs_null_event": 0.008
+  },
+  "repeat_amplifiers": {
+    "min_false_threads": 3,
+    "count": 54,
+    "null_mean_count": 44.468,
+    "p_count": 0.0479,
+    "edges_among": 86,
+    "null_mean_edges": 68.07,
+    "null_max_edges": 128,
+    "p_edges": 0.1717,
+    "top5_share_of_amplifiers": 0.3704,
+    "null_mean_top5_share": 0.3544,
+    "p_top5": 0.3194,
+    "top5_share_of_users": 0.109
+  },
+  "top_communities_by_false_share": [
     {
-      "louvain": 14,
-      "cascades": 101,
-      "false_rate": 0.347,
+      "community": 20,
+      "users": 528,
+      "participations": 697,
+      "false_share": 0.1793,
       "top_event": "sydneysiege",
-      "event_purity": 1.0,
-      "median_followers": 201968.0,
-      "verified_share": 0.634,
-      "mean_size": 25.218,
-      "false_cascades": 35.0
+      "event_purity": 0.6514,
+      "verified_share": 0.0095,
+      "median_followers": 450.0
     },
     {
-      "louvain": 6,
-      "cascades": 355,
-      "false_rate": 0.208,
-      "top_event": "germanwings-crash",
-      "event_purity": 0.994,
-      "median_followers": 258612.0,
-      "verified_share": 0.693,
-      "mean_size": 8.183,
-      "false_cascades": 74.0
+      "community": 12,
+      "users": 650,
+      "participations": 940,
+      "false_share": 0.1702,
+      "top_event": "charliehebdo",
+      "event_purity": 0.434,
+      "verified_share": 0.02,
+      "median_followers": 242.5
+    },
+    {
+      "community": 1,
+      "users": 1248,
+      "participations": 1798,
+      "false_share": 0.1402,
+      "top_event": "sydneysiege",
+      "event_purity": 0.3838,
+      "verified_share": 0.0224,
+      "median_followers": 223.5
+    },
+    {
+      "community": 3,
+      "users": 981,
+      "participations": 1413,
+      "false_share": 0.126,
+      "top_event": "charliehebdo",
+      "event_purity": 0.6653,
+      "verified_share": 0.0438,
+      "median_followers": 363.0
+    },
+    {
+      "community": 31,
+      "users": 325,
+      "participations": 430,
+      "false_share": 0.114,
+      "top_event": "charliehebdo",
+      "event_purity": 0.3256,
+      "verified_share": 0.0185,
+      "median_followers": 181.0
     }
   ],
   "network_sample": {
-    "nodes": 272,
-    "edges": 739
+    "nodes": 224,
+    "edges": 349
+  },
+  "narrative_appendix": {
+    "communities": 23,
+    "modularity": 0.8435,
+    "ARI vs event": 0.5334,
+    "assortativity": 0.4961,
+    "null_event_mean": 0.0483,
+    "p_vs_null_event": 0.002
   },
   "versions": {
     "sklearn": "1.9.1",
-    "networkx": "3.7",
-    "numpy": "2.5.4",
-    "pandas": "3.1.0"
+    "networkx": "3.6.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6"
   },
   "seed": 42
 }
