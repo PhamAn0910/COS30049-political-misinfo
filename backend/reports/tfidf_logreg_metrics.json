@@ -1,0 +1,422 @@
+{
+  "accuracy": 0.9234,
+  "precision": 0.8352,
+  "recall": 0.8141,
+  "macro_f1": 0.8241,
+  "confusion_matrix": {
+    "true_positive": 82,
+    "false_positive": 32,
+    "true_negative": 798,
+    "false_negative": 41
+  },
+  "misinformation_class": {
+    "precision": 0.7193,
+    "recall": 0.6667,
+    "f1": 0.692
+  },
+  "roc_auc": 0.9252,
+  "average_precision": 0.7774,
+  "majority_baseline": {
+    "accuracy": 0.8709,
+    "macro_f1": 0.4655
+  },
+  "per_source_macro_f1": {
+    "pheme": 0.8174,
+    "politifact": 0.763
+  },
+  "unseen_event_macro_f1": 0.5304,
+  "per_event": [
+    {
+      "event": "charliehebdo-all-rnr-threads",
+      "threads": 1884,
+      "misinformation": 113,
+      "factual": 1771,
+      "tfidf_macro_f1": 0.5256,
+      "misinformation_recall": 0.2301,
+      "roc_auc": 0.5671
+    },
+    {
+      "event": "germanwings-crash-all-rnr-threads",
+      "threads": 433,
+      "misinformation": 109,
+      "factual": 324,
+      "tfidf_macro_f1": 0.5449,
+      "misinformation_recall": 0.2569,
+      "roc_auc": 0.6289
+    },
+    {
+      "event": "ottawashooting-all-rnr-threads",
+      "threads": 810,
+      "misinformation": 72,
+      "factual": 738,
+      "tfidf_macro_f1": 0.5218,
+      "misinformation_recall": 0.1667,
+      "roc_auc": 0.5935
+    },
+    {
+      "event": "sydneysiege-all-rnr-threads",
+      "threads": 1145,
+      "misinformation": 84,
+      "factual": 1061,
+      "tfidf_macro_f1": 0.5294,
+      "misinformation_recall": 0.1548,
+      "roc_auc": 0.6726
+    }
+  ],
+  "best_val_macro_f1": 0.8337,
+  "hyperparameters": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "C": 30.0,
+    "class_weight": "balanced",
+    "lowercase": true,
+    "sublinear_tf": true,
+    "min_df": 2,
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "penalty": "l2",
+    "seed": 42
+  },
+  "validation_grid": [
+    {
+      "ngram_range": "1-1",
+      "C": 0.1,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.4655,
+      "val_macro_f1": 0.4655
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 0.1,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.7829,
+      "val_macro_f1": 0.7395
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 0.3,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.4969,
+      "val_macro_f1": 0.4896
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 0.3,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.8361,
+      "val_macro_f1": 0.7706
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 1.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.6896,
+      "val_macro_f1": 0.648
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 1.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.8903,
+      "val_macro_f1": 0.7911
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 3.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.8878,
+      "val_macro_f1": 0.7423
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 3.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.9285,
+      "val_macro_f1": 0.7922
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 10.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.9688,
+      "val_macro_f1": 0.7821
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 10.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.9693,
+      "val_macro_f1": 0.7958
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 30.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.993,
+      "val_macro_f1": 0.795
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 30.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.9867,
+      "val_macro_f1": 0.7946
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 100.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.997,
+      "val_macro_f1": 0.8003
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 100.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.995,
+      "val_macro_f1": 0.7886
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 300.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.9975,
+      "val_macro_f1": 0.7859
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 300.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.996,
+      "val_macro_f1": 0.7838
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 1000.0,
+      "class_weight": "none",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.798
+    },
+    {
+      "ngram_range": "1-1",
+      "C": 1000.0,
+      "class_weight": "balanced",
+      "vocabulary": 3640,
+      "train_macro_f1": 0.993,
+      "val_macro_f1": 0.8062
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 0.1,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.4655,
+      "val_macro_f1": 0.4655
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 0.1,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.8311,
+      "val_macro_f1": 0.7668
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 0.3,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.4726,
+      "val_macro_f1": 0.4652
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 0.3,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.8688,
+      "val_macro_f1": 0.7852
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 1.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.6452,
+      "val_macro_f1": 0.5982
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 1.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9205,
+      "val_macro_f1": 0.799
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 3.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.8867,
+      "val_macro_f1": 0.7298
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 3.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9577,
+      "val_macro_f1": 0.815
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 10.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9904,
+      "val_macro_f1": 0.7698
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 10.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9882,
+      "val_macro_f1": 0.8236
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 30.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.7896
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 30.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.997,
+      "val_macro_f1": 0.8337
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 100.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.7914
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 100.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9975,
+      "val_macro_f1": 0.8271
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 300.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.8199
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 300.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.9965,
+      "val_macro_f1": 0.8264
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 1000.0,
+      "class_weight": "none",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.8036
+    },
+    {
+      "ngram_range": "1-2",
+      "C": 1000.0,
+      "class_weight": "balanced",
+      "vocabulary": 10764,
+      "train_macro_f1": 0.998,
+      "val_macro_f1": 0.8301
+    }
+  ],
+  "top_terms": {
+    "misinformation": {
+      "banksy": 15.8509,
+      "trump": 13.2194,
+      "distress": 9.4286,
+      "148": 9.0551,
+      "airspace": 7.0913,
+      "trocadero": 6.9453,
+      "by user": 6.8268,
+      "isis": 6.6019,
+      "rideau": 6.4353,
+      "alabama": 5.8588,
+      "her": 5.8411,
+      "convert": 5.7132,
+      "13": 5.6536,
+      "flag in": 5.619,
+      "distress call": 5.4869
+    },
+    "factual": {
+      "ferguson": -14.8644,
+      "url": -10.0143,
+      "sydneysiege": -7.6238,
+      "charlie": -6.2681,
+      "charlie hebdo": -6.0247,
+      "hebdo": -5.4227,
+      "soldier": -5.2338,
+      "sydney siege": -4.7881,
+      "interview": -4.7603,
+      "ferguson url": -4.6903,
+      "the": -4.4254,
+      "gurlitt": -4.3906,
+      "transcript": -4.145,
+      "those": -4.1333,
+      "mccain": -4.0657
+    }
+  },
+  "data": {
+    "train": 4443,
+    "val": 952,
+    "test": 953,
+    "vocabulary": 10764
+  },
+  "artifact": "backend/models/tfidf_logreg.joblib",
+  "versions": {
+    "sklearn": "1.8.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "joblib": "1.5.3"
+  },
+  "seed": 42
+}
