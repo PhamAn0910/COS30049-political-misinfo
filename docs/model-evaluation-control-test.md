@@ -129,8 +129,8 @@ score; the JSON stores four decimals, so 0.8675 there reads as 0.867 here.
 | Test Macro F1, PHEME | 0.857 | 0.850 | `per_source_macro_f1` |
 | Test Macro F1, PolitiFact | 0.857 | 0.844 | `per_source_macro_f1` |
 | Unseen-event Macro F1, DistilBERT (see note) | 0.622 (8 events) | 0.546 (4 events) | `unseen_event_macro_f1` |
-| TF-IDF + LogReg, test Macro F1 | 0.843 | 0.784 | `baseline_comparison`, `split_baselines.md` |
-| TF-IDF + LogReg, unseen-event Macro F1 | 0.597 | 0.541 | `tfidf_unseen_event_macro_f1` |
+| TF-IDF + LogReg, test Macro F1 (see note) | 0.843 | 0.824 | `baseline_comparison`, `tfidf_logreg_metrics.json` |
+| TF-IDF + LogReg, unseen-event Macro F1 (see note) | 0.597 | 0.530 | `tfidf_unseen_event_macro_f1` |
 | Control Test C1 (misinformation >= 90%) | pass, 0.979 | pass, 0.902 | `control_test` |
 | Control Test C2 (factual >= 85%) | fail, 0.618 misinformation | **pass, 0.993 factual** | `control_test` 0.9935 |
 | Control Test C3 (misinformation) | fail, 0.983 factual | fail, 0.998 factual | `control_test` |
@@ -148,8 +148,17 @@ score; the JSON stores four decimals, so 0.8675 there reads as 0.867 here.
 holds out only events with at least 100 threads **and** at least 10 false threads (charliehebdo, germanwings-crash,
 ottawashooting, sydneysiege), because an event with almost no false threads has no meaningful Macro F1. The two
 numbers use different events, label meanings and class balances, so they are **not directly comparable**. What does
-compare is each model against TF-IDF under the same protocol: before 0.622 vs 0.597, after 0.546 vs 0.541. In both,
+compare is each model against TF-IDF under the same protocol: before 0.622 vs 0.597, after 0.546 vs 0.530. In both,
 DistilBERT is barely above TF-IDF on events it never saw, so the event shortcut is not solved.
+
+**TF-IDF note.** "After" uses the tuned TF-IDF pipeline from notebook 03 (`tfidf_logreg_metrics.json`): its
+n-gram range, `C` and class weight were chosen on validation Macro F1, and it is the file the backend loads
+(`tfidf_logreg.joblib`). The earlier 0.784 test and 0.541 unseen-event values are the notebook 02 reference in
+`split_baselines.md`, which uses untuned settings and is never saved; comparing DistilBERT with an untuned
+baseline would overstate its lead. Both pairs are kept in `tfidf_logreg_metrics.json` under `tfidf_cross_check`.
+"Before" stays the notebook 02 reference, because notebook 03 was not tuned on the rumour split. Tuning lifts
+TF-IDF on the random split (0.784 to 0.824) but not on unseen events (0.541 to 0.530), which fits the event-shortcut
+reading: better settings learn the seen events' vocabulary better without carrying over to a new event.
 
 **Contrast set by label and style** (accuracy, `distilbert_results.md`):
 
@@ -178,7 +187,7 @@ DistilBERT is barely above TF-IDF on events it never saw, so the event shortcut 
 
 - **Few false rumours.** Training has 574 positives, of which only 276 are false PHEME rumours (7.3% of PHEME
   training rows); the rest are PolitiFact fakes. Val and test have 123 positives each, so test Macro F1 moves by
-  roughly +/-4 points between splits. TF-IDF fell from a 0.806 proxy to 0.784 on the regenerated split for this
+  roughly +/-4 points between splits. The notebook 02 TF-IDF reference fell from a 0.806 proxy to 0.784 on the regenerated split for this
   reason alone.
 - **Text-only veracity needs world knowledge.** Deciding whether "the soldier shot at the Ottawa war memorial
   survived" is false requires knowing what happened. A 66M-parameter classifier trained on 2014-2015 tweets cannot

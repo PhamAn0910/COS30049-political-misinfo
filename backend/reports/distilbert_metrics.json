@@ -11,14 +11,15 @@
   },
   "baseline_comparison": {
     "distilbert_macro_f1": 0.8675,
-    "tfidf_logreg_macro_f1": 0.784
+    "tfidf_logreg_macro_f1": 0.8241
   },
+  "tfidf_baseline_source": "tfidf_logreg_metrics.json (notebook 03): the tuned, saved pipeline, which is the TF-IDF model the backend loads. The split_baselines.md reference (0.784 test, 0.541 unseen) uses notebook 02 settings that were never tuned or saved.",
   "per_source_macro_f1": {
     "pheme": 0.85,
     "politifact": 0.8441
   },
   "unseen_event_macro_f1": 0.5458,
-  "tfidf_unseen_event_macro_f1": 0.541,
+  "tfidf_unseen_event_macro_f1": 0.5304,
   "per_event": [
     {
       "event": "charliehebdo-all-rnr-threads",
@@ -26,7 +27,7 @@
       "misinformation": 113,
       "factual": 1771,
       "distilbert_macro_f1": 0.5276,
-      "tfidf_macro_f1": 0.543
+      "tfidf_macro_f1": 0.5256
     },
     {
       "event": "germanwings-crash-all-rnr-threads",
@@ -34,7 +35,7 @@
       "misinformation": 109,
       "factual": 324,
       "distilbert_macro_f1": 0.5584,
-      "tfidf_macro_f1": 0.562
+      "tfidf_macro_f1": 0.5449
     },
     {
       "event": "ottawashooting-all-rnr-threads",
@@ -42,7 +43,7 @@
       "misinformation": 72,
       "factual": 738,
       "distilbert_macro_f1": 0.55,
-      "tfidf_macro_f1": 0.516
+      "tfidf_macro_f1": 0.5218
     },
     {
       "event": "sydneysiege-all-rnr-threads",
@@ -50,7 +51,7 @@
       "misinformation": 84,
       "factual": 1061,
       "distilbert_macro_f1": 0.5473,
-      "tfidf_macro_f1": 0.542
+      "tfidf_macro_f1": 0.5294
     }
   ],
   "control_test": [
