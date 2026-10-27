@@ -38,7 +38,7 @@ Training took 6.4 min; best epoch 4 of 5 (validation Macro F1 0.871).
 | Accuracy | 0.944 | - |
 | Precision (macro) | 0.897 | - |
 | Recall (macro) | 0.843 | - |
-| Macro F1 | 0.867 | 0.784 |
+| Macro F1 | 0.867 | 0.824 |
 
 Confusion matrix (positive = misinformation): TP 87, FP 17, TN 813, FN 36.
 
@@ -56,14 +56,14 @@ is trained for 4 epoch(s) on the other PHEME events plus the PolitiFact training
 
 | Event | Threads | Misinformation | Factual | DistilBERT | TF-IDF |
 |---|---|---|---|---|---|
-| charliehebdo-all-rnr-threads | 1,884 | 113 | 1,771 | 0.528 | 0.543 |
-| germanwings-crash-all-rnr-threads | 433 | 109 | 324 | 0.558 | 0.562 |
-| ottawashooting-all-rnr-threads | 810 | 72 | 738 | 0.550 | 0.516 |
-| sydneysiege-all-rnr-threads | 1,145 | 84 | 1,061 | 0.547 | 0.542 |
-| **Mean** | 4,272 | 378 | 3,894 | 0.546 | 0.541 |
+| charliehebdo-all-rnr-threads | 1,884 | 113 | 1,771 | 0.528 | 0.526 |
+| germanwings-crash-all-rnr-threads | 433 | 109 | 324 | 0.558 | 0.545 |
+| ottawashooting-all-rnr-threads | 810 | 72 | 738 | 0.550 | 0.522 |
+| sydneysiege-all-rnr-threads | 1,145 | 84 | 1,061 | 0.547 | 0.529 |
+| **Mean** | 4,272 | 378 | 3,894 | 0.546 | 0.530 |
 
 DistilBERT keeps 63% of its random-split Macro F1 on events it never saw (0.867 to
-0.546); TF-IDF keeps 69% (0.784 to 0.541). Each held-out event has
+0.546); TF-IDF keeps 64% (0.824 to 0.530). Each held-out event has
 at most 113 false threads, so per-event Macro F1 is noisy for both models.
 
 ## Control Test
