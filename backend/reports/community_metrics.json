@@ -1,0 +1,223 @@
+{
+  "unit_of_analysis": "user (pseudonymous key from pheme_interactions.csv.gz)",
+  "graph": {
+    "users_with_links": 50041,
+    "edges": 63826,
+    "components": 381,
+    "largest_component_users": 47833,
+    "largest_component_edges": 61942
+  },
+  "participations_known_main_events": 58509,
+  "false_share_overall": 0.0642,
+  "louvain": {
+    "resolution": 1.0,
+    "communities": 143,
+    "modularity": 0.8707,
+    "resolution_scan": [
+      {
+        "resolution": 0.5,
+        "communities": 85,
+        "modularity": 0.883,
+        "ARI vs main event": 0.138
+      },
+      {
+        "resolution": 1.0,
+        "communities": 143,
+        "modularity": 0.871,
+        "ARI vs main event": 0.043
+      },
+      {
+        "resolution": 2.0,
+        "communities": 238,
+        "modularity": 0.862,
+        "ARI vs main event": 0.021
+      }
+    ]
+  },
+  "kmeans": {
+    "best_k": 4,
+    "scan": [
+      {
+        "k": 3,
+        "inertia": 153430.7516,
+        "silhouette": 0.5419
+      },
+      {
+        "k": 4,
+        "inertia": 128691.5365,
+        "silhouette": 0.5557
+      },
+      {
+        "k": 5,
+        "inertia": 108357.9918,
+        "silhouette": 0.3503
+      },
+      {
+        "k": 6,
+        "inertia": 95476.9344,
+        "silhouette": 0.3851
+      },
+      {
+        "k": 7,
+        "inertia": 78249.2741,
+        "silhouette": 0.3729
+      },
+      {
+        "k": 8,
+        "inertia": 68026.5136,
+        "silhouette": 0.4064
+      }
+    ],
+    "roles": [
+      {
+        "cluster": 0,
+        "users": 39235,
+        "median_threads": 1.0,
+        "median_sent": 1.0,
+        "median_received": 0.0,
+        "median_followers": 287.0,
+        "sources_mean": 0.0002,
+        "verified_share": 0.0
+      },
+      {
+        "cluster": 1,
+        "users": 6032,
+        "median_threads": 2.0,
+        "median_sent": 5.0,
+        "median_received": 3.0,
+        "median_followers": 472.0,
+        "sources_mean": 0.0096,
+        "verified_share": 0.0002
+      },
+      {
+        "cluster": 2,
+        "users": 1344,
+        "median_threads": 1.0,
+        "median_sent": 0.0,
+        "median_received": 11.0,
+        "median_followers": 6922.5,
+        "sources_mean": 1.7351,
+        "verified_share": 0.0
+      },
+      {
+        "cluster": 3,
+        "users": 1222,
+        "median_threads": 1.0,
+        "median_sent": 0.0,
+        "median_received": 8.0,
+        "median_followers": 33750.0,
+        "sources_mean": 2.626,
+        "verified_share": 1.0
+      }
+    ]
+  },
+  "agreement": {
+    "Louvain vs K-Means": {
+      "ARI": 0.001,
+      "NMI": 0.007
+    },
+    "Louvain vs main event": {
+      "ARI": 0.043,
+      "NMI": 0.23
+    },
+    "K-Means vs main event": {
+      "ARI": -0.004,
+      "NMI": 0.006
+    }
+  },
+  "concentration": {
+    "cramers_v": {
+      "louvain": 0.2256,
+      "kmeans": 0.0198,
+      "event": 0.199
+    },
+    "null_event_mean": 0.1912,
+    "null_event_max": 0.2287,
+    "p_vs_null_event": 0.008
+  },
+  "repeat_amplifiers": {
+    "min_false_threads": 3,
+    "count": 54,
+    "null_mean_count": 44.468,
+    "p_count": 0.0479,
+    "edges_among": 86,
+    "null_mean_edges": 68.07,
+    "null_max_edges": 128,
+    "p_edges": 0.1717,
+    "top5_share_of_amplifiers": 0.3704,
+    "null_mean_top5_share": 0.3544,
+    "p_top5": 0.3194,
+    "top5_share_of_users": 0.109
+  },
+  "top_communities_by_false_share": [
+    {
+      "community": 20,
+      "users": 528,
+      "participations": 697,
+      "false_share": 0.1793,
+      "top_event": "sydneysiege",
+      "event_purity": 0.6514,
+      "verified_share": 0.0095,
+      "median_followers": 450.0
+    },
+    {
+      "community": 12,
+      "users": 650,
+      "participations": 940,
+      "false_share": 0.1702,
+      "top_event": "charliehebdo",
+      "event_purity": 0.434,
+      "verified_share": 0.02,
+      "median_followers": 242.5
+    },
+    {
+      "community": 1,
+      "users": 1248,
+      "participations": 1798,
+      "false_share": 0.1402,
+      "top_event": "sydneysiege",
+      "event_purity": 0.3838,
+      "verified_share": 0.0224,
+      "median_followers": 223.5
+    },
+    {
+      "community": 3,
+      "users": 981,
+      "participations": 1413,
+      "false_share": 0.126,
+      "top_event": "charliehebdo",
+      "event_purity": 0.6653,
+      "verified_share": 0.0438,
+      "median_followers": 363.0
+    },
+    {
+      "community": 31,
+      "users": 325,
+      "participations": 430,
+      "false_share": 0.114,
+      "top_event": "charliehebdo",
+      "event_purity": 0.3256,
+      "verified_share": 0.0185,
+      "median_followers": 181.0
+    }
+  ],
+  "network_sample": {
+    "nodes": 224,
+    "edges": 349
+  },
+  "narrative_appendix": {
+    "communities": 23,
+    "modularity": 0.8435,
+    "ARI vs event": 0.5334,
+    "assortativity": 0.4961,
+    "null_event_mean": 0.0483,
+    "p_vs_null_event": 0.002
+  },
+  "versions": {
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6"
+  },
+  "seed": 42
+}
