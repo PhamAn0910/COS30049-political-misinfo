@@ -18,7 +18,8 @@
   "average_precision": 0.7774,
   "majority_baseline": {
     "accuracy": 0.8709,
-    "macro_f1": 0.4655
+    "macro_f1": 0.4655,
+    "unseen_event_macro_f1": 0.4676
   },
   "per_source_macro_f1": {
     "pheme": 0.8174,
@@ -63,6 +64,93 @@
       "roc_auc": 0.6726
     }
   ],
+  "tfidf_cross_check": {
+    "split_baselines_md": {
+      "macro_f1": 0.784,
+      "unseen_event_macro_f1": 0.541,
+      "note": "notebook 02 reference settings; what notebook 04 reads"
+    },
+    "tuned": {
+      "macro_f1": 0.8241,
+      "unseen_event_macro_f1": 0.5304,
+      "note": "this notebook, settings chosen on validation Macro F1"
+    }
+  },
+  "control_test": [
+    {
+      "case": "Misinformation input",
+      "expected": "misinformation",
+      "predicted": "misinformation",
+      "confidence": 0.9568,
+      "p_misinformation": 0.9568,
+      "result": "pass"
+    },
+    {
+      "case": "Factual input (same keywords)",
+      "expected": "factual",
+      "predicted": "factual",
+      "confidence": 0.663,
+      "p_misinformation": 0.337,
+      "result": "fail"
+    },
+    {
+      "case": "Edge case: sensational punctuation",
+      "expected": "misinformation",
+      "predicted": "factual",
+      "confidence": 0.998,
+      "p_misinformation": 0.002,
+      "result": "fail"
+    }
+  ],
+  "contrast_set": {
+    "path": "backend/data/eval/contrast_set.csv",
+    "sha256": "2d4d4bbf9c91afe353c98eceea2123b293daa77569c52eb0e6d7b156b78c0ba9",
+    "pairs": 40,
+    "accuracy": 0.5375,
+    "style_balanced_accuracy": 0.5469,
+    "macro_f1": 0.5156,
+    "pair_accuracy": 0.225,
+    "by_pair_type": {
+      "style_aligned": {
+        "pairs": 24,
+        "accuracy": 0.5,
+        "style_balanced_accuracy": 0.5,
+        "macro_f1": 0.4667,
+        "pair_accuracy": 0.125
+      },
+      "style_crossed": {
+        "pairs": 16,
+        "accuracy": 0.5938,
+        "style_balanced_accuracy": 0.5938,
+        "macro_f1": 0.5836,
+        "pair_accuracy": 0.375
+      }
+    },
+    "regex_baseline": {
+      "pattern": "\\b[A-Z]{4,}\\b|!{2,}|(?i:\\bshare\\b)",
+      "pairs": 40,
+      "accuracy": 0.5875,
+      "style_balanced_accuracy": 0.4896,
+      "macro_f1": 0.5874,
+      "pair_accuracy": 0.575,
+      "by_pair_type": {
+        "style_aligned": {
+          "pairs": 24,
+          "accuracy": 0.9792,
+          "style_balanced_accuracy": 0.9792,
+          "macro_f1": 0.9792,
+          "pair_accuracy": 0.9583
+        },
+        "style_crossed": {
+          "pairs": 16,
+          "accuracy": 0.0,
+          "style_balanced_accuracy": 0.0,
+          "macro_f1": 0.0,
+          "pair_accuracy": 0.0
+        }
+      }
+    }
+  },
   "best_val_macro_f1": 0.8337,
   "hyperparameters": {
     "ngram_range": [
@@ -409,13 +497,18 @@
     "train": 4443,
     "val": 952,
     "test": 953,
-    "vocabulary": 10764
+    "vocabulary": 10764,
+    "split_sha256": {
+      "train": "e17a4981c179311601b1f8dc391034a57c370ae1f1dc60af1b7a41ab4d7c9bc2",
+      "val": "7bc4cad17c177d2b94b23a8cfa88240936d8e3c3d6353b29f20cdcfd560020d1",
+      "test": "675afb20fc0551cbb9ec169df71beb535564ea12d66a5759193386675878c5ae"
+    }
   },
   "artifact": "backend/models/tfidf_logreg.joblib",
   "versions": {
     "sklearn": "1.9.1",
-    "numpy": "2.5.4",
-    "pandas": "3.1.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
     "joblib": "1.6.0"
   },
   "seed": 42

@@ -1,2 +1,5 @@
 # Keep evaluation data byte-identical on every OS so its frozen SHA-256 matches
 backend/data/eval/*.csv -text
+
+# Keep the notebook 02 splits byte-identical on every OS so notebook 03 can check their SHA-256
+backend/data/processed/*.csv -text
