@@ -8,243 +8,294 @@
     "excluded_label": 937,
     "excluded_dup": 121
   },
-  "target": "log1p(unique_users)",
+  "velocity_window_min": 15,
+  "targets": {
+    "velocity": "log1p(new_users_after_15m): users whose first tweet in the cascade comes after minute 15",
+    "author_only": "log1p(unique_users): all users in the finished cascade"
+  },
+  "reach_formula": {
+    "live_post": "observed_users_15m + expm1(model.predict(X[features]))  (observed_users_15m = distinct users seen by minute 15, author included)",
+    "new_claim": "expm1(model_author_only.predict(X[features_author_only]))"
+  },
+  "scoring_note": "velocity model scored on new_users_after_15m only; MAE on total reach equals MAE on new_users_after_15m; R2 on total reach is inflated by the observed part and not reported",
   "features": {
-    "main": [
+    "velocity": [
       "author_followers",
       "author_verified",
-      "replies_30m"
+      "replies_15m"
     ],
     "author_only": [
       "author_followers",
       "author_verified"
     ]
   },
-  "velocity_window_min": 30,
   "alpha": {
-    "main": 0.01,
+    "velocity": 0.01,
     "author_only": 100.0
   },
-  "leakage_check_spearman": {
-    "author_followers": 0.243,
-    "author_verified": 0.173,
-    "replies_5m": 0.618,
-    "replies_15m": 0.733,
-    "replies_30m": 0.784,
-    "replies_60m": 0.82,
-    "max_depth": 0.65,
-    "reply_count": 0.928,
-    "n_unique_verified": 0.252,
-    "cascade_size": 0.9
+  "visible_at_cutoff": [
+    {
+      "cutoff_min": 5,
+      "share_of_users_already_seen": 0.31,
+      "cascades_with_no_new_users": 0.109,
+      "median_new_users_after": 7.0
+    },
+    {
+      "cutoff_min": 15,
+      "share_of_users_already_seen": 0.517,
+      "cascades_with_no_new_users": 0.163,
+      "median_new_users_after": 4.0
+    },
+    {
+      "cutoff_min": 30,
+      "share_of_users_already_seen": 0.641,
+      "cascades_with_no_new_users": 0.231,
+      "median_new_users_after": 2.0
+    },
+    {
+      "cutoff_min": 60,
+      "share_of_users_already_seen": 0.749,
+      "cascades_with_no_new_users": 0.338,
+      "median_new_users_after": 1.0
+    }
+  ],
+  "spearman_vs_targets": {
+    "vs unique_users": {
+      "author_followers": 0.243,
+      "author_verified": 0.173,
+      "replies_5m": 0.618,
+      "replies_15m": 0.733,
+      "replies_30m": 0.784,
+      "replies_60m": 0.82,
+      "max_depth": 0.65,
+      "reply_count": 0.928,
+      "n_unique_verified": 0.252,
+      "cascade_size": 0.9
+    },
+    "vs new_users_after_15m": {
+      "author_followers": -0.014,
+      "author_verified": -0.025,
+      "replies_5m": 0.113,
+      "replies_15m": 0.21,
+      "replies_30m": 0.329,
+      "replies_60m": 0.434,
+      "max_depth": 0.567,
+      "reply_count": 0.657,
+      "n_unique_verified": 0.041,
+      "cascade_size": 0.696
+    }
   },
   "results": {
-    "baseline val": {
+    "velocity: baseline val": {
+      "r2_log": -0.0,
+      "mae_users": 3.904,
+      "rmse_users": 5.782,
+      "spearman": null
+    },
+    "velocity: model val": {
+      "r2_log": 0.068,
+      "mae_users": 3.773,
+      "rmse_users": 5.702,
+      "spearman": 0.257
+    },
+    "velocity: baseline test": {
+      "r2_log": -0.002,
+      "mae_users": 3.988,
+      "rmse_users": 6.11,
+      "spearman": null
+    },
+    "velocity: model test": {
+      "r2_log": 0.082,
+      "mae_users": 3.855,
+      "rmse_users": 5.921,
+      "spearman": 0.267
+    },
+    "author-only: baseline val": {
       "r2_log": -0.0,
       "mae_users": 6.149,
       "rmse_users": 7.784,
       "spearman": null
     },
-    "author-only val": {
+    "author-only: model val": {
       "r2_log": 0.08,
       "mae_users": 5.866,
       "rmse_users": 7.505,
       "spearman": 0.262
     },
-    "main val": {
-      "r2_log": 0.679,
-      "mae_users": 3.232,
-      "rmse_users": 4.975,
-      "spearman": 0.805
-    },
-    "baseline test": {
+    "author-only: baseline test": {
       "r2_log": -0.0,
       "mae_users": 6.268,
       "rmse_users": 8.941,
       "spearman": null
     },
-    "author-only test": {
+    "author-only: model test": {
       "r2_log": 0.056,
       "mae_users": 6.075,
       "rmse_users": 8.82,
       "spearman": 0.197
-    },
-    "main test": {
-      "r2_log": 0.629,
-      "mae_users": 3.578,
-      "rmse_users": 5.719,
-      "spearman": 0.764
     }
+  },
+  "test_mae_total_equals_new": {
+    "mae_total": 3.8545,
+    "mae_new_users_after_15m": 3.855
   },
   "window_scan_val": [
     {
-      "window_min": 5,
+      "cutoff_min": 5,
       "alpha": 0.01,
-      "r2_log": 0.384,
-      "mae_users": 4.552,
-      "rmse_users": 6.359,
-      "spearman": 0.609,
-      "val_already_finished": 0.097
+      "val_r2_log": 0.105,
+      "val_mae_users": 4.68,
+      "val_spearman": 0.318,
+      "baseline_mae_users": 4.994,
+      "val_median_new_users": 7.0
     },
     {
-      "window_min": 15,
+      "cutoff_min": 15,
       "alpha": 0.01,
-      "r2_log": 0.572,
-      "mae_users": 3.736,
-      "rmse_users": 5.545,
-      "spearman": 0.746,
-      "val_already_finished": 0.13
+      "val_r2_log": 0.068,
+      "val_mae_users": 3.773,
+      "val_spearman": 0.257,
+      "baseline_mae_users": 3.904,
+      "val_median_new_users": 4.0
     },
     {
-      "window_min": 30,
+      "cutoff_min": 30,
       "alpha": 0.01,
-      "r2_log": 0.679,
-      "mae_users": 3.232,
-      "rmse_users": 4.975,
-      "spearman": 0.805,
-      "val_already_finished": 0.19
+      "val_r2_log": 0.072,
+      "val_mae_users": 3.022,
+      "val_spearman": 0.284,
+      "baseline_mae_users": 3.135,
+      "val_median_new_users": 2.0
     },
     {
-      "window_min": 60,
+      "cutoff_min": 60,
       "alpha": 0.01,
-      "r2_log": 0.733,
-      "mae_users": 2.892,
-      "rmse_users": 4.729,
-      "spearman": 0.838,
-      "val_already_finished": 0.291
+      "val_r2_log": 0.047,
+      "val_mae_users": 2.349,
+      "val_spearman": 0.229,
+      "baseline_mae_users": 2.414,
+      "val_median_new_users": 1.0
     }
   ],
-  "still_growing_test": {
-    "cascades": 651,
-    "results": {
-      "baseline": {
-        "r2_log": -0.158,
-        "mae_users": 6.244,
-        "rmse_users": 9.376,
-        "spearman": null
-      },
-      "author-only": {
-        "r2_log": -0.187,
-        "mae_users": 6.135,
-        "rmse_users": 9.311,
-        "spearman": 0.112
-      },
-      "main": {
-        "r2_log": 0.39,
-        "mae_users": 3.854,
-        "rmse_users": 6.164,
-        "spearman": 0.684
-      }
-    }
-  },
   "experiment_b": {
     "A: train only (val)": {
-      "r2_log": 0.679,
-      "mae_users": 3.232,
-      "rmse_users": 4.975,
-      "spearman": 0.805
+      "r2_log": 0.068,
+      "mae_users": 3.773,
+      "rmse_users": 5.702,
+      "spearman": 0.257
     },
     "B: train + excluded_label (val)": {
-      "r2_log": 0.677,
-      "mae_users": 3.212,
-      "rmse_users": 5.051,
-      "spearman": 0.806
+      "r2_log": 0.054,
+      "mae_users": 3.805,
+      "rmse_users": 5.806,
+      "spearman": 0.252
     },
     "A: train only (test)": {
-      "r2_log": 0.629,
-      "mae_users": 3.578,
-      "rmse_users": 5.719,
-      "spearman": 0.764
+      "r2_log": 0.082,
+      "mae_users": 3.855,
+      "rmse_users": 5.921,
+      "spearman": 0.267
     },
     "B: train + excluded_label (test)": {
-      "r2_log": 0.622,
-      "mae_users": 3.583,
-      "rmse_users": 5.759,
-      "spearman": 0.765
+      "r2_log": 0.066,
+      "mae_users": 3.894,
+      "rmse_users": 6.014,
+      "spearman": 0.252
     }
   },
   "leave_one_event_out": [
     {
       "held-out event": "charliehebdo",
       "cascades": 1884,
-      "main R2": 0.459,
+      "velocity R2": -0.157,
+      "velocity baseline R2": -0.147,
+      "velocity MAE": 4.167,
+      "velocity baseline MAE": 4.201,
       "author-only R2": -0.04,
-      "baseline R2": -0.091,
-      "main MAE": 3.624,
-      "baseline MAE": 5.975,
-      "main Spearman": 0.717
+      "author baseline R2": -0.091
     },
     {
       "held-out event": "sydneysiege",
       "cascades": 1145,
-      "main R2": 0.685,
+      "velocity R2": -0.051,
+      "velocity baseline R2": -0.005,
+      "velocity MAE": 3.527,
+      "velocity baseline MAE": 3.522,
       "author-only R2": -0.132,
-      "baseline R2": -0.178,
-      "main MAE": 3.3,
-      "baseline MAE": 6.658,
-      "main Spearman": 0.78
+      "author baseline R2": -0.178
     },
     {
       "held-out event": "ferguson",
       "cascades": 854,
-      "main R2": 0.499,
+      "velocity R2": -0.001,
+      "velocity baseline R2": -0.075,
+      "velocity MAE": 5.743,
+      "velocity baseline MAE": 5.888,
       "author-only R2": 0.007,
-      "baseline R2": -0.004,
-      "main MAE": 4.953,
-      "baseline MAE": 7.48,
-      "main Spearman": 0.716
+      "author baseline R2": -0.004
     },
     {
       "held-out event": "ottawashooting",
       "cascades": 810,
-      "main R2": 0.669,
+      "velocity R2": -0.046,
+      "velocity baseline R2": -0.034,
+      "velocity MAE": 3.032,
+      "velocity baseline MAE": 3.023,
       "author-only R2": 0.083,
-      "baseline R2": -0.0,
-      "main MAE": 2.778,
-      "baseline MAE": 5.504,
-      "main Spearman": 0.817
+      "author baseline R2": -0.0
     },
     {
       "held-out event": "germanwings-crash",
       "cascades": 433,
-      "main R2": 0.686,
+      "velocity R2": -0.027,
+      "velocity baseline R2": -0.319,
+      "velocity MAE": 2.425,
+      "velocity baseline MAE": 2.805,
       "author-only R2": -0.498,
-      "baseline R2": -0.4,
-      "main MAE": 2.38,
-      "baseline MAE": 5.415,
-      "main Spearman": 0.877
+      "author baseline R2": -0.4
     }
   ],
   "coefficients": {
+    "velocity": {
+      "log followers": -0.0537,
+      "log replies in 15 min": 0.2538,
+      "verified": -0.0908
+    },
     "author-only": {
       "log followers": 0.1916,
-      "log replies in 30 min": null,
+      "log replies in 15 min": null,
       "verified": 0.0503
+    }
+  },
+  "risk_cut_points_users": {
+    "live_post": {
+      "low_below": 5.666,
+      "high_from": 10.5643
     },
-    "main": {
-      "log followers": -0.0242,
-      "log replies in 30 min": 0.6196,
-      "verified": -0.0331
+    "new_claim": {
+      "low_below": 7.609,
+      "high_from": 9.5305
     }
   },
   "risk_table_test": {
-    "main": {
+    "live_post": {
       "Low": {
-        "cascades": 266,
-        "mean_users": 5.3,
+        "cascades": 273,
+        "mean_users": 5.6,
         "median_users": 4.0
       },
       "Moderate": {
-        "cascades": 259,
-        "mean_users": 10.5,
+        "cascades": 262,
+        "mean_users": 10.4,
         "median_users": 9.0
       },
       "High": {
-        "cascades": 280,
-        "mean_users": 17.7,
+        "cascades": 270,
+        "mean_users": 17.9,
         "median_users": 17.0
       }
     },
-    "author_only": {
+    "new_claim": {
       "Low": {
         "cascades": 267,
         "mean_users": 9.8,
@@ -260,16 +311,6 @@
         "mean_users": 12.3,
         "median_users": 12.0
       }
-    }
-  },
-  "risk_cut_points_users": {
-    "main": {
-      "low_below": 6.5692,
-      "high_from": 12.5719
-    },
-    "author_only": {
-      "low_below": 7.609,
-      "high_from": 9.5305
     }
   },
   "versions": {
