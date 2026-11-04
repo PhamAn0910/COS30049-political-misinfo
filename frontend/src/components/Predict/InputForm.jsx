@@ -9,9 +9,12 @@ export default function InputForm({ onSubmit, loading }) {
   const [followers, setFollowers] = useState(1000);
   const [verified, setVerified] = useState(false);
 
+  const canSubmit = !text.trim() || loading  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!text.trim() || loading) return;
+    if (canSubmit) return; 
+
     onSubmit?.({
       text: text.trim(),
       user_followers: Number(followers),
@@ -20,7 +23,10 @@ export default function InputForm({ onSubmit, loading }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
+    <form 
+      onSubmit={handleSubmit}
+      required
+      className="space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
       <div>
         <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300">
           Political Claim or Breaking News Text
@@ -68,8 +74,8 @@ export default function InputForm({ onSubmit, loading }) {
 
       <button
         type="submit"
-        disabled={loading || !text.trim()}
-        className="w-full rounded-lg bg-brand-600 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50"
+        disabled={canSubmit}
+        className="bg-blue-900 rounded-lg p-3 transition hover:bg-blue-800 disabled:bg-slate-700"
       >
         {loading ? 'Analyzing Claim...' : 'Verify Claim Veracity & Spread Risk'}
       </button>

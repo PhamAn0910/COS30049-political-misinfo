@@ -4,9 +4,7 @@
  * Key Interface/Contract: Imported by `src/main.jsx` for global application-wide presentation
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
