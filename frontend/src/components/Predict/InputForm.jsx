@@ -9,9 +9,11 @@ export default function InputForm({ onSubmit, loading }) {
   const [followers, setFollowers] = useState(1000);
   const [verified, setVerified] = useState(false);
 
+  let canSubmit = !text.trim() || loading  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!text.trim() || loading) return; 
+    if (canSubmit) return; 
 
     onSubmit?.({
       text: text.trim(),
@@ -72,8 +74,8 @@ export default function InputForm({ onSubmit, loading }) {
 
       <button
         type="submit"
-        disabled={loading || !text.trim()}
-        className="bg-blue-900 rounded-lg p-3 transition hover:bg-blue-800   "
+        disabled={canSubmit}
+        className="bg-blue-900 rounded-lg p-3 transition hover:bg-blue-800 disabled:bg-slate-700"
       >
         {loading ? 'Analyzing Claim...' : 'Verify Claim Veracity & Spread Risk'}
       </button>
