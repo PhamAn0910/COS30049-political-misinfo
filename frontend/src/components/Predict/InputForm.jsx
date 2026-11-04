@@ -9,7 +9,7 @@ export default function InputForm({ onSubmit, loading }) {
   const [followers, setFollowers] = useState(1000);
   const [verified, setVerified] = useState(false);
 
-  let canSubmit = !text.trim() || loading  
+  const canSubmit = !text.trim() || loading  
 
   const handleSubmit = (e) => {
     e.preventDefault();
