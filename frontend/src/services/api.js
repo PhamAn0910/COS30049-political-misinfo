@@ -22,7 +22,7 @@ apiClient.interceptors.response.use(
     return Promise.reject(customError);
   }
 );
-
+export const getHealthApi = () => apiClient.get('/health');
 export const predictClaimApi = (payload) => apiClient.post('/predict', payload);
 export const clearPredictionHistoryApi = () => apiClient.delete('/predict/history');
 export const getMetricsApi = () => apiClient.get('/metrics');

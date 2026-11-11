@@ -4,8 +4,10 @@
 
 import React from 'react';
 import StatusBadge from '../common/StatusBadge.jsx';
+import { useHealthStatus } from '../../hooks/useHealthStatus.js';
 
 export default function Header({ activeTab, setActiveTab }) {
+  const {status, err} = useHealthStatus();
   return (
     <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-6 dark:border-slate-800 dark:bg-slate-950">
       <div className="flex items-center space-x-3">
@@ -17,7 +19,7 @@ export default function Header({ activeTab, setActiveTab }) {
         </span>
       </div>
       <div className="flex items-center space-x-4">
-        <StatusBadge status="offline" />
+        <StatusBadge status={status} />
       </div>
     </header>
   );
