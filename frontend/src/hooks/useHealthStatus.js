@@ -9,6 +9,7 @@ export function useHealthStatus() {
     try {
       const data = await getHealthApi();
       setStatus(data.status);
+
     } catch (err) {
       setStatus("e");
       setErr(err.message);
@@ -17,7 +18,6 @@ export function useHealthStatus() {
 
   useEffect( () => {
     fetchHealthStatus();
-
   }, [fetchHealthStatus]);
 
   return {status, err, refetch: fetchHealthStatus};
