@@ -34,3 +34,6 @@ backend/data/pheme_veracity/
 
 # Local machine notes, not shared
 docs/jupyter-kernel-config.md
+
+# virtual environment 
+backend/app/.venv/
